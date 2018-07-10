@@ -1,0 +1,161 @@
+.quickster-admin {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 25px;
+    margin-top: 20px;
+}
+
+.quickster-admin .metabox-holder {
+    border: solid 1px #b3b3b3;
+    margin-left: 8px;
+    padding: 15px;
+}
+
+.quickster-logo {
+    width: 100%;
+    min-height: 270px;
+}
+
+.quickster-admin .nav-tab-active, .quickster-admin .nav-tab-active:focus, .quickster-admin .nav-tab-active:focus:active, .quickster-admin .nav-tab-active:hover {
+    border-bottom: 1px solid #bc2500;
+    background: #bc2500 !important;
+    color: #fff !important;
+}
+
+.quickster-admin .nav-tab {
+    background: #efefef;
+    color: #333;
+}
+
+.quickster-admin h2.nav-tab-wrapper {
+    border: none !important;
+}
+
+.quickster-admin #setting-error-settings_updated {
+    margin: 10px 0 10px 10px;
+}
+
+.quickster-admin .metabox-holder h2 {
+    color: #bc2500;
+    font-size: 1.6rem;
+    padding-left: 6px;
+}
+
+.quickster-admin .wpsa-settings-separator {
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    max-width: 50%;
+}
+
+.quickster-admin .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.quickster-admin .switch input {
+    display: none;
+}
+
+.quickster-admin .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.quickster-admin .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.quickster-admin input:checked + .slider {
+    background-color: #bc2500;
+}
+
+.quickster-admin input:focus + .slider {
+    box-shadow: 0 0 1px #bc2500;
+}
+
+.quickster-admin input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.quickster-admin .slider.round {
+    border-radius: 34px;
+}
+
+.quickster-admin .slider.round:before {
+    border-radius: 50%;
+}
+
+/* freemius */
+div#fs_contact {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 25px;
+    margin-top: 20px;
+}
+
+div#fs_contact .quickster-logo {
+    z-index: 99;
+    position: relative;
+}
+
+.fs-secure-notice {
+    display: none;
+}
+
+iframe#fs_promo_tab {
+    display: none;
+}
+
+.fs-submenu-item.pricing.upgrade-mode {
+    color: #BC2500 !important;
+}
+
+div#fs_pricing {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 25px;
+    margin-top: 20px;
+}
+.quickster-logo.checkout-logo {
+    margin-bottom: -130px;
+    position: relative;
+    z-index: 99;
+}
+
+div#fs_account {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 25px;
+    margin-top: 5px;
+}
+.wrap.fs-section h2 {
+    display: none;
+}
+#fs_account .postbox, #fs_account .widefat {
+    max-width: 100%;
+}

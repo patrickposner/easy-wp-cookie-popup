@@ -1,0 +1,20 @@
+{
+  "name": "patrickposner/cookster",
+  "description": "cookie gpdr plugin",
+  "type": "wordpress-plugin",
+  "license": "gpl",
+  "authors": [
+    {
+      "name": "Patrick Posner",
+      "email": "hello@patrickposner.de"
+    }
+  ],
+  "autoload": {
+    "classmap": [],
+    "files": [
+      "src/class-qs-activation.php",
+      "src/admin/class-qs-settings.php",
+      "src/admin/class-qs-admin.php"
+    ]
+  }
+}
