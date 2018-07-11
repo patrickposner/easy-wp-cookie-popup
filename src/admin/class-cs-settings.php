@@ -247,6 +247,9 @@ if ( ! class_exists( 'CS_Settings' ) ) :
 					// Description.
 					$description = isset( $field['desc'] ) ? $field['desc'] : '';
 
+					// Premium.
+					$premium = isset( $field['premium'] ) ? $field['premium'] : '';
+
 					// Size.
 					$size = isset( $field['size'] ) ? $field['size'] : null;
 
@@ -273,6 +276,7 @@ if ( ! class_exists( 'CS_Settings' ) ) :
 						'options'           => $options,
 						'std'               => $default,
 						'placeholder'       => $placeholder,
+						'premium'           => $premium,
 						'sanitize_callback' => $sanitize_callback,
 					);
 
@@ -661,7 +665,7 @@ if ( ! class_exists( 'CS_Settings' ) ) :
 			$value = esc_textarea( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
 			$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
 
-			$html = sprintf( '<textarea rows="5" cols="55" class="%1$s-text" id="%2$s[%3$s]" name="%2$s[%3$s]">%4$s</textarea>', $size, $args['section'], $args['id'], $value );
+			$html = sprintf( '<textarea rows="5" cols="55" class="%1$s-text" id="%2$s[%3$s]" name="%2$s[%3$s]" placeholder="%4$s"></textarea>', $size, $args['section'], $args['id'], $value );
 			$html .= $this->get_field_description( $args );
 
 			echo $html;
@@ -772,10 +776,11 @@ if ( ! class_exists( 'CS_Settings' ) ) :
 		 */
 		function callback_color( $args ) {
 
-			$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'], $args['placeholder'] ) );
-			$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
+			$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'], $args['placeholder'], $args['premium'] ) );
 
-			$html = sprintf( '<input type="text" class="%1$s-text color-picker" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s" data-default-color="%5$s" placeholder="%6$s" />', $size, $args['section'], $args['id'], $value, $args['std'], $args['placeholder'] );
+			$size = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
+
+			$html = sprintf( '<input type="text" class="%1$s-text color-picker %7$s" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s" data-default-color="%5$s" placeholder="%6$s" />', $size, $args['section'], $args['id'], $value, $args['std'], $args['placeholder'], $args['premium'] );
 			$html .= $this->get_field_description( $args );
 
 			echo $html;
@@ -832,18 +837,18 @@ if ( ! class_exists( 'CS_Settings' ) ) :
 		public function admin_menu() {
 
 			$submenu_page = add_submenu_page(
-				'woocommerce',
-				__( 'Quickster', 'quick-orders-for-woocommerce' ),
-				__( 'Quickster', 'quick-orders-for-woocommerce' ),
-				apply_filters( 'quickster_settings', 'manage_woocommerce' ),
-				'quickster',
+				'options-general.php',
+				__( 'Cookster', 'easy-wp-cookie-popup' ),
+				__( 'Cookster', 'easy-wp-cookie-popup' ),
+				apply_filters( 'cookster_settings', 'manage_options' ),
+				'cookster',
 				array( $this, 'plugin_page' )
 			);
 		}
 
 		public function plugin_page() {
 
-			$logo = QUICKSTER_URL . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . '/admin/' . DIRECTORY_SEPARATOR . 'quickster-logo.png';
+			$logo = COOKSTER_URL . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . '/admin/' . DIRECTORY_SEPARATOR . 'cookster-logo.png';
 
 			echo '<div class="wrap quickster-admin">';
 			echo '<div class="quickster-logo" style="background-image:url(' . $logo . ');background-size: contain;background-repeat: no-repeat;"></div>';

@@ -159,3 +159,13 @@ div#fs_account {
 #fs_account .postbox, #fs_account .widefat {
     max-width: 100%;
 }
+
+span.pro {
+    background: #bc2500;
+    color: white;
+    padding: 3px 5px;
+    font-size: 10px;
+    position: relative;
+    left: -20px;
+    top: -15px;
+}

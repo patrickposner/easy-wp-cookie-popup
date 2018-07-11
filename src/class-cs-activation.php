@@ -3,7 +3,7 @@
 namespace cookster;
 
 
-class QS_Activation {
+class CS_Activation {
 
 	/**
 	 * initialize activation
