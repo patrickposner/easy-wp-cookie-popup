@@ -7,9 +7,9 @@ namespace Composer\Autoload;
 class ComposerStaticInit4a2ffcbcab533095e98e5ad4d672dd27
 {
     public static $files = array (
-        '073981f2b70be69f60b327ac4e0f73fb' => __DIR__ . '/../..',
-        '667464e2649c23a844ab2d2b9aa6813f' => __DIR__ . '/../..',
-        '80c9ac4b0c0c40cf4daf6798cbcac91a' => __DIR__ . '/../..',
+        'a433e3ec79f86d5f048d09e9fc4a482c' => __DIR__ . '/../..' . '/src/class-cs-activation.php',
+        'ffe2cc991880b0cf8d48301a2ab4697d' => __DIR__ . '/../..' . '/src/admin/class-cs-settings.php',
+        '39a5b8b53ac2f0d6f99ab135c26c16f1' => __DIR__ . '/../..' . '/src/admin/class-cs-admin.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

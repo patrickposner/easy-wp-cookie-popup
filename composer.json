@@ -12,9 +12,9 @@
   "autoload": {
     "classmap": [],
     "files": [
-      "src/class-qs-activation.php",
-      "src/admin/class-qs-settings.php",
-      "src/admin/class-qs-admin.php"
+      "src/class-cs-activation.php",
+      "src/admin/class-cs-settings.php",
+      "src/admin/class-cs-admin.php"
     ]
   }
 }

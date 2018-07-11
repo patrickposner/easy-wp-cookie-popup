@@ -6,7 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    '073981f2b70be69f60b327ac4e0f73fb' => $baseDir . '/src/class-qs-activation.php',
-    '667464e2649c23a844ab2d2b9aa6813f' => $baseDir . '/src/admin/class-qs-settings.php',
-    '80c9ac4b0c0c40cf4daf6798cbcac91a' => $baseDir . '/src/admin/class-qs-admin.php',
+    'a433e3ec79f86d5f048d09e9fc4a482c' => $baseDir . '/src/class-cs-activation.php',
+    'ffe2cc991880b0cf8d48301a2ab4697d' => $baseDir . '/src/admin/class-cs-settings.php',
+    '39a5b8b53ac2f0d6f99ab135c26c16f1' => $baseDir . '/src/admin/class-cs-admin.php',
 );
