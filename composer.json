@@ -14,7 +14,8 @@
     "files": [
       "src/class-cs-activation.php",
       "src/admin/class-cs-settings.php",
-      "src/admin/class-cs-admin.php"
+      "src/admin/class-cs-admin.php",
+      "src/public/class-cs-public.php"
     ]
   }
 }

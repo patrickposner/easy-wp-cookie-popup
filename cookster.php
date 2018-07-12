@@ -29,3 +29,4 @@ if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 
 cookster\CS_Activation::init();
 cookster\CS_Admin::get_instance();
+cookster\CS_Public::get_instance();

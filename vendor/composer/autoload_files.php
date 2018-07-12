@@ -9,4 +9,5 @@ return array(
     'a433e3ec79f86d5f048d09e9fc4a482c' => $baseDir . '/src/class-cs-activation.php',
     'ffe2cc991880b0cf8d48301a2ab4697d' => $baseDir . '/src/admin/class-cs-settings.php',
     '39a5b8b53ac2f0d6f99ab135c26c16f1' => $baseDir . '/src/admin/class-cs-admin.php',
+    '6957825dde3ec5778c6a4286605eb2fd' => $baseDir . '/src/public/class-cs-public.php',
 );
