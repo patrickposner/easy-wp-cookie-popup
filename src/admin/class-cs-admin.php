@@ -11,6 +11,9 @@ class CS_Admin {
 		new CS_Admin();
 	}
 
+	/**
+	 * CS_Admin constructor.
+	 */
 	public function __construct() {
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'add_admin_scripts' ) );
@@ -33,7 +36,7 @@ class CS_Admin {
 				'id'      => 'cookster_cookie_message_headline',
 				'type'    => 'text',
 				'name'    => __( 'Cookie Notification Headline', 'easy-wp-cookie-popup' ),
-				'default' => 'Headline',
+				'default' => 'Cookies & Privacy',
 			)
 		);
 
@@ -43,6 +46,7 @@ class CS_Admin {
 				'id'   => 'cookster_cookie_message',
 				'type' => 'wysiwyg',
 				'name' => __( 'Cookie Notification Message', 'easy-wp-cookie-popup' ),
+				'default' => 'This website uses cookies to ensure you get the best experience on our website.'
 			)
 		);
 
@@ -52,7 +56,7 @@ class CS_Admin {
 				'id'                => 'cookster_seconds_before_trigger',
 				'type'              => 'number',
 				'name'              => __( 'Popup deplay (seconds)', 'easy-wp-cookie-popup' ),
-				'default'           => 1,
+				'default'           => 3,
 				'sanitize_callback' => 'intval',
 			)
 		);
@@ -67,17 +71,23 @@ class CS_Admin {
 				'sanitize_callback' => 'intval',
 			)
 		);
+		$settings->add_field(
+			'cookster_options',
+			array(
+				'id'      => 'cookster_select_privacy_slug',
+				'type'    => 'text',
+				'name'    => __( 'Privacy Page slug', 'easy-wp-cookie-popup' ),
+				'default' => 'privacy',
+			)
+		);
 
 		$settings->add_field(
 			'cookster_options',
 			array(
-				'id'      => 'cookster_select_privacy_page',
-				'type'    => 'select',
-				'name'    => __( 'Privacy Policy Page', 'easy-wp-cookie-popup' ),
-				'options' => array(
-					'yes' => 'Yes',
-					'no'  => 'No',
-				),
+				'id'      => 'cookster_select_privacy_link',
+				'type'    => 'text',
+				'name'    => __( 'Privacy Page Link Text', 'easy-wp-cookie-popup' ),
+				'default' => 'More information',
 			)
 		);
 
@@ -87,7 +97,7 @@ class CS_Admin {
 				'id'      => 'cookster_button_label',
 				'type'    => 'text',
 				'name'    => __( 'Accept Button Label', 'easy-wp-cookie-popup' ),
-				'default' => 'Accept',
+				'default' => 'Accept Cookies',
 			)
 		);
 
@@ -98,7 +108,7 @@ class CS_Admin {
 				'id'      => 'cookster_customize_label',
 				'type'    => 'text',
 				'name'    => __( 'Customize Button Label', 'easy-wp-cookie-popup' ),
-				'default' => 'Customize Cookies',
+				'default' => 'Customise Cookies',
 			)
 		);
 
@@ -174,7 +184,7 @@ class CS_Admin {
 				'id'          => 'cookster_message_background_color',
 				'type'        => 'color',
 				'name'        => __( 'Message Background Color', 'easy-wp-cookie-popup' ),
-				'placeholder' => __( '#FFFFFF', 'easy-wp-cookie-popup' ),
+				'placeholder' => __( '#D4D8E0', 'easy-wp-cookie-popup' ),
 			) );
 
 		$settings->add_field(
@@ -435,6 +445,9 @@ src="https://www.facebook.com/tr?id=FB_PIXEL_ID&amp;ev=PageView&amp;noscript=1"
 	}
 
 
+	/**
+	 * enqueue admin styles and scripts for settings page
+	 */
 	public function add_admin_scripts() {
 
 		wp_enqueue_style( 'cookster-admin', COOKSTER_URL . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'cookster-admin.css' );
