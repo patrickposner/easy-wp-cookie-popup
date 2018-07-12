@@ -25,7 +25,7 @@ class CS_Activation {
 	 */
 	public static function plugin_action_links( $links ) {
 		$action_links = array(
-			'settings' => '<a href="' . admin_url( 'admin.php?page=cookster' ) . '" aria-label="' . esc_attr__( 'View Cookster settings', 'cookster' ) . '">' . esc_html__( 'Settings', 'cookster' ) . '</a>',
+			'settings' => '<a href="' . admin_url( 'options-general.php?page=cookster' ) . '" aria-label="' . esc_attr__( 'View Cookster settings', 'easy-wp-cookie-popup' ) . '">' . esc_html__( 'Settings', 'easy-wp-cookie-popup' ) . '</a>',
 		);
 
 		return array_merge( $action_links, $links );
@@ -45,10 +45,10 @@ class CS_Activation {
 			wp_die(
 				'<p>' .
 				sprintf(
-					__( 'This plugin can not be activated because it requires a PHP version greater than %1$s. Your PHP version can be updated by your hosting company.', 'cookster' ),
+					__( 'This plugin can not be activated because it requires a PHP version greater than %1$s. Your PHP version can be updated by your hosting company.', 'easy-wp-cookie-popup' ),
 					$php
 				)
-				. '</p> <a href="' . admin_url( 'plugins.php' ) . '">' . __( 'go back', 'cookster' ) . '</a>'
+				. '</p> <a href="' . admin_url( 'plugins.php' ) . '">' . __( 'go back', 'easy-wp-cookie-popup' ) . '</a>'
 			);
 		}
 
@@ -57,10 +57,10 @@ class CS_Activation {
 			wp_die(
 				'<p>' .
 				sprintf(
-					__( 'This plugin can not be activated because it requires a WordPress version greater than %1$s. Please go to Dashboard &#9656; Updates to gran the latest version of WordPress .', 'cookster' ),
+					__( 'This plugin can not be activated because it requires a WordPress version greater than %1$s. Please go to Dashboard &#9656; Updates to gran the latest version of WordPress .', 'easy-wp-cookie-popup' ),
 					$php
 				)
-				. '</p> <a href="' . admin_url( 'plugins.php' ) . '">' . __( 'go back', 'cookster' ) . '</a>'
+				. '</p> <a href="' . admin_url( 'plugins.php' ) . '">' . __( 'go back', 'easy-wp-cookie-popup' ) . '</a>'
 			);
 		}
 
@@ -72,10 +72,10 @@ class CS_Activation {
 				wp_die(
 					'<p>' .
 					sprintf(
-						__( 'This plugin can not be activated because it requires a active version of the WooCommerce plugin. Please go to Plugins and install WooCommerce.', 'cookster' ),
+						__( 'This plugin can not be activated because it requires a active version of the WooCommerce plugin. Please go to Plugins and install WooCommerce.', 'easy-wp-cookie-popup' ),
 						$php
 					)
-					. '</p> <a href="' . admin_url( 'plugins.php' ) . '">' . __( 'go back', 'cookster' ) . '</a>'
+					. '</p> <a href="' . admin_url( 'plugins.php' ) . '">' . __( 'go back', 'easy-wp-cookie-popup' ) . '</a>'
 				);
 			}
 		}
