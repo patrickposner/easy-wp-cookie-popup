@@ -43,9 +43,9 @@ class CS_Admin {
 		$settings->add_field(
 			'cookster_options',
 			array(
-				'id'   => 'cookster_cookie_message',
-				'type' => 'wysiwyg',
-				'name' => __( 'Cookie Notification Message', 'easy-wp-cookie-popup' ),
+				'id'      => 'cookster_cookie_message',
+				'type'    => 'wysiwyg',
+				'name'    => __( 'Cookie Notification Message', 'easy-wp-cookie-popup' ),
 				'default' => 'This website uses cookies to ensure you get the best experience on our website.'
 			)
 		);
@@ -55,7 +55,7 @@ class CS_Admin {
 			array(
 				'id'                => 'cookster_seconds_before_trigger',
 				'type'              => 'number',
-				'name'              => __( 'Popup deplay (seconds)', 'easy-wp-cookie-popup' ),
+				'name'              => __( 'Popup delay (seconds)', 'easy-wp-cookie-popup' ),
 				'default'           => 3,
 				'sanitize_callback' => 'intval',
 			)
@@ -138,7 +138,7 @@ class CS_Admin {
 				'type'        => 'color',
 				'name'        => __( 'Headline Font Color', 'easy-wp-cookie-popup' ),
 				'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
-				'premium' => 'premium'
+				'premium'     => 'premium'
 			) );
 
 
@@ -169,11 +169,11 @@ class CS_Admin {
 				'type'    => 'select',
 				'name'    => __( 'Message Position', 'easy-wp-cookie-popup' ),
 				'options' => array(
-					'center'  => 'center',
-					'top-left' => 'top-left',
-					'top-right' => 'top-right',
+					'center'       => 'center',
+					'top-left'     => 'top-left',
+					'top-right'    => 'top-right',
 					'bottom-left'  => 'bottom-left',
-					'bottom-right'  => 'bottom-right',
+					'bottom-right' => 'bottom-right',
 				),
 			)
 		);
@@ -278,70 +278,87 @@ class CS_Admin {
 				'title' => __( 'GDPR', 'easy-wp-cookie-popup' ),
 			)
 		);
+		$settings->add_field(
+			'cookster_gdpr',
+			array(
+				'id'   => 'cookster_tracking_headline',
+				'type' => 'title',
+				'name' => '<h3>' . __( 'Third Party Cookies', 'easy-wp-cookie-popup' ) . '</h3>',
+			)
+		);
 
 		$settings->add_field(
 			'cookster_gdpr',
 			array(
-				'id'      => 'toggle_checkboxes',
+				'id'          => 'cookster_ga_code_label',
+				'type'        => 'text',
+				'name'        => __( 'Google Analytics Label', 'easy-wp-cookie-popup' ),
+				'placeholder' => 'Marketing',
+			)
+		);
+
+		$settings->add_field(
+			'cookster_gdpr',
+			array(
+				'id'          => 'cookster_ga_code',
+				'type'        => 'text',
+				'name'        => __( 'Google Analytics ID', 'easy-wp-cookie-popup' ),
+				'placeholder' => 'UA-XXXXX-Y',
+			)
+		);
+
+		$settings->add_field(
+			'cookster_gdpr',
+			array(
+				'id'          => 'cookster_fb_code_label',
+				'type'        => 'text',
+				'name'        => __( 'Facebook Label', 'easy-wp-cookie-popup' ),
+				'placeholder' => 'Social Media',
+			)
+		);
+
+		$settings->add_field(
+			'cookster_gdpr',
+			array(
+				'id'          => 'cookster_fb_code',
+				'type'        => 'text',
+				'name'        => __( 'Facebook ID', 'easy-wp-cookie-popup' ),
+				'placeholder' => 'FB_PIXEL_ID',
+			)
+		);
+
+		$settings->add_field(
+			'cookster_gdpr',
+			array(
+				'id'   => 'cookster_tracking_iframes',
+				'type' => 'title',
+				'name' => '<h3>' . __( 'iframes', 'easy-wp-cookie-popup' ) . '</h3>',
+			)
+		);
+		$settings->add_field(
+			'cookster_gdpr',
+			array(
+				'id'      => 'cookster_toggle_iframes',
 				'type'    => 'toggle',
 				'default' => 'off',
-				'name'    => __( 'Checkboxes checked by default?', 'easy-wp-cookie-popup' ),
+				'name'    => __( 'Block iframes until cookie accepted', 'easy-wp-cookie-popup' ),
 			)
 		);
+
 		$settings->add_field(
 			'cookster_gdpr',
 			array(
-				'id'   => 'cookster_type_1_headline',
+				'id'   => 'cookster_custom_tracking_headline',
 				'type' => 'title',
-				'name' => '<h3>' . __( 'Cookie Types', 'easy-wp-cookie-popup' ) . '</h3>',
+				'name' => '<h3>' . __( 'Custom Tracking Codes', 'easy-wp-cookie-popup' ) . '</h3>',
 			)
 		);
 		$settings->add_field(
 			'cookster_gdpr',
 			array(
-				'id'      => 'cookster_type_1',
-				'type'    => 'text',
-				'name'    => __( 'Checkbox-Label', 'easy-wp-cookie-popup' ),
-				'placeholder' => 'Google Analytics',
-			)
-		);
-
-		$settings->add_field(
-			'cookster_gdpr',
-			array(
-				'id'   => 'cookster_type_1_code',
-				'type' => 'textarea',
-				'name' => __( 'Tracking-Code', 'easy-wp-cookie-popup' ),
-				'desc' => __( 'Enter your Tracking Code (Example: Google Analytics)', 'easy-wp-cookie-popup' ),
-				'default' => '<!-- Google Analytics -->
-<script>
-(function(i,s,o,g,r,a,m){i[\'GoogleAnalyticsObject\']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,\'script\',\'https://www.google-analytics.com/analytics.js\',\'ga\');
-
-ga(\'create\', \'UA-XXXXX-Y\', \'auto\');
-ga(\'send\', \'pageview\');
-</script>
-<!-- End Google Analytics -->'
-			)
-		);
-
-		$settings->add_field(
-			'cookster_gdpr',
-			array(
-				'id'   => 'cookster_type_2_headline',
-				'type' => 'title',
-				'name' => '<h3>' . __( 'Cookie Type', 'easy-wp-cookie-popup' ) . '</h3>',
-			)
-		);
-
-		$settings->add_field(
-			'cookster_gdpr',
-			array(
-				'id'      => 'cookster_type_2',
-				'type'    => 'text',
-				'name'    => __( 'Checkbox-Label', 'easy-wp-cookie-popup' ),
+				'id'          => 'cookster_custom_code_1_label',
+				'type'        => 'text',
+				'name'        => __( 'Checkbox-Label', 'easy-wp-cookie-popup' ),
 				'placeholder' => 'Google Tag Manager',
 			)
 		);
@@ -349,77 +366,19 @@ ga(\'send\', \'pageview\');
 		$settings->add_field(
 			'cookster_gdpr',
 			array(
-				'id'   => 'cookster_type_2_code',
-				'type' => 'textarea',
-				'name' => __( 'Tracking-Code', 'easy-wp-cookie-popup' ),
-				'desc' => __( 'Enter your Tracking Code (Example: Google Tag Manager)', 'easy-wp-cookie-popup' ),
-				'default' => '<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({\'gtm.start\':
-new Date().getTime(),event:\'gtm.js\'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
-\'https://www.googletagmanager.com/gtm.js?id=\'+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,\'script\',\'dataLayer\',\'GTM-XXXX\');</script>
-<!-- End Google Tag Manager -->'
-			)
-		);
-		$settings->add_field(
-			'cookster_gdpr',
-			array(
-				'id'   => 'cookster_type_3_headline',
-				'type' => 'title',
-				'name' => '<h3>' . __( 'Cookie Type', 'easy-wp-cookie-popup' ) . '</h3>',
+				'id'      => 'cookster_custom_code_1',
+				'type'    => 'textarea',
+				'name'    => __( 'Tracking-Code', 'easy-wp-cookie-popup' ),
+				'desc'    => __( 'Enter your Tracking Code (Example: Google Tag Manager)', 'easy-wp-cookie-popup' ),
 			)
 		);
 
 		$settings->add_field(
 			'cookster_gdpr',
 			array(
-				'id'      => 'cookster_type_3',
-				'type'    => 'text',
-				'name'    => __( 'Checkbox-Label', 'easy-wp-cookie-popup' ),
-				'placeholder' => 'Facebook Tracking',
-			)
-		);
-
-		$settings->add_field(
-			'cookster_gdpr',
-			array(
-				'id'   => 'cookster_type_3_code',
-				'type' => 'textarea',
-				'name' => __( 'Tracking-Code', 'easy-wp-cookie-popup' ),
-				'desc' => __( 'Enter your Tracking Code (Example: Facebook Tracking Pixel)', 'easy-wp-cookie-popup' ),
-				'default' => '<!-- Facebook Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version=\'2.0\';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,\'script\',\'https://connect.facebook.net/en_US/fbevents.js\');
-// Insert Your Facebook Pixel ID below. 
-fbq(\'init\', \'FB_PIXEL_ID\');
-fbq(\'track\', \'PageView\');
-</script>
-<!-- Insert Your Facebook Pixel ID below. --> 
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=FB_PIXEL_ID&amp;ev=PageView&amp;noscript=1"
-/></noscript>
-<!-- End Facebook Pixel Code -->'
-			)
-		);
-		$settings->add_field(
-			'cookster_gdpr',
-			array(
-				'id'   => 'cookster_type_4_headline',
-				'type' => 'title',
-				'name' => '<h3>' . __( 'Cookie Type', 'easy-wp-cookie-popup' ) . '</h3>',
-			)
-		);
-		$settings->add_field(
-			'cookster_gdpr',
-			array(
-				'id'      => 'cookster_type_4',
-				'type'    => 'text',
-				'name'    => __( 'Checkbox-Label', 'easy-wp-cookie-popup' ),
+				'id'          => 'cookster_custom_code_2_label',
+				'type'        => 'text',
+				'name'        => __( 'Checkbox-Label', 'easy-wp-cookie-popup' ),
 				'placeholder' => 'Google Adsense',
 			)
 		);
@@ -427,18 +386,10 @@ src="https://www.facebook.com/tr?id=FB_PIXEL_ID&amp;ev=PageView&amp;noscript=1"
 		$settings->add_field(
 			'cookster_gdpr',
 			array(
-				'id'   => 'cookster_type_4_code',
-				'type' => 'textarea',
-				'name' => __( 'Tracking-Code', 'easy-wp-cookie-popup' ),
-				'desc' => __( 'Enter your Tracking Code (Example: Google Adsense)', 'easy-wp-cookie-popup' ),
-				'default' => '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:inline-block;width:336px;height:280px"
-     data-ad-client="ca-pub-0000000000000000"
-     data-ad-slot="0000000000"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>'
+				'id'      => 'cookster_custom_code_2',
+				'type'    => 'textarea',
+				'name'    => __( 'Tracking-Code', 'easy-wp-cookie-popup' ),
+				'desc'    => __( 'Enter your Tracking Code (Example: Google Adsense)', 'easy-wp-cookie-popup' ),
 			)
 		);
 

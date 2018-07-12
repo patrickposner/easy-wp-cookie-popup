@@ -1,7 +1,5 @@
 jQuery(document).ready(function ($) {
 
-    console.log(cookster);
-
     $('body').ihavecookies({
         title: cookster.headline,
         message: cookster.message,
@@ -10,27 +8,31 @@ jQuery(document).ready(function ($) {
         expires: cookster.expiration_time,
         cookieTypes: [
             {
-                type: 'Site Preferences',
-                value: 'preferences',
-                description: 'These are cookies that are related to your site preferences, e.g. remembering your username, site colours, etc.'
+                type: cookster.ga_label,
+                value: 'ga',
             },
             {
-                type: 'Analytics',
-                value: 'analytics',
-                description: 'Cookies related to site visits, browser types, etc.'
+                type: cookster.fb_label,
+                value: 'fb',
             },
             {
-                type: 'Marketing',
-                value: 'marketing',
-                description: 'Cookies related to marketing, e.g. newsletters, social media, etc'
+                type: cookster.custom_code_1_label,
+                value: 'custom_code_1',
+            },
+            {
+                type: cookster.custom_code_2_label,
+                value: 'custom_code_2',
             }
         ],
         moreInfoLabel: cookster.privacy_page_text,
         acceptBtnLabel: cookster.accept,
         advancedBtnLabel: cookster.customize,
-        uncheckBoxes: false, // Unchecks all checkboxes on page load that have class .ihavecookies
         cookieTypesTitle: cookster.cookie_type_title,
     });
 
+    var $iFrameContents = $('iframe').contents(),
+        $entryContent   = $iFrameContents.find('div.entry-content');
+
+    $iFrameContents.find('html').replaceWith($entryContent);
 
 });

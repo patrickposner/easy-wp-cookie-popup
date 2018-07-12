@@ -13,6 +13,7 @@ class CS_Public {
 		add_action( 'wp_enqueue_scripts', array( $this, 'add_scripts' ) );
 		add_action( 'wp_head', array( $this, 'dynamic_styles' ) );
 		add_action( 'init', array( $this, 'get_default_settings' ) );
+		add_action( 'wp_head', array( $this, 'add_tracking_code' ) );
 	}
 
 	/**
@@ -28,22 +29,29 @@ class CS_Public {
 	public function add_scripts() {
 
 		wp_enqueue_script( 'ihavecookies-js', COOKSTER_URL . '/assets/public/jquery.ihavecookies.min.js', array( 'jquery' ), false );
-		wp_enqueue_script( 'cookster-cookie-js', COOKSTER_URL . '/assets/public/cookster-cookie.js', array( 'jquery' ), false );
+		wp_enqueue_script( 'cookster-cookie-js', COOKSTER_URL . '/assets/public/cookster-cookie.js', array( 'jquery' ), false, true );
 
 		$settings = get_option( 'cookster_options' );
-
-		/* todo: add and localize gdpr settings */
+		$gdpr     = get_option( 'cookster_gdpr' );
 
 		wp_localize_script( 'cookster-cookie-js', 'cookster', array(
-			'headline'          => $settings['cookster_cookie_message_headline'],
-			'message'           => $settings['cookster_cookie_message'],
-			'trigger_time'      => $settings['cookster_seconds_before_trigger'],
-			'expiration_time'   => $settings['cookster_expiration_time'],
-			'privacy_page'      => get_bloginfo( 'url' ) . DIRECTORY_SEPARATOR . $settings['cookster_select_privacy_slug'],
-			'privacy_page_text' => $settings['cookster_select_privacy_link'],
-			'accept'            => $settings['cookster_button_label'],
-			'customize'         => $settings['cookster_customize_label'],
-			'cookie_type_title' => __( 'Select cookies to accept', 'easy-wp-cookie-popup' )
+			'headline'               => $settings['cookster_cookie_message_headline'],
+			'message'                => $settings['cookster_cookie_message'],
+			'trigger_time'           => $settings['cookster_seconds_before_trigger'],
+			'expiration_time'        => $settings['cookster_expiration_time'],
+			'privacy_page'           => get_bloginfo( 'url' ) . DIRECTORY_SEPARATOR . $settings['cookster_select_privacy_slug'],
+			'privacy_page_text'      => $settings['cookster_select_privacy_link'],
+			'accept'                 => $settings['cookster_button_label'],
+			'customize'              => $settings['cookster_customize_label'],
+			'cookie_type_title'      => __( 'Select cookies to accept', 'easy-wp-cookie-popup' ),
+			'checkboxes_checked'     => $gdpr['cookster_toggle_checkboxes'],
+			'deactivate_all_cookies' => $gdpr['cookster_toggle_deactivate_all_cookies'],
+			'iframes'                => $gdpr['cookster_toggle_iframes'],
+			'ga_label'               => $gdpr['cookster_ga_code_label'],
+			'fb_label'               => $gdpr['cookster_fb_code_label'],
+			'fb_code'                => $gdpr['cookster_fb_code'],
+			'custom_code_1_label'    => $gdpr['cookster_custom_code_1_label'],
+			'custom_code_2_label'    => $gdpr['cookster_custom_code_2_label'],
 		) );
 
 
@@ -304,5 +312,88 @@ class CS_Public {
 		}
 
 	}
+
+	public function add_tracking_code() {
+
+		if ( $_COOKIE['cookieControl'] === 'true' ) {
+
+			$gdpr = get_option( 'cookster_gdpr' );
+
+			/* add tracking codes based on selection */
+
+			$cookie_preferences = json_decode( stripslashes( $_COOKIE['cookieControlPrefs'] ) );
+
+			if ( in_array( 'ga', $cookie_preferences ) ) { ?>
+                <!-- Google Analytics -->
+                <script>
+                    (function (i, s, o, g, r, a, m) {
+                        i['GoogleAnalyticsObject'] = r;
+                        i[r] = i[r] || function () {
+                            (i[r].q = i[r].q || []).push(arguments)
+                        }, i[r].l = 1 * new Date();
+                        a = s.createElement(o),
+                            m = s.getElementsByTagName(o)[0];
+                        a.async = 1;
+                        a.src = g;
+                        m.parentNode.insertBefore(a, m)
+                    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+                    ga('create', <?php echo $gdpr['cookster_ga_code'];?>, 'auto');
+                    ga('send', 'pageview');
+                    ga('set', 'anonymizeIp', true);
+                </script>
+                <!-- End Google Analytics -->
+				<?php
+			}
+
+			if ( in_array( 'fb', $cookie_preferences ) ) { ?>
+
+                <!-- Facebook Pixel Code -->
+                <script>
+                    !function (f, b, e, v, n, t, s) {
+                        if (f.fbq) return;
+                        n = f.fbq = function () {
+                            n.callMethod ?
+                                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                        };
+                        if (!f._fbq) f._fbq = n;
+                        n.push = n;
+                        n.loaded = !0;
+                        n.version = '2.0';
+                        n.queue = [];
+                        t = b.createElement(e);
+                        t.async = !0;
+                        t.src = v;
+                        s = b.getElementsByTagName(e)[0];
+                        s.parentNode.insertBefore(t, s)
+                    }(window,
+                        document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+                    // Insert Your Facebook Pixel ID below.
+                    fbq('init', <?php echo $gdpr['cookster_fb_code'];?>);
+                    fbq('track', 'PageView');
+                </script>
+                <!-- Insert Your Facebook Pixel ID below. -->
+                <noscript><img height="1" width="1" style="display:none"
+                               src="https://www.facebook.com/tr?id=<?php echo $gdpr['cookster_fb_code']; ?>&amp;ev=PageView&amp;noscript=1"
+                    /></noscript>
+                <!-- End Facebook Pixel Code -->
+				<?php
+
+			}
+
+			if ( in_array( 'custom_code_1', $cookie_preferences ) ) {
+
+				echo $gdpr['cookster_custom_code_1'];
+			}
+
+			if ( in_array( 'custom_code_2', $cookie_preferences ) ) {
+
+				echo $gdpr['cookster_custom_code_1'];
+			}
+
+		}
+
+	}
+
 
 }
