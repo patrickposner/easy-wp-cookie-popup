@@ -10,4 +10,5 @@ return array(
     'ffe2cc991880b0cf8d48301a2ab4697d' => $baseDir . '/src/admin/class-cs-settings.php',
     '39a5b8b53ac2f0d6f99ab135c26c16f1' => $baseDir . '/src/admin/class-cs-admin.php',
     '6957825dde3ec5778c6a4286605eb2fd' => $baseDir . '/src/public/class-cs-public.php',
+    '1d4bc1fc9c36862da0b65ed4979c49b8' => $baseDir . '/src/public/class-cs-iframe.php',
 );

@@ -344,7 +344,25 @@ class CS_Admin {
 				'name'    => __( 'Block iframes until cookie accepted', 'easy-wp-cookie-popup' ),
 			)
 		);
+		$settings->add_field(
+			'cookster_gdpr',
+			array(
+				'id'          => 'cookster_iframe_label',
+				'type'        => 'text',
+				'name'        => __( 'Checkbox-Label', 'easy-wp-cookie-popup' ),
+				'placeholder' => 'Youtube, Google Maps, Vimeo',
+			)
+		);
 
+		$settings->add_field(
+			'cookster_gdpr',
+			array(
+				'id'      => 'cookster_iframe_alternate_content',
+				'type'    => 'wysiwyg',
+				'name'    => __( 'Alternate Content', 'easy-wp-cookie-popup' ),
+				'default' => 'To show this content you have to accept our cookies.'
+			)
+		);
 		$settings->add_field(
 			'cookster_gdpr',
 			array(

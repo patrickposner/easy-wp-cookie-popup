@@ -11,6 +11,7 @@ class ComposerStaticInit4a2ffcbcab533095e98e5ad4d672dd27
         'ffe2cc991880b0cf8d48301a2ab4697d' => __DIR__ . '/../..' . '/src/admin/class-cs-settings.php',
         '39a5b8b53ac2f0d6f99ab135c26c16f1' => __DIR__ . '/../..' . '/src/admin/class-cs-admin.php',
         '6957825dde3ec5778c6a4286605eb2fd' => __DIR__ . '/../..' . '/src/public/class-cs-public.php',
+        '1d4bc1fc9c36862da0b65ed4979c49b8' => __DIR__ . '/../..' . '/src/public/class-cs-iframe.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

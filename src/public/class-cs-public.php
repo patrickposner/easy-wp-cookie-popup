@@ -52,6 +52,7 @@ class CS_Public {
 			'fb_code'                => $gdpr['cookster_fb_code'],
 			'custom_code_1_label'    => $gdpr['cookster_custom_code_1_label'],
 			'custom_code_2_label'    => $gdpr['cookster_custom_code_2_label'],
+			'iframe_label'           => $gdpr['cookster_iframe_label']
 		) );
 
 
@@ -250,6 +251,19 @@ class CS_Public {
                 margin-top: 0;
                 margin-right: 5px;
             }
+            .cookster-alternate-text {
+                background-color: <?php echo $styles['cookster_message_background_color'];?>;
+                color: <?php echo $styles['cookster_message_font_color'];?>;
+                padding: 10px 15px;
+                text-align: center;
+                border-radius: 5px;
+                box-shadow: 0 6px 6px rgba(0, 0, 0, 0.25);
+            }
+            .cookster-alternate-text h5,  .cookster-alternate-text p {
+            margin:0px;
+            }
+
+
         </style>
 
 		<?php
@@ -392,7 +406,6 @@ class CS_Public {
 			}
 
 		}
-
 	}
 
 

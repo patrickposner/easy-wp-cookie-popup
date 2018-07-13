@@ -22,6 +22,10 @@ jQuery(document).ready(function ($) {
             {
                 type: cookster.custom_code_2_label,
                 value: 'custom_code_2',
+            },
+            {
+                type: cookster.iframe_label,
+                value: 'iframe',
             }
         ],
         moreInfoLabel: cookster.privacy_page_text,
@@ -29,10 +33,4 @@ jQuery(document).ready(function ($) {
         advancedBtnLabel: cookster.customize,
         cookieTypesTitle: cookster.cookie_type_title,
     });
-
-    var $iFrameContents = $('iframe').contents(),
-        $entryContent   = $iFrameContents.find('div.entry-content');
-
-    $iFrameContents.find('html').replaceWith($entryContent);
-
 });
