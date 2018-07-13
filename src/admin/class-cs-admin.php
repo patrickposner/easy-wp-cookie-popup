@@ -673,6 +673,4 @@ class CS_Admin {
 
 		) );
 	}
-
-
 }

@@ -59,4 +59,3 @@ function cookimize_cleanup() {
 
 
 cookimize_fs()->add_action( 'after_uninstall', 'cookimize_cleanup' );
-

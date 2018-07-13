@@ -406,6 +406,4 @@ class CS_Public {
 
 		}
 	}
-
-
 }
