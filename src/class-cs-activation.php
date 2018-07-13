@@ -35,6 +35,9 @@ class CS_Activation {
 	 * check conditions before activate
 	 */
 	public function activate() {
+
+		set_transient( 'fx-admin-notice-example', true, 5 );
+
 		global $wp_version;
 
 		$php = '5.6';
@@ -80,4 +83,5 @@ class CS_Activation {
 			}
 		}
 	}
+
 }
