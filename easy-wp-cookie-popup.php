@@ -5,7 +5,7 @@ Text Domain: easy-wp-cookie-popup
 Domain Path: /languages
 Description: A simple plugin for integrating a GDPR conform cookie solution
 Author: patrickposner
-Version: 1.0.2
+Version: 2.0
 */
 
 define( 'COOKIMIZE_ABSPATH', dirname( __FILE__ ) . DIRECTORY_SEPARATOR );
