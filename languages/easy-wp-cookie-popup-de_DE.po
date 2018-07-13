@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Cookimize\n"
-"POT-Creation-Date: 2018-07-13 20:08+0200\n"
-"PO-Revision-Date: 2018-07-13 20:16+0200\n"
+"POT-Creation-Date: 2018-07-13 20:34+0200\n"
+"PO-Revision-Date: 2018-07-13 20:35+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -219,7 +219,6 @@ msgstr ""
 "vorzunehmen."
 
 #: src/class-cs-activation.php:54 src/class-cs-activation.php:66
-#: src/class-cs-activation.php:81
 msgid "go back"
 msgstr "gehe zurück"
 
@@ -234,12 +233,6 @@ msgstr ""
 "als %1$s benötigt. Bitte gehe in dein Dashboard und aktualisiere auf die "
 "neueste Version von WordPress."
 
-#: src/class-cs-activation.php:78
-msgid ""
-"This plugin can not be activated because it requires a active version of the "
-"WooCommerce plugin. Please go to Plugins and install WooCommerce."
-msgstr ""
-
 #: src/public/class-cs-iframe.php:93
 msgid "Please accept our cookies"
 msgstr "Bitte akzeptiere unsere Cookies"
@@ -247,6 +240,10 @@ msgstr "Bitte akzeptiere unsere Cookies"
 #: src/public/class-cs-public.php:45
 msgid "Select cookies to accept"
 msgstr "Bitte wähle, welche Cookies du akzeptieren möchtest."
+
+#: src/public/class-cs-public.php:55
+msgid "Necessary Cookies"
+msgstr "Notwendige Cookies"
 
 #. Plugin Name of the plugin/theme
 msgid "Cookimize"

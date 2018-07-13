@@ -32,5 +32,6 @@ jQuery(document).ready(function ($) {
         acceptBtnLabel: cookimize.accept,
         advancedBtnLabel: cookimize.customize,
         cookieTypesTitle: cookimize.cookie_type_title,
+        fixedCookieTypeLabel:cookimize.necessary,
     });
 });

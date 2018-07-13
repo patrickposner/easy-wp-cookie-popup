@@ -51,7 +51,8 @@ class CS_Public {
 			'fb_code'                => $gdpr['cookimize_fb_code'],
 			'custom_code_1_label'    => $gdpr['cookimize_custom_code_1_label'],
 			'custom_code_2_label'    => $gdpr['cookimize_custom_code_2_label'],
-			'iframe_label'           => $gdpr['cookimize_iframe_label']
+			'iframe_label'           => $gdpr['cookimize_iframe_label'],
+			'necessary'              => __( 'Necessary Cookies', 'easy-wp-cookie-popup' )
 		) );
 
 
@@ -175,6 +176,7 @@ class CS_Public {
                 font-size: <?php echo $styles['cookimize_headline_font_size'];?>px;
                 font-weight: 500;
                 margin-bottom: 10px;
+                margin-top: 0px;
             }
 
             #gdpr-cookie-message h5 {
@@ -182,6 +184,7 @@ class CS_Public {
                 font-size: calc(<?php echo $styles['cookimize_headline_font_size'];?>px - 4px);
                 font-weight: 500;
                 margin-bottom: 10px;
+                margin-top: 0px;
             }
 
             #gdpr-cookie-message p, #gdpr-cookie-message ul {
@@ -250,6 +253,7 @@ class CS_Public {
                 margin-top: 0;
                 margin-right: 5px;
             }
+
             .cookimize-alternate-text {
                 background-color: <?php echo $styles['cookimize_message_background_color'];?>;
                 color: <?php echo $styles['cookimize_message_font_color'];?>;
@@ -258,8 +262,9 @@ class CS_Public {
                 border-radius: 5px;
                 box-shadow: 0 6px 6px rgba(0, 0, 0, 0.25);
             }
-            .cookimize-alternate-text h5,  .cookimize-alternate-text p {
-            margin:0px;
+
+            .cookimize-alternate-text h5, .cookimize-alternate-text p {
+                margin: 0px;
             }
 
 

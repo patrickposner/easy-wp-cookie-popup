@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Cookimize\n"
-"POT-Creation-Date: 2018-07-13 20:17+0200\n"
-"PO-Revision-Date: 2018-07-13 20:20+0200\n"
+"POT-Creation-Date: 2018-07-13 20:34+0200\n"
+"PO-Revision-Date: 2018-07-13 20:34+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -218,7 +218,6 @@ msgstr ""
 "than %1$s. Your PHP version can be updated by your hosting company."
 
 #: src/class-cs-activation.php:54 src/class-cs-activation.php:66
-#: src/class-cs-activation.php:81
 msgid "go back"
 msgstr "go back"
 
@@ -233,14 +232,6 @@ msgstr ""
 "greater than %1$s. Please go to Dashboard &#9656; Updates to gran the latest "
 "version of WordPress ."
 
-#: src/class-cs-activation.php:78
-msgid ""
-"This plugin can not be activated because it requires a active version of the "
-"WooCommerce plugin. Please go to Plugins and install WooCommerce."
-msgstr ""
-"This plugin can not be activated because it requires a active version of the "
-"WooCommerce plugin. Please go to Plugins and install WooCommerce."
-
 #: src/public/class-cs-iframe.php:93
 msgid "Please accept our cookies"
 msgstr "Please accept our cookies"
@@ -248,6 +239,10 @@ msgstr "Please accept our cookies"
 #: src/public/class-cs-public.php:45
 msgid "Select cookies to accept"
 msgstr "Select cookies to accept"
+
+#: src/public/class-cs-public.php:55
+msgid "Necessary Cookies"
+msgstr "Necessary Cookies"
 
 #. Plugin Name of the plugin/theme
 msgid "Cookimize"
@@ -260,3 +255,10 @@ msgstr "A simple plugin for integrating a GDPR conform cookie solution"
 #. Author of the plugin/theme
 msgid "patrickposner"
 msgstr "patrickposner"
+
+#~ msgid ""
+#~ "This plugin can not be activated because it requires a active version of "
+#~ "the WooCommerce plugin. Please go to Plugins and install WooCommerce."
+#~ msgstr ""
+#~ "This plugin can not be activated because it requires a active version of "
+#~ "the WooCommerce plugin. Please go to Plugins and install WooCommerce."
