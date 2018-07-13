@@ -351,7 +351,7 @@ class CS_Public {
                         m.parentNode.insertBefore(a, m)
                     })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-                    ga('create', <?php echo $gdpr['cookimize_ga_code'];?>, 'auto');
+                    ga('create', '<?php echo $gdpr['cookimize_ga_code'];?>', 'auto');
                     ga('send', 'pageview');
                     ga('set', 'anonymizeIp', true);
                 </script>
@@ -382,7 +382,7 @@ class CS_Public {
                     }(window,
                         document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
                     // Insert Your Facebook Pixel ID below.
-                    fbq('init', <?php echo $gdpr['cookimize_fb_code'];?>);
+                    fbq('init', '<?php echo $gdpr['cookimize_fb_code'];?>');
                     fbq('track', 'PageView');
                 </script>
                 <!-- Insert Your Facebook Pixel ID below. -->
