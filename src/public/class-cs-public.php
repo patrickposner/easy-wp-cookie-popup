@@ -41,7 +41,7 @@ class CS_Public {
 			'privacy_page'           => get_bloginfo( 'url' ) . DIRECTORY_SEPARATOR . $settings['cookimize_select_privacy_slug'],
 			'privacy_page_text'      => $settings['cookimize_select_privacy_link'],
 			'accept'                 => $settings['cookimize_button_label'],
-			'customize'              => $settings['cookimize_customize_label'],
+			'customize'              => $settings['cookimize_customise_label'],
 			'cookie_type_title'      => __( 'Select cookies to accept', 'easy-wp-cookie-popup' ),
 			'checkboxes_checked'     => $gdpr['cookimize_toggle_checkboxes'],
 			'deactivate_all_cookies' => $gdpr['cookimize_toggle_deactivate_all_cookies'],
