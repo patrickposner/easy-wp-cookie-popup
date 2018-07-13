@@ -6,9 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'a433e3ec79f86d5f048d09e9fc4a482c' => $baseDir . '/src/class-cs-activation.php',
-    'ffe2cc991880b0cf8d48301a2ab4697d' => $baseDir . '/src/admin/class-cs-settings.php',
-    '39a5b8b53ac2f0d6f99ab135c26c16f1' => $baseDir . '/src/admin/class-cs-admin.php',
-    '6957825dde3ec5778c6a4286605eb2fd' => $baseDir . '/src/public/class-cs-public.php',
-    '1d4bc1fc9c36862da0b65ed4979c49b8' => $baseDir . '/src/public/class-cs-iframe.php',
+    'a90d7f8ed327b8e32cc85fb960f543fb' => $baseDir . '/src/class-cs-activation.php',
+    '498b47ca789acf0456935ce594bbea7b' => $baseDir . '/src/admin/class-cs-settings.php',
+    'c8604e4f20bd4114b737ab16606a0f00' => $baseDir . '/src/admin/class-cs-admin.php',
+    '410436ca3991e0ce05e3ba4bc34400f2' => $baseDir . '/src/public/class-cs-public.php',
+    '3853421c3bb7c97a1bc3f4bc169ef92b' => $baseDir . '/src/public/class-cs-iframe.php',
 );

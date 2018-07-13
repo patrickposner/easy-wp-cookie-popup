@@ -33,7 +33,7 @@ class CS_Iframe {
 	 * return instance from class
 	 */
 	public static function get_instance() {
-		new CS_Public();
+		new CS_Iframe();
 	}
 
 
