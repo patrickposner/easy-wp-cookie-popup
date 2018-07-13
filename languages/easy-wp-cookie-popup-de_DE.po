@@ -1,0 +1,263 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Cookimize\n"
+"POT-Creation-Date: 2018-07-13 20:08+0200\n"
+"PO-Revision-Date: 2018-07-13 20:16+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.9\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: easy-wp-cookie-popup.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: src/admin/class-cs-admin.php:29 src/class-cs-activation.php:28
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: src/admin/class-cs-admin.php:38
+msgid "Cookie Notification Headline"
+msgstr "Cookie Benachrichtigung Überschrift"
+
+#: src/admin/class-cs-admin.php:48
+msgid "Cookie Notification Message"
+msgstr "Cookie Benachrichtigung"
+
+#: src/admin/class-cs-admin.php:58
+msgid "Popup delay (seconds)"
+msgstr "Popup-Verzögerung (Sekunden)"
+
+#: src/admin/class-cs-admin.php:69
+msgid "Cookie Expiration (days)"
+msgstr "Cookie-Ablaufzeit (Tage)"
+
+#: src/admin/class-cs-admin.php:79
+msgid "Privacy Page slug"
+msgstr "Slug der Datenschutzseite"
+
+#: src/admin/class-cs-admin.php:89
+msgid "Privacy Page Link Text"
+msgstr "Datenschutz Link Text"
+
+#: src/admin/class-cs-admin.php:99
+msgid "Accept Button Label"
+msgstr "Akzeptieren Button Beschriftung"
+
+#: src/admin/class-cs-admin.php:110
+msgid "Customise Button Label"
+msgstr "Bearbeiten Button Beschriftung"
+
+#: src/admin/class-cs-admin.php:121
+msgid "Style"
+msgstr "Design"
+
+#: src/admin/class-cs-admin.php:130
+msgid "Headline"
+msgstr "Überschrift"
+
+#: src/admin/class-cs-admin.php:141 src/admin/class-cs-admin.php:153
+msgid "Headline Font Color"
+msgstr "Überschrift Schriftfarbe"
+
+#: src/admin/class-cs-admin.php:142 src/admin/class-cs-admin.php:154
+#: src/admin/class-cs-admin.php:242 src/admin/class-cs-admin.php:254
+#: src/admin/class-cs-admin.php:294 src/admin/class-cs-admin.php:306
+#: src/admin/class-cs-admin.php:343 src/admin/class-cs-admin.php:355
+#: src/admin/class-cs-admin.php:368 src/admin/class-cs-admin.php:380
+#: src/admin/class-cs-admin.php:393 src/admin/class-cs-admin.php:405
+#: src/admin/class-cs-admin.php:417 src/admin/class-cs-admin.php:429
+msgid "#000000"
+msgstr ""
+
+#: src/admin/class-cs-admin.php:166 src/admin/class-cs-admin.php:178
+msgid "Headline Font Size (px)"
+msgstr "Überschrift Schriftgröße (in px)"
+
+#: src/admin/class-cs-admin.php:190
+msgid "Message"
+msgstr "Nachricht"
+
+#: src/admin/class-cs-admin.php:200
+msgid "Message Position"
+msgstr "Position der Nachricht"
+
+#: src/admin/class-cs-admin.php:217 src/admin/class-cs-admin.php:229
+msgid "Message Background Color"
+msgstr "Nachricht Hintergrundfarbe"
+
+#: src/admin/class-cs-admin.php:218 src/admin/class-cs-admin.php:230
+msgid "#D4D8E0"
+msgstr ""
+
+#: src/admin/class-cs-admin.php:241 src/admin/class-cs-admin.php:253
+msgid "Message Font Color"
+msgstr "Nachricht Schriftfarbe"
+
+#: src/admin/class-cs-admin.php:266 src/admin/class-cs-admin.php:279
+msgid "Message Font Size (px)"
+msgstr "Nachricht Schriftgröße (in px)"
+
+#: src/admin/class-cs-admin.php:293 src/admin/class-cs-admin.php:305
+msgid "Link Font Color"
+msgstr "Link Schriftfarbe"
+
+#: src/admin/class-cs-admin.php:318 src/admin/class-cs-admin.php:330
+msgid "Buttons"
+msgstr "Buttons"
+
+#: src/admin/class-cs-admin.php:342 src/admin/class-cs-admin.php:354
+msgid "Accept Button Background Color"
+msgstr "Akzeptieren Button Hintergrundfarbe"
+
+#: src/admin/class-cs-admin.php:367 src/admin/class-cs-admin.php:379
+msgid "Accept Button Font Color"
+msgstr "Akzeptieren Button Schriftfarbe"
+
+#: src/admin/class-cs-admin.php:392 src/admin/class-cs-admin.php:404
+msgid "Customise Button Background Color"
+msgstr "Bearbeiten Button Hintergrundfarbe"
+
+#: src/admin/class-cs-admin.php:416 src/admin/class-cs-admin.php:428
+msgid "Customise Button Font Color"
+msgstr "Bearbeiten Button Schriftfarbe"
+
+#: src/admin/class-cs-admin.php:441 src/admin/class-cs-admin.php:453
+msgid "Button Font Size (px)"
+msgstr "Button Schriftgröße (in px)"
+
+#: src/admin/class-cs-admin.php:465
+msgid "GDPR"
+msgstr "DSGVO"
+
+#: src/admin/class-cs-admin.php:473
+msgid "Third Party Cookies"
+msgstr "Third Party Cookies"
+
+#: src/admin/class-cs-admin.php:482
+msgid "Google Analytics Label"
+msgstr "Google Analytics Bezeichnung"
+
+#: src/admin/class-cs-admin.php:492
+msgid "Google Analytics ID"
+msgstr "Google Analytics ID"
+
+#: src/admin/class-cs-admin.php:502
+msgid "Facebook Label"
+msgstr "Facebook Bezeichnung"
+
+#: src/admin/class-cs-admin.php:512
+msgid "Facebook ID"
+msgstr "Facebook ID"
+
+#: src/admin/class-cs-admin.php:522
+msgid "iframes"
+msgstr "iframes"
+
+#: src/admin/class-cs-admin.php:534 src/admin/class-cs-admin.php:547
+msgid "Block iframes until cookie accepted"
+msgstr "iframes blockieren bis Cookies akzeptiert wurden"
+
+#: src/admin/class-cs-admin.php:562 src/admin/class-cs-admin.php:574
+#: src/admin/class-cs-admin.php:621 src/admin/class-cs-admin.php:643
+msgid "Checkbox-Label"
+msgstr "iframe Bezeichnung"
+
+#: src/admin/class-cs-admin.php:588 src/admin/class-cs-admin.php:601
+msgid "Alternate Content"
+msgstr "Alternativer Inhalt"
+
+#: src/admin/class-cs-admin.php:613
+msgid "Custom Tracking Codes"
+msgstr "Eigene Trackingcodes"
+
+#: src/admin/class-cs-admin.php:632 src/admin/class-cs-admin.php:654
+msgid "Tracking-Code"
+msgstr "Tracking-Code"
+
+#: src/admin/class-cs-admin.php:633
+msgid "Enter your Tracking Code (Example: Google Tag Manager)"
+msgstr "Füge deinen Tracking Code hinzu (z.B. Google Tag Manager)"
+
+#: src/admin/class-cs-admin.php:655
+msgid "Enter your Tracking Code (Example: Google Adsense)"
+msgstr "Füge deinen Tracking Code hinzu (z.B. Google Adsense)"
+
+#: src/admin/class-cs-settings.php:725
+msgid "Choose File"
+msgstr "Datei auswählen"
+
+#: src/admin/class-cs-settings.php:746
+msgid "Choose Image"
+msgstr "Bild auswählen"
+
+#: src/admin/class-cs-settings.php:841 src/admin/class-cs-settings.php:842
+msgid "cookimize"
+msgstr ""
+
+#: src/class-cs-activation.php:28
+msgid "View cookimize settings"
+msgstr "Cookimize Einstellungen ansehen"
+
+#: src/class-cs-activation.php:51
+#, php-format
+msgid ""
+"This plugin can not be activated because it requires a PHP version greater "
+"than %1$s. Your PHP version can be updated by your hosting company."
+msgstr ""
+"Dieses Plugin konnte nicht aktiviert werden, da es eine PHP-Version höher "
+"als %1$s. benötigt. Bitte kontaktiere deinen Hoster um diese Einstellung "
+"vorzunehmen."
+
+#: src/class-cs-activation.php:54 src/class-cs-activation.php:66
+#: src/class-cs-activation.php:81
+msgid "go back"
+msgstr "gehe zurück"
+
+#: src/class-cs-activation.php:63
+#, php-format
+msgid ""
+"This plugin can not be activated because it requires a WordPress version "
+"greater than %1$s. Please go to Dashboard &#9656; Updates to gran the latest "
+"version of WordPress ."
+msgstr ""
+"Dieses Plugin konnte nicht aktiviert werden, da es WordPress Version größer "
+"als %1$s benötigt. Bitte gehe in dein Dashboard und aktualisiere auf die "
+"neueste Version von WordPress."
+
+#: src/class-cs-activation.php:78
+msgid ""
+"This plugin can not be activated because it requires a active version of the "
+"WooCommerce plugin. Please go to Plugins and install WooCommerce."
+msgstr ""
+
+#: src/public/class-cs-iframe.php:93
+msgid "Please accept our cookies"
+msgstr "Bitte akzeptiere unsere Cookies"
+
+#: src/public/class-cs-public.php:45
+msgid "Select cookies to accept"
+msgstr "Bitte wähle, welche Cookies du akzeptieren möchtest."
+
+#. Plugin Name of the plugin/theme
+msgid "Cookimize"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "A simple plugin for integrating a GDPR conform cookie solution"
+msgstr ""
+"Ein einfaches Plugin für die DSGVO-konforme Einbindung von Cookies und "
+"iframes"
+
+#. Author of the plugin/theme
+msgid "patrickposner"
+msgstr ""
