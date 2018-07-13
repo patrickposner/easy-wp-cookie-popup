@@ -1,40 +1,95 @@
-=== Easy WordPress Cookies Popup ===
-Contributors: tweakdigital
-Donate link: http://wpcookiespopup.com
-Tags: cookie, cookies, cookie law, cookie popup, cookie notification
-Requires at least: 3.5.2
-Tested up to: 4.3.1
-Stable tag: 1.5.1
+=== Cookimize - GDPR Cookie Consent Solution ===
+Contributors: patrickposner
+Tags: gdpr, gpdr cookie, gdpr cookie consent, cookie, cookies, cookie law, cookie popup, cookie notification
+Requires at least: 4.1
+Tested up to: 4.9
+Requires PHP: 5.6
+Stable tag: 2.0
 
-Easy WordPress Cookies Popup allows you to quickly and easily create a notification that your site uses cookies.
+
+Cookimize optimize your website for GPDR. Let users decide which cookies allowed and which not.
 
 == Description ==
 
-= Display a Cookie Notification on your WordPress site =
-Easy WordPress Cookies Popup displays a simple popup notification message to new visitors that your WordPress site uses cookies. Whether you want to comply with the EU Cookie Law or just to help your visitors out, this is a simple, straightforward tool with minimal impact to your site's performance. 
+= Features =
+Cookimize GDPR Cookie Solution is an all-in-one cookie solution for GDPR.
 
-= Display a Cookie Notification to new Visitors =
-Easy WordPress Cookies Popup displays its notification only to new visitors to your site. Acceptance of the policy is implied so all a user has to do is click through to another page or close the message and it won't display to them again unless they clear their cookies.
+**Your are able to:**
 
-= Want to Translate or Fully Customise your Cookie Notification Message? =
-For $3/month, you can upgrade to the premium version of [Easy WordPress Cookies Popup](http://wpcookiespopup.com "WordPress Cookie Popup"). The premium version of [Easy WordPress Cookies Popup](http://wpcookiespopup.com "WordPress Cookie Popup") supports translation of your cookie notification message (if you're running WPML) and full customisation of your cookie popup's styles and appearance.
+* customise all neccessary texts
+* configure cookie lifetime, delay for display
+* add cookie types like Google Analytics, Facebook Tracking and Custom Cookie Scripts
+* let users customise their cookie preferences
+* customise labels for cookie types (e.x "Marketing" for Google Analytics
+* this solution prevents tracking codes to set cookies unless the user accept them
+
+** Pro **
+
+The pro version of Cookimize GDPR Cookie Solution comes with advanced styling options and options to use any iframes (Youtube, Vimeo, Google Maps) GDPR-compliant.
+
+* iframes GDPR solution with alternative Text
+* fully customisable styling (colors, fonts-size, button colors, background-colors...)
+* priority support with integration guidance and customization (within 24 hours)
+
+== Support ==
+
+The free support is exclusively limited to the wordpress.org support forum.
+Any kind of email priority support, customization and integration help need a valid premium license.
+
+= What is GDPR? =
+
+General Data Protection Regulation (GDPR) is a European regulation to strengthen and unify the data protection of EU citizens. (https://www.eugdpr.org/)
+
+= GDPR and Cookie Compliance =
+
+GDPR states that as a website owner, you cannot assume a user has opted into the cookies being used on your website – the user must give a positive opt in or “affirmative action” to signal their consent to the use of cookies and you also cannot force users to opt into the use of cookies.
+Users who do not give consent should have the same experience of your website as those who give consent, which means you have to provide the same level of service and experience to those who do not accept the cookies.
+Consent will need to be specific to the different cookie purposes with the ability to enable and disable cookies at a granular level for each cookie.
+It also means that you should not be tracking users on your website with tools such as Google Analytics until they give you a specific permission to do so.
+
+== GPDR-Compliance ==
+
+Cookimise not autmatically makes your site GDRP-compliant. Please seek independent legal adivce since GPDR is a very unique topic for each website.
+
+=== CODING STANDARDS MADE IN GERMANY ===
+
+The plugin is coded with **modern PHP** and **WordPress standards** in mind. It’s fully OOP code. It’s highly extendable for developers threw several action and filter hooks.
+Quickster keep your store performance in mind. Every script is **loaded conditionally** and all input and output data is secured.
+
+=== THEME COMPATIBILITY ===
+
+The product tables from Quickster supports all well-written WooCommerce Themes. The bulk add to cart function underneath every order form also supports update for mini carts.
+
+=== MULTI-LANGUAGE ===
+
+All major texts and information can be modified from the admin area of Cookimize.
+The plugin is **fully translatable** in your language. At the moment there are only en_EN, but you can easily add your preferred language as a .po/.mo. It’s also fully compatible with WPML and Polylang.
+
 
 == Screenshots ==
-1. The Easy WordPress Cookies Popup administration interface.
-2. The Easy WordPress Cookies Popup cookie notification message.
+1. Cookie Optin-Box in frontend
+2. Cookimize General Cookie Settings
+3. Cookimize GDPR Settings
 
 == Installation ==
 
-Easy WordPress Cookies Popup is simple to install:
+Cookimize GDPR Cookie Consent Solution is simple to install:
 
-1. Download 'wordpress-cookies-popup.zip'
+1. Download the .zip'
 1. Unzip
-1. Upload 'WordPress-cookies-popup' directory to your '/wp-content/plugins' directory
-1. Go to the plugin management page and enable the Easy WordPress Cookies Popup
-1. Browse to Settings > Cookie Notification
-1. Customise your cookie notification message and position for your WordPress site.
+1. Upload  the directory to your '/wp-content/plugins' directory
+1. Go to the plugin management page and enable the Cookimize GDPR Consent Solution Plugin
+1. Browse to Settings > Cookimize
+1. Customise your cookie notification, style settings (pro) and GDPR settings.
 
 == Changelog ==
+
+= 2.0 =
+* under new development
+* added general settings for cookie configuration
+* adding style settings for modification
+* adding GDPR Consent Cookie settings for new EU Data-Law
+* adding cache-compatible Cookie-solution
 
 = 1.5.1 =
 * Added links to the premium upgrade site
