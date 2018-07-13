@@ -161,8 +161,8 @@ if ( fs_is_network_admin() ) {
 
         <div id="poststuff">
             <div id="fs_account">
-				<?php $logo = QUICKSTER_URL . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . '/admin/' . DIRECTORY_SEPARATOR . 'quickster-logo.png'; ?>
-                <div class="quickster-logo" style="background-image:url(<?php echo $logo; ?>);background-size: contain;background-repeat: no-repeat;"></div>
+				<?php $logo = COOKIMIZE_URL . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . '/admin/' . DIRECTORY_SEPARATOR . 'cookimize-logo.png'; ?>
+                <div class="cookimize-logo" style="background-image:url(<?php echo $logo; ?>);background-size: contain;background-repeat: no-repeat;"></div>
                 <div class="has-sidebar has-right-sidebar">
                     <div class="has-sidebar-content">
                         <div class="postbox">

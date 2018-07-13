@@ -1,6 +1,6 @@
 <?php
 
-namespace cookster;
+namespace cookimize;
 
 
 class CS_Activation {
@@ -12,7 +12,7 @@ class CS_Activation {
 		register_activation_hook( __FILE__, array( __CLASS__, 'activate' ) );
 
 		if ( is_admin() ) {
-			add_filter( 'plugin_action_links_' . COOKSTER_PLUGIN_BASENAME, array( __CLASS__, 'plugin_action_links' ) );
+			add_filter( 'plugin_action_links_' . COOKIMIZE_PLUGIN_BASENAME, array( __CLASS__, 'plugin_action_links' ) );
 		}
 	}
 
@@ -25,7 +25,7 @@ class CS_Activation {
 	 */
 	public static function plugin_action_links( $links ) {
 		$action_links = array(
-			'settings' => '<a href="' . admin_url( 'options-general.php?page=cookster' ) . '" aria-label="' . esc_attr__( 'View Cookster settings', 'easy-wp-cookie-popup' ) . '">' . esc_html__( 'Settings', 'easy-wp-cookie-popup' ) . '</a>',
+			'settings' => '<a href="' . admin_url( 'options-general.php?page=cookimize' ) . '" aria-label="' . esc_attr__( 'View cookimize settings', 'easy-wp-cookie-popup' ) . '">' . esc_html__( 'Settings', 'easy-wp-cookie-popup' ) . '</a>',
 		);
 
 		return array_merge( $action_links, $links );

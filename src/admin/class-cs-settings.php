@@ -1,6 +1,6 @@
 <?php
 
-namespace cookster;
+namespace cookimize;
 
 if ( ! class_exists( 'CS_Settings' ) ) :
 
@@ -434,8 +434,8 @@ if ( ! class_exists( 'CS_Settings' ) ) :
 		 */
 		function callback_shortcode() {
 
-			$shortcode_options = get_option( 'quickster_shortcode' );
-			$shortcode         = '[quickster';
+			$shortcode_options = get_option( 'cookimize_shortcode' );
+			$shortcode         = '[cookimize';
 
 			if ( is_array( $shortcode_options ) AND array_key_exists( 'select_data_options', $shortcode_options ) ) {
 
@@ -526,7 +526,7 @@ if ( ! class_exists( 'CS_Settings' ) ) :
 			$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
 			$type  = isset( $args['type'] ) ? $args['type'] : 'text';
 
-			$html = sprintf( '<input type="%1$s" class="%2$s-text" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s"placeholder="%6$s"/>', $type, $size, $args['section'], $args['id'], $value, $args['placeholder'] );
+			$html = sprintf( '<input type="%1$s" class="%2$s-text %7$s" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s"placeholder="%6$s"/>', $type, $size, $args['section'], $args['id'], $value, $args['placeholder'], $args['premium'] );
 			$html .= $this->get_field_description( $args );
 
 			echo $html;
@@ -583,7 +583,7 @@ if ( ! class_exists( 'CS_Settings' ) ) :
 
 			$html .= sprintf( '<label class="switch" for="wposa-%1$s[%2$s]">', $args['section'], $args['id'] );
 			$html .= sprintf( '<input type="hidden" name="%1$s[%2$s]" value="off" />', $args['section'], $args['id'] );
-			$html .= sprintf( '<input type="checkbox" class="toggle-checkbox" id="wposa-%1$s[%2$s]" name="%1$s[%2$s]" value="on" %3$s />', $args['section'], $args['id'], checked( $value, 'on', false ) );
+			$html .= sprintf( '<input type="checkbox" class="toggle-checkbox ' . $args['premium'] . '" id="wposa-%1$s[%2$s]" name="%1$s[%2$s]" value="on" %3$s />', $args['section'], $args['id'], checked( $value, 'on', false ) );
 			$html .= '<span class="slider round"></span>';
 			$html .= '</label>';
 			$html .= '</fieldset>';
@@ -665,7 +665,7 @@ if ( ! class_exists( 'CS_Settings' ) ) :
 			$value = esc_textarea( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
 			$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
 
-			$html = sprintf( '<textarea rows="5" cols="55" class="%1$s-text" id="%2$s[%3$s]" name="%2$s[%3$s]" placeholder="">%4$s</textarea>', $size, $args['section'], $args['id'], $value );
+			$html = sprintf( '<textarea rows="5" cols="55" class="%1$s-text %5$s" id="%2$s[%3$s]" name="%2$s[%3$s]" placeholder="">%4$s</textarea>', $size, $args['section'], $args['id'], $value, $args['premium'] );
 			$html .= $this->get_field_description( $args );
 
 			echo $html;
@@ -838,20 +838,20 @@ if ( ! class_exists( 'CS_Settings' ) ) :
 
 			$submenu_page = add_submenu_page(
 				'options-general.php',
-				__( 'Cookster', 'easy-wp-cookie-popup' ),
-				__( 'Cookster', 'easy-wp-cookie-popup' ),
-				apply_filters( 'cookster_settings', 'manage_options' ),
-				'cookster',
+				__( 'cookimize', 'easy-wp-cookie-popup' ),
+				__( 'cookimize', 'easy-wp-cookie-popup' ),
+				apply_filters( 'cookimize_settings', 'manage_options' ),
+				'cookimize',
 				array( $this, 'plugin_page' )
 			);
 		}
 
 		public function plugin_page() {
 
-			$logo = COOKSTER_URL . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . '/admin/' . DIRECTORY_SEPARATOR . 'cookster-logo.png';
+			$logo = COOKIMIZE_URL . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . '/admin/' . DIRECTORY_SEPARATOR . 'cookimize-logo.png';
 
-			echo '<div class="wrap quickster-admin">';
-			echo '<div class="quickster-logo" style="background-image:url(' . $logo . ');background-size: contain;background-repeat: no-repeat;"></div>';
+			echo '<div class="wrap cookimize-admin">';
+			echo '<div class="cookimize-logo" style="background-image:url(' . $logo . ');background-size: contain;background-repeat: no-repeat;"></div>';
 			$this->show_navigation();
 			$this->show_forms();
 			echo '</div>';

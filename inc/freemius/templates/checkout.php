@@ -173,7 +173,7 @@ $view_params = array(
 );
 fs_require_once_template( 'secure-https-header.php', $view_params );
 ?>
-<div class="quickster-checkout">
+<div class="cookimize-checkout">
     <div id="fs_checkout" class="wrap fs-section fs-full-size-wrapper">
         <div id="frame"></div>
         <script type="text/javascript">

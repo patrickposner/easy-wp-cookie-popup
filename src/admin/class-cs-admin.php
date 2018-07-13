@@ -1,6 +1,6 @@
 <?php
 
-namespace cookster;
+namespace cookimize;
 
 class CS_Admin {
 
@@ -25,15 +25,15 @@ class CS_Admin {
 
 		$settings->add_section(
 			array(
-				'id'    => 'cookster_options',
+				'id'    => 'cookimize_options',
 				'title' => __( 'Settings', 'easy-wp-cookie-popup' ),
 			)
 		);
 
 		$settings->add_field(
-			'cookster_options',
+			'cookimize_options',
 			array(
-				'id'      => 'cookster_cookie_message_headline',
+				'id'      => 'cookimize_cookie_message_headline',
 				'type'    => 'text',
 				'name'    => __( 'Cookie Notification Headline', 'easy-wp-cookie-popup' ),
 				'default' => 'Cookies & Privacy',
@@ -41,9 +41,9 @@ class CS_Admin {
 		);
 
 		$settings->add_field(
-			'cookster_options',
+			'cookimize_options',
 			array(
-				'id'      => 'cookster_cookie_message',
+				'id'      => 'cookimize_cookie_message',
 				'type'    => 'wysiwyg',
 				'name'    => __( 'Cookie Notification Message', 'easy-wp-cookie-popup' ),
 				'default' => 'This website uses cookies to ensure you get the best experience on our website.'
@@ -51,9 +51,9 @@ class CS_Admin {
 		);
 
 		$settings->add_field(
-			'cookster_options',
+			'cookimize_options',
 			array(
-				'id'                => 'cookster_seconds_before_trigger',
+				'id'                => 'cookimize_seconds_before_trigger',
 				'type'              => 'number',
 				'name'              => __( 'Popup delay (seconds)', 'easy-wp-cookie-popup' ),
 				'default'           => 3,
@@ -62,9 +62,9 @@ class CS_Admin {
 		);
 
 		$settings->add_field(
-			'cookster_options',
+			'cookimize_options',
 			array(
-				'id'                => 'cookster_expiration_time',
+				'id'                => 'cookimize_expiration_time',
 				'type'              => 'number',
 				'name'              => __( 'Cookie Expiration (days)', 'easy-wp-cookie-popup' ),
 				'default'           => 1,
@@ -72,9 +72,9 @@ class CS_Admin {
 			)
 		);
 		$settings->add_field(
-			'cookster_options',
+			'cookimize_options',
 			array(
-				'id'      => 'cookster_select_privacy_slug',
+				'id'      => 'cookimize_select_privacy_slug',
 				'type'    => 'text',
 				'name'    => __( 'Privacy Page slug', 'easy-wp-cookie-popup' ),
 				'default' => 'privacy',
@@ -82,9 +82,9 @@ class CS_Admin {
 		);
 
 		$settings->add_field(
-			'cookster_options',
+			'cookimize_options',
 			array(
-				'id'      => 'cookster_select_privacy_link',
+				'id'      => 'cookimize_select_privacy_link',
 				'type'    => 'text',
 				'name'    => __( 'Privacy Page Link Text', 'easy-wp-cookie-popup' ),
 				'default' => 'More information',
@@ -92,9 +92,9 @@ class CS_Admin {
 		);
 
 		$settings->add_field(
-			'cookster_options',
+			'cookimize_options',
 			array(
-				'id'      => 'cookster_button_label',
+				'id'      => 'cookimize_button_label',
 				'type'    => 'text',
 				'name'    => __( 'Accept Button Label', 'easy-wp-cookie-popup' ),
 				'default' => 'Accept Cookies',
@@ -103,11 +103,11 @@ class CS_Admin {
 
 
 		$settings->add_field(
-			'cookster_options',
+			'cookimize_options',
 			array(
-				'id'      => 'cookster_customize_label',
+				'id'      => 'cookimize_customise_label',
 				'type'    => 'text',
-				'name'    => __( 'Customize Button Label', 'easy-wp-cookie-popup' ),
+				'name'    => __( 'Customise Button Label', 'easy-wp-cookie-popup' ),
 				'default' => 'Customise Cookies',
 			)
 		);
@@ -117,24 +117,24 @@ class CS_Admin {
 
 		$settings->add_section(
 			array(
-				'id'    => 'cookster_style',
+				'id'    => 'cookimize_style',
 				'title' => __( 'Style', 'easy-wp-cookie-popup' ),
 			)
 		);
 
 		$settings->add_field(
-			'cookster_style',
+			'cookimize_style',
 			array(
-				'id'   => 'cookster_headline_styles',
+				'id'   => 'cookimize_headline_styles',
 				'type' => 'title',
 				'name' => '<h3>' . __( 'Headline', 'easy-wp-cookie-popup' ) . '</h3>',
 			)
 		);
 
 		$settings->add_field(
-			'cookster_style',
+			'cookimize_style',
 			array(
-				'id'          => 'cookster_headline_font_color',
+				'id'          => 'cookimize_headline_font_color',
 				'type'        => 'color',
 				'name'        => __( 'Headline Font Color', 'easy-wp-cookie-popup' ),
 				'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
@@ -143,29 +143,30 @@ class CS_Admin {
 
 
 		$settings->add_field(
-			'cookster_style',
+			'cookimize_style',
 			array(
-				'id'      => 'cookster_headline_font_size',
+				'id'      => 'cookimize_headline_font_size',
 				'type'    => 'text',
 				'name'    => __( 'Headline Font Size (px)', 'easy-wp-cookie-popup' ),
 				'default' => '20',
+				'premium' => 'premium'
 			)
 		);
 
 
 		$settings->add_field(
-			'cookster_style',
+			'cookimize_style',
 			array(
-				'id'   => 'cookster_message_styles',
+				'id'   => 'cookimize_message_styles',
 				'type' => 'title',
 				'name' => '<h3>' . __( 'Message', 'easy-wp-cookie-popup' ) . '</h3>',
 			)
 		);
 
 		$settings->add_field(
-			'cookster_style',
+			'cookimize_style',
 			array(
-				'id'      => 'cookster_message_position',
+				'id'      => 'cookimize_message_position',
 				'type'    => 'select',
 				'name'    => __( 'Message Position', 'easy-wp-cookie-popup' ),
 				'options' => array(
@@ -179,94 +180,104 @@ class CS_Admin {
 		);
 
 		$settings->add_field(
-			'cookster_style',
+			'cookimize_style',
 			array(
-				'id'          => 'cookster_message_background_color',
+				'id'          => 'cookimize_message_background_color',
 				'type'        => 'color',
 				'name'        => __( 'Message Background Color', 'easy-wp-cookie-popup' ),
 				'placeholder' => __( '#D4D8E0', 'easy-wp-cookie-popup' ),
+				'premium'     => 'premium'
 			) );
 
 		$settings->add_field(
-			'cookster_style',
+			'cookimize_style',
 			array(
-				'id'          => 'cookster_message_font_color',
+				'id'          => 'cookimize_message_font_color',
 				'type'        => 'color',
 				'name'        => __( 'Message Font Color', 'easy-wp-cookie-popup' ),
-				'placeholder' => __( '#000000', 'easy-wp-cookie-popup' )
+				'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
+				'premium'     => 'premium'
 			) );
 
 		$settings->add_field(
-			'cookster_style',
+			'cookimize_style',
 			array(
-				'id'      => 'cookster_message_font_size',
+				'id'      => 'cookimize_message_font_size',
 				'type'    => 'text',
 				'name'    => __( 'Message Font Size (px)', 'easy-wp-cookie-popup' ),
 				'default' => '14',
+				'premium' => 'premium',
 			)
 		);
 
 		$settings->add_field(
-			'cookster_style',
+			'cookimize_style',
 			array(
-				'id'          => 'cookster_link_font_color',
+				'id'          => 'cookimize_link_font_color',
 				'type'        => 'color',
 				'name'        => __( 'Link Font Color', 'easy-wp-cookie-popup' ),
-				'placeholder' => __( '#000000', 'easy-wp-cookie-popup' )
+				'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
+				'premium'     => 'premium'
 			) );
 
 		$settings->add_field(
-			'cookster_style',
+			'cookimize_style',
 			array(
-				'id'   => 'cookster_button_styles',
-				'type' => 'title',
-				'name' => '<h3>' . __( 'Buttons', 'easy-wp-cookie-popup' ) . '</h3>',
+				'id'      => 'cookimize_button_styles',
+				'type'    => 'title',
+				'name'    => '<h3>' . __( 'Buttons', 'easy-wp-cookie-popup' ) . '</h3>',
+				'premium' => 'premium',
 			)
 		);
 
 		$settings->add_field(
-			'cookster_style',
+			'cookimize_style',
 			array(
-				'id'          => 'cookster_accept_background_color',
+				'id'          => 'cookimize_accept_background_color',
 				'type'        => 'color',
 				'name'        => __( 'Accept Button Background Color', 'easy-wp-cookie-popup' ),
-				'placeholder' => __( '#000000', 'easy-wp-cookie-popup' )
+				'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
+				'premium'     => 'premium'
 			) );
 
 		$settings->add_field(
-			'cookster_style',
+			'cookimize_style',
 			array(
-				'id'          => 'cookster_accept_font_color',
+				'id'          => 'cookimize_accept_font_color',
 				'type'        => 'color',
 				'name'        => __( 'Accept Button Font Color', 'easy-wp-cookie-popup' ),
-				'placeholder' => __( '#000000', 'easy-wp-cookie-popup' )
+				'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
+				'premium'     => 'premium'
 			) );
 
 		$settings->add_field(
-			'cookster_style',
+			'cookimize_style',
 			array(
-				'id'          => 'cookster_customize_background_color',
+				'id'          => 'cookimize_customise_background_color',
 				'type'        => 'color',
-				'name'        => __( 'Customize Button Background Color', 'easy-wp-cookie-popup' ),
-				'placeholder' => __( '#000000', 'easy-wp-cookie-popup' )
+				'name'        => __( 'Customise Button Background Color', 'easy-wp-cookie-popup' ),
+				'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
+				'premium'     => 'premium'
 			) );
 
 		$settings->add_field(
-			'cookster_style',
+			'cookimize_style',
 			array(
-				'id'          => 'cookster_customize_font_color',
+				'id'          => 'cookimize_customise_font_color',
 				'type'        => 'color',
-				'name'        => __( 'Customize Button Font Color', 'easy-wp-cookie-popup' ),
-				'placeholder' => __( '#000000', 'easy-wp-cookie-popup' )
+				'name'        => __( 'Customise Button Font Color', 'easy-wp-cookie-popup' ),
+				'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
+				'premium'     => 'premium'
 			) );
 
 		$settings->add_field(
-			'cookster_style',
+			'cookimize_style',
 			array(
-				'id'      => 'cookster_button_font_size',
+				'id'      => 'cookimize_button_font_size',
 				'type'    => 'text',
 				'name'    => __( 'Button Font Size (px)', 'easy-wp-cookie-popup' ),
 				'default' => '14',
+				'premium' => 'premium'
 			)
 		);
 
@@ -274,23 +285,23 @@ class CS_Admin {
 
 		$settings->add_section(
 			array(
-				'id'    => 'cookster_gdpr',
+				'id'    => 'cookimize_gdpr',
 				'title' => __( 'GDPR', 'easy-wp-cookie-popup' ),
 			)
 		);
 		$settings->add_field(
-			'cookster_gdpr',
+			'cookimize_gdpr',
 			array(
-				'id'   => 'cookster_tracking_headline',
+				'id'   => 'cookimize_tracking_headline',
 				'type' => 'title',
 				'name' => '<h3>' . __( 'Third Party Cookies', 'easy-wp-cookie-popup' ) . '</h3>',
 			)
 		);
 
 		$settings->add_field(
-			'cookster_gdpr',
+			'cookimize_gdpr',
 			array(
-				'id'          => 'cookster_ga_code_label',
+				'id'          => 'cookimize_ga_code_label',
 				'type'        => 'text',
 				'name'        => __( 'Google Analytics Label', 'easy-wp-cookie-popup' ),
 				'placeholder' => 'Marketing',
@@ -298,9 +309,9 @@ class CS_Admin {
 		);
 
 		$settings->add_field(
-			'cookster_gdpr',
+			'cookimize_gdpr',
 			array(
-				'id'          => 'cookster_ga_code',
+				'id'          => 'cookimize_ga_code',
 				'type'        => 'text',
 				'name'        => __( 'Google Analytics ID', 'easy-wp-cookie-popup' ),
 				'placeholder' => 'UA-XXXXX-Y',
@@ -308,9 +319,9 @@ class CS_Admin {
 		);
 
 		$settings->add_field(
-			'cookster_gdpr',
+			'cookimize_gdpr',
 			array(
-				'id'          => 'cookster_fb_code_label',
+				'id'          => 'cookimize_fb_code_label',
 				'type'        => 'text',
 				'name'        => __( 'Facebook Label', 'easy-wp-cookie-popup' ),
 				'placeholder' => 'Social Media',
@@ -318,9 +329,9 @@ class CS_Admin {
 		);
 
 		$settings->add_field(
-			'cookster_gdpr',
+			'cookimize_gdpr',
 			array(
-				'id'          => 'cookster_fb_code',
+				'id'          => 'cookimize_fb_code',
 				'type'        => 'text',
 				'name'        => __( 'Facebook ID', 'easy-wp-cookie-popup' ),
 				'placeholder' => 'FB_PIXEL_ID',
@@ -328,86 +339,93 @@ class CS_Admin {
 		);
 
 		$settings->add_field(
-			'cookster_gdpr',
+			'cookimize_gdpr',
 			array(
-				'id'   => 'cookster_tracking_iframes',
+				'id'   => 'cookimize_tracking_iframes',
 				'type' => 'title',
 				'name' => '<h3>' . __( 'iframes', 'easy-wp-cookie-popup' ) . '</h3>',
 			)
 		);
 		$settings->add_field(
-			'cookster_gdpr',
+			'cookimize_gdpr',
 			array(
-				'id'      => 'cookster_toggle_iframes',
+				'id'      => 'cookimize_toggle_iframes',
 				'type'    => 'toggle',
 				'default' => 'off',
 				'name'    => __( 'Block iframes until cookie accepted', 'easy-wp-cookie-popup' ),
+				'premium' => 'premium'
 			)
 		);
 		$settings->add_field(
-			'cookster_gdpr',
+			'cookimize_gdpr',
 			array(
-				'id'          => 'cookster_iframe_label',
+				'id'          => 'cookimize_iframe_label',
 				'type'        => 'text',
 				'name'        => __( 'Checkbox-Label', 'easy-wp-cookie-popup' ),
 				'placeholder' => 'Youtube, Google Maps, Vimeo',
+				'premium'     => 'premium'
 			)
 		);
 
 		$settings->add_field(
-			'cookster_gdpr',
+			'cookimize_gdpr',
 			array(
-				'id'      => 'cookster_iframe_alternate_content',
-				'type'    => 'wysiwyg',
+				'id'      => 'cookimize_iframe_alternate_content',
+				'type'    => 'textarea',
 				'name'    => __( 'Alternate Content', 'easy-wp-cookie-popup' ),
-				'default' => 'To show this content you have to accept our cookies.'
+				'default' => 'To show this content you have to accept our cookies.',
+				'premium' => 'premium'
 			)
 		);
 		$settings->add_field(
-			'cookster_gdpr',
+			'cookimize_gdpr',
 			array(
-				'id'   => 'cookster_custom_tracking_headline',
+				'id'   => 'cookimize_custom_tracking_headline',
 				'type' => 'title',
 				'name' => '<h3>' . __( 'Custom Tracking Codes', 'easy-wp-cookie-popup' ) . '</h3>',
 			)
 		);
 		$settings->add_field(
-			'cookster_gdpr',
+			'cookimize_gdpr',
 			array(
-				'id'          => 'cookster_custom_code_1_label',
+				'id'          => 'cookimize_custom_code_1_label',
 				'type'        => 'text',
 				'name'        => __( 'Checkbox-Label', 'easy-wp-cookie-popup' ),
 				'placeholder' => 'Google Tag Manager',
+
 			)
 		);
 
 		$settings->add_field(
-			'cookster_gdpr',
+			'cookimize_gdpr',
 			array(
-				'id'      => 'cookster_custom_code_1',
-				'type'    => 'textarea',
-				'name'    => __( 'Tracking-Code', 'easy-wp-cookie-popup' ),
-				'desc'    => __( 'Enter your Tracking Code (Example: Google Tag Manager)', 'easy-wp-cookie-popup' ),
+				'id'   => 'cookimize_custom_code_1',
+				'type' => 'textarea',
+				'name' => __( 'Tracking-Code', 'easy-wp-cookie-popup' ),
+				'desc' => __( 'Enter your Tracking Code (Example: Google Tag Manager)', 'easy-wp-cookie-popup' ),
+
 			)
 		);
 
 		$settings->add_field(
-			'cookster_gdpr',
+			'cookimize_gdpr',
 			array(
-				'id'          => 'cookster_custom_code_2_label',
+				'id'          => 'cookimize_custom_code_2_label',
 				'type'        => 'text',
 				'name'        => __( 'Checkbox-Label', 'easy-wp-cookie-popup' ),
 				'placeholder' => 'Google Adsense',
+
 			)
 		);
 
 		$settings->add_field(
-			'cookster_gdpr',
+			'cookimize_gdpr',
 			array(
-				'id'      => 'cookster_custom_code_2',
-				'type'    => 'textarea',
-				'name'    => __( 'Tracking-Code', 'easy-wp-cookie-popup' ),
-				'desc'    => __( 'Enter your Tracking Code (Example: Google Adsense)', 'easy-wp-cookie-popup' ),
+				'id'   => 'cookimize_custom_code_2',
+				'type' => 'textarea',
+				'name' => __( 'Tracking-Code', 'easy-wp-cookie-popup' ),
+				'desc' => __( 'Enter your Tracking Code (Example: Google Adsense)', 'easy-wp-cookie-popup' ),
+
 			)
 		);
 
@@ -419,8 +437,13 @@ class CS_Admin {
 	 */
 	public function add_admin_scripts() {
 
-		wp_enqueue_style( 'cookster-admin', COOKSTER_URL . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'cookster-admin.css' );
-		wp_enqueue_script( 'cookster-admin-js', COOKSTER_URL . '/assets/admin/cookster-admin.js', array( 'jquery' ), false );
+		wp_enqueue_style( 'cookimize-admin', COOKIMIZE_URL . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'cookimize-admin.css' );
+		wp_enqueue_script( 'cookimize-admin-js', COOKIMIZE_URL . '/assets/admin/cookimize-admin.js', array( 'jquery' ), false );
+
+		wp_localize_script( 'cookimize-admin-js', 'cookimize_admin', array(
+			'logo' => COOKIMIZE_URL . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . '/admin/' . DIRECTORY_SEPARATOR . 'cookimize-logo.png'
+
+		) );
 	}
 
 

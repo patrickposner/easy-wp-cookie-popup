@@ -1,18 +1,21 @@
 <?php
 
-namespace cookster;
+namespace cookimize;
 
 class CS_Iframe {
 
+	/**
+	 * CS_Iframe constructor.
+	 */
 	public function __construct() {
 
-		$tracking = get_option( 'cookster_gdpr' );
+		$tracking = get_option( 'cookimize_gdpr' );
 
-		if ( is_null( $_COOKIE['cookieControl'] ) && $tracking['cookster_toggle_iframes'] === 'on' ) {
+		if ( is_null( $_COOKIE['cookieControl'] ) && $tracking['cookimize_toggle_iframes'] === 'on' ) {
 
 			$cookie_preferences = json_decode( stripslashes( $_COOKIE['cookieControlPrefs'] ) );
 
-			if ( is_array( $cookie_preferences ) && ! in_array( 'iframe', $cookie_preferences ) ) {
+			if ( ! is_array( $cookie_preferences ) || ! in_array( 'iframe', $cookie_preferences ) ) {
 
 				add_filter( 'the_content', array( $this, 'search_frames' ), 100, 1 );
 				add_filter( 'embed_oembed_html', array( $this, 'search_frames' ), 100, 1 );
@@ -24,6 +27,19 @@ class CS_Iframe {
 
 	}
 
+	/**
+	 * return instance from class
+	 */
+	public static function get_instance() {
+		new CS_Public();
+	}
+
+
+	/**
+	 * @param $content
+	 *
+	 * @return null|string|string[]
+	 */
 	public function search_frames( $content ) {
 
 		$content = preg_replace_callback( '/(\<p\>)?(<iframe.*<\/iframe>)+(\<\/p\>)?/', [
@@ -34,9 +50,14 @@ class CS_Iframe {
 		return $content;
 	}
 
+	/**
+	 * @param $tags
+	 *
+	 * @return string
+	 */
 	public function replace_with_alternate_text( $tags ) {
 
-		$tracking = get_option( 'cookster_gdpr' );
+		$tracking = get_option( 'cookimize_gdpr' );
 
 		$src = [];
 
@@ -62,7 +83,7 @@ class CS_Iframe {
 				$iframe_type = $url['host'];
 			}
 
-			return '<div class="cookster-alternate-text" data-type="' . $iframe_type . '"><h5>' . __( 'Please accept our cookies', 'easy-wp-cookie-popup' ) . '</h5><p>' . $tracking['cookster_iframe_alternate_content'] . '</p></div>';
+			return '<div class="cookimize-alternate-text" data-type="' . $iframe_type . '"><h5>' . __( 'Please accept our cookies', 'easy-wp-cookie-popup' ) . '</h5><p>' . $tracking['cookimize_iframe_alternate_content'] . '</p></div>';
 
 		} else {
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace cookster;
+namespace cookimize;
 
 class CS_Public {
 
@@ -28,42 +28,42 @@ class CS_Public {
 	 */
 	public function add_scripts() {
 
-		wp_enqueue_script( 'ihavecookies-js', COOKSTER_URL . '/assets/public/jquery.ihavecookies.min.js', array( 'jquery' ), false );
-		wp_enqueue_script( 'cookster-cookie-js', COOKSTER_URL . '/assets/public/cookster-cookie.js', array( 'jquery' ), false, true );
+		wp_enqueue_script( 'ihavecookies-js', COOKIMIZE_URL . '/assets/public/jquery.ihavecookies.min.js', array( 'jquery' ), false );
+		wp_enqueue_script( 'cookimize-cookie-js', COOKIMIZE_URL . '/assets/public/cookimize-cookie.js', array( 'jquery' ), false, true );
 
-		$settings = get_option( 'cookster_options' );
-		$gdpr     = get_option( 'cookster_gdpr' );
+		$settings = get_option( 'cookimize_options' );
+		$gdpr     = get_option( 'cookimize_gdpr' );
 
-		wp_localize_script( 'cookster-cookie-js', 'cookster', array(
-			'headline'               => $settings['cookster_cookie_message_headline'],
-			'message'                => $settings['cookster_cookie_message'],
-			'trigger_time'           => $settings['cookster_seconds_before_trigger'],
-			'expiration_time'        => $settings['cookster_expiration_time'],
-			'privacy_page'           => get_bloginfo( 'url' ) . DIRECTORY_SEPARATOR . $settings['cookster_select_privacy_slug'],
-			'privacy_page_text'      => $settings['cookster_select_privacy_link'],
-			'accept'                 => $settings['cookster_button_label'],
-			'customize'              => $settings['cookster_customize_label'],
+		wp_localize_script( 'cookimize-cookie-js', 'cookimize', array(
+			'headline'               => $settings['cookimize_cookie_message_headline'],
+			'message'                => $settings['cookimize_cookie_message'],
+			'trigger_time'           => $settings['cookimize_seconds_before_trigger'],
+			'expiration_time'        => $settings['cookimize_expiration_time'],
+			'privacy_page'           => get_bloginfo( 'url' ) . DIRECTORY_SEPARATOR . $settings['cookimize_select_privacy_slug'],
+			'privacy_page_text'      => $settings['cookimize_select_privacy_link'],
+			'accept'                 => $settings['cookimize_button_label'],
+			'customize'              => $settings['cookimize_customize_label'],
 			'cookie_type_title'      => __( 'Select cookies to accept', 'easy-wp-cookie-popup' ),
-			'checkboxes_checked'     => $gdpr['cookster_toggle_checkboxes'],
-			'deactivate_all_cookies' => $gdpr['cookster_toggle_deactivate_all_cookies'],
-			'iframes'                => $gdpr['cookster_toggle_iframes'],
-			'ga_label'               => $gdpr['cookster_ga_code_label'],
-			'fb_label'               => $gdpr['cookster_fb_code_label'],
-			'fb_code'                => $gdpr['cookster_fb_code'],
-			'custom_code_1_label'    => $gdpr['cookster_custom_code_1_label'],
-			'custom_code_2_label'    => $gdpr['cookster_custom_code_2_label'],
-			'iframe_label'           => $gdpr['cookster_iframe_label']
+			'checkboxes_checked'     => $gdpr['cookimize_toggle_checkboxes'],
+			'deactivate_all_cookies' => $gdpr['cookimize_toggle_deactivate_all_cookies'],
+			'iframes'                => $gdpr['cookimize_toggle_iframes'],
+			'ga_label'               => $gdpr['cookimize_ga_code_label'],
+			'fb_label'               => $gdpr['cookimize_fb_code_label'],
+			'fb_code'                => $gdpr['cookimize_fb_code'],
+			'custom_code_1_label'    => $gdpr['cookimize_custom_code_1_label'],
+			'custom_code_2_label'    => $gdpr['cookimize_custom_code_2_label'],
+			'iframe_label'           => $gdpr['cookimize_iframe_label']
 		) );
 
 
 	}
 
 	/**
-	 * adding dynamic styles for cookster
+	 * adding dynamic styles for cookimize
 	 */
 	public function dynamic_styles() {
 
-		$styles = get_option( 'cookster_style' );
+		$styles = get_option( 'cookimize_style' );
 		$this->get_default_styles();
 		?>
 
@@ -73,15 +73,15 @@ class CS_Public {
 
 			/* message box position */
 
-			switch ( $styles['cookster_message_position'] ) {
+			switch ( $styles['cookimize_message_position'] ) {
 				case 'center': ?>
             #gdpr-cookie-message {
                 position: fixed;
                 width: 375px;
                 height: 200px;
-                background-color: <?php echo $styles['cookster_message_background_color'];?>;
-                color: <?php echo $styles['cookster_message_font_color'];?>;
-                font-size: <?php echo $styles['cookster_message_font_size'];?>px;
+                background-color: <?php echo $styles['cookimize_message_background_color'];?>;
+                color: <?php echo $styles['cookimize_message_font_color'];?>;
+                font-size: <?php echo $styles['cookimize_message_font_size'];?>px;
                 padding: 20px;
                 border-radius: 5px;
                 box-shadow: 0 6px 6px rgba(0, 0, 0, 0.25);
@@ -100,9 +100,9 @@ class CS_Public {
                 left: 30px;
                 top: 30px;
                 max-width: 375px;
-                background-color: <?php echo $styles['cookster_message_background_color'];?>;
-                color: <?php echo $styles['cookster_message_font_color'];?>;
-                font-size: <?php echo $styles['cookster_message_font_size'];?>px;
+                background-color: <?php echo $styles['cookimize_message_background_color'];?>;
+                color: <?php echo $styles['cookimize_message_font_color'];?>;
+                font-size: <?php echo $styles['cookimize_message_font_size'];?>px;
                 padding: 20px;
                 border-radius: 5px;
                 box-shadow: 0 6px 6px rgba(0, 0, 0, 0.25);
@@ -119,9 +119,9 @@ class CS_Public {
                 right: 30px;
                 top: 30px;
                 max-width: 375px;
-                background-color: <?php echo $styles['cookster_message_background_color'];?>;
-                color: <?php echo $styles['cookster_message_font_color'];?>;
-                font-size: <?php echo $styles['cookster_message_font_size'];?>px;
+                background-color: <?php echo $styles['cookimize_message_background_color'];?>;
+                color: <?php echo $styles['cookimize_message_font_color'];?>;
+                font-size: <?php echo $styles['cookimize_message_font_size'];?>px;
                 padding: 20px;
                 border-radius: 5px;
                 box-shadow: 0 6px 6px rgba(0, 0, 0, 0.25);
@@ -137,9 +137,9 @@ class CS_Public {
                 left: 30px;
                 bottom: 30px;
                 max-width: 375px;
-                background-color: <?php echo $styles['cookster_message_background_color'];?>;
-                color: <?php echo $styles['cookster_message_font_color'];?>;
-                font-size: <?php echo $styles['cookster_message_font_size'];?>px;
+                background-color: <?php echo $styles['cookimize_message_background_color'];?>;
+                color: <?php echo $styles['cookimize_message_font_color'];?>;
+                font-size: <?php echo $styles['cookimize_message_font_size'];?>px;
                 padding: 20px;
                 border-radius: 5px;
                 box-shadow: 0 6px 6px rgba(0, 0, 0, 0.25);
@@ -156,9 +156,9 @@ class CS_Public {
                 right: 30px;
                 bottom: 30px;
                 max-width: 375px;
-                background-color: <?php echo $styles['cookster_message_background_color'];?>;
-                color: <?php echo $styles['cookster_message_font_color'];?>;
-                font-size: <?php echo $styles['cookster_message_font_size'];?>px;
+                background-color: <?php echo $styles['cookimize_message_background_color'];?>;
+                color: <?php echo $styles['cookimize_message_font_color'];?>;
+                font-size: <?php echo $styles['cookimize_message_font_size'];?>px;
                 padding: 20px;
                 border-radius: 5px;
                 box-shadow: 0 6px 6px rgba(0, 0, 0, 0.25);
@@ -172,22 +172,22 @@ class CS_Public {
 	?>
 
             #gdpr-cookie-message h4 {
-                color: <?php echo $styles['cookster_headline_font_color'];?>;
-                font-size: <?php echo $styles['cookster_headline_font_size'];?>px;
+                color: <?php echo $styles['cookimize_headline_font_color'];?>;
+                font-size: <?php echo $styles['cookimize_headline_font_size'];?>px;
                 font-weight: 500;
                 margin-bottom: 10px;
             }
 
             #gdpr-cookie-message h5 {
-                color: <?php echo $styles['cookster_headline_font_color'];?>;
-                font-size: calc(<?php echo $styles['cookster_headline_font_size'];?>px - 4px);
+                color: <?php echo $styles['cookimize_headline_font_color'];?>;
+                font-size: calc(<?php echo $styles['cookimize_headline_font_size'];?>px - 4px);
                 font-weight: 500;
                 margin-bottom: 10px;
             }
 
             #gdpr-cookie-message p, #gdpr-cookie-message ul {
-                color: <?php echo $styles['cookster_message_font_color'];?>;
-                font-size: <?php echo $styles['cookster_message_font_size'];?>px;
+                color: <?php echo $styles['cookimize_message_font_color'];?>;
+                font-size: <?php echo $styles['cookimize_message_font_size'];?>px;
                 line-height: 1.5em;
             }
 
@@ -202,9 +202,9 @@ class CS_Public {
             }
 
             #gdpr-cookie-message a {
-                color: <?php echo $styles['cookster_link_font_color'];?>;
+                color: <?php echo $styles['cookimize_link_font_color'];?>;
                 text-decoration: none;
-                font-size: <?php echo $styles['cookster_message_font_size'];?>px;
+                font-size: <?php echo $styles['cookimize_message_font_size'];?>px;
                 padding-bottom: 2px;
                 border-bottom: 1px dotted rgba(255, 255, 255, 0.75);
                 transition: all 0.3s ease-in;
@@ -212,15 +212,15 @@ class CS_Public {
 
             #gdpr-cookie-message a:hover {
                 color: white;
-                border-bottom-color: <?php echo $styles['cookster_link_font_color'];?>;
+                border-bottom-color: <?php echo $styles['cookimize_link_font_color'];?>;
                 transition: all 0.3s ease-in;
             }
 
             #gdpr-cookie-message button {
                 border: none;
-                background: <?php echo $styles['cookster_accept_background_color'];?>;
-                color: <?php echo $styles['cookster_accept_font_color'];?>;
-                font-size: <?php echo $styles['cookster_button_font_size'];?>px;
+                background: <?php echo $styles['cookimize_accept_background_color'];?>;
+                color: <?php echo $styles['cookimize_accept_font_color'];?>;
+                font-size: <?php echo $styles['cookimize_button_font_size'];?>px;
                 padding: 7px;
                 border-radius: 3px;
                 margin-left: 15px;
@@ -233,9 +233,9 @@ class CS_Public {
             }
 
             button#gdpr-cookie-advanced {
-                background: <?php echo $styles['cookster_customize_background_color'];?>;
-                color: <?php echo $styles['cookster_customize_font_color'];?>;
-                font-size: <?php echo $styles['cookster_button_font_size'];?>px;
+                background: <?php echo $styles['cookimize_customize_background_color'];?>;
+                color: <?php echo $styles['cookimize_customize_font_color'];?>;
+                font-size: <?php echo $styles['cookimize_button_font_size'];?>px;
             }
 
             button#gdpr-cookie-advanced:hover {
@@ -251,15 +251,15 @@ class CS_Public {
                 margin-top: 0;
                 margin-right: 5px;
             }
-            .cookster-alternate-text {
-                background-color: <?php echo $styles['cookster_message_background_color'];?>;
-                color: <?php echo $styles['cookster_message_font_color'];?>;
+            .cookimize-alternate-text {
+                background-color: <?php echo $styles['cookimize_message_background_color'];?>;
+                color: <?php echo $styles['cookimize_message_font_color'];?>;
                 padding: 10px 15px;
                 text-align: center;
                 border-radius: 5px;
                 box-shadow: 0 6px 6px rgba(0, 0, 0, 0.25);
             }
-            .cookster-alternate-text h5,  .cookster-alternate-text p {
+            .cookimize-alternate-text h5,  .cookimize-alternate-text p {
             margin:0px;
             }
 
@@ -276,27 +276,27 @@ class CS_Public {
 	 */
 	public function get_default_styles() {
 
-		$styles = get_option( 'cookster_style' );
+		$styles = get_option( 'cookimize_style' );
 
 		if ( ! is_array( $styles ) ) {
 
 			$default_styles = array(
-				'cookster_headline_font_color'        => '#ffffff',
-				'cookster_headline_font_size'         => '20',
-				'cookster_message_position'           => 'bottom-right',
-				'cookster_message_background_color'   => '#a5b1c2',
-				'cookster_message_font_color'         => '#ffffff',
-				'cookster_message_font_size'          => '14',
-				'cookster_link_font_color'            => '#ffffff',
-				'cookster_accept_background_color'    => '#4b6584',
-				'cookster_accept_font_color'          => '#ffffff',
-				'cookster_customize_background_color' => '#ffffff',
-				'cookster_customize_font_color'       => '#4b6584',
-				'cookster_button_font_size'           => '12',
+				'cookimize_headline_font_color'        => '#ffffff',
+				'cookimize_headline_font_size'         => '20',
+				'cookimize_message_position'           => 'bottom-right',
+				'cookimize_message_background_color'   => '#a5b1c2',
+				'cookimize_message_font_color'         => '#ffffff',
+				'cookimize_message_font_size'          => '14',
+				'cookimize_link_font_color'            => '#ffffff',
+				'cookimize_accept_background_color'    => '#4b6584',
+				'cookimize_accept_font_color'          => '#ffffff',
+				'cookimize_customize_background_color' => '#ffffff',
+				'cookimize_customize_font_color'       => '#4b6584',
+				'cookimize_button_font_size'           => '12',
 
 			);
 
-			update_option( 'cookster_style', $default_styles );
+			update_option( 'cookimize_style', $default_styles );
 
 		}
 	}
@@ -306,23 +306,23 @@ class CS_Public {
 	 */
 	public function get_default_settings() {
 
-		$options = get_option( 'cookster_options' );
+		$options = get_option( 'cookimize_options' );
 
 		if ( ! is_array( $options ) ) {
 
 			$default_options = array(
-				'cookster_cookie_message_headline' => 'Cookies & Privacy',
-				'cookster_cookie_message'          => 'This website uses cookies to ensure you get the best experience on our website.',
-				'cookster_seconds_before_trigger'  => 2,
-				'cookster_expiration_time'         => 1,
-				'cookster_select_privacy_page'     => 'yes',
-				'cookster_button_label'            => 'Accept Cookies',
-				'cookster_customize_label'         => 'Customize Cookies',
-				'cookster_select_privacy_slug'     => 'privacy',
-				'cookster_select_privacy_link'     => 'More information',
+				'cookimize_cookie_message_headline' => 'Cookies & Privacy',
+				'cookimize_cookie_message'          => 'This website uses cookies to ensure you get the best experience on our website.',
+				'cookimize_seconds_before_trigger'  => 2,
+				'cookimize_expiration_time'         => 1,
+				'cookimize_select_privacy_page'     => 'yes',
+				'cookimize_button_label'            => 'Accept Cookies',
+				'cookimize_customize_label'         => 'Customize Cookies',
+				'cookimize_select_privacy_slug'     => 'privacy',
+				'cookimize_select_privacy_link'     => 'More information',
 			);
 
-			update_option( 'cookster_options', $default_options );
+			update_option( 'cookimize_options', $default_options );
 		}
 
 	}
@@ -331,7 +331,7 @@ class CS_Public {
 
 		if ( $_COOKIE['cookieControl'] === 'true' ) {
 
-			$gdpr = get_option( 'cookster_gdpr' );
+			$gdpr = get_option( 'cookimize_gdpr' );
 
 			/* add tracking codes based on selection */
 
@@ -352,7 +352,7 @@ class CS_Public {
                         m.parentNode.insertBefore(a, m)
                     })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-                    ga('create', <?php echo $gdpr['cookster_ga_code'];?>, 'auto');
+                    ga('create', <?php echo $gdpr['cookimize_ga_code'];?>, 'auto');
                     ga('send', 'pageview');
                     ga('set', 'anonymizeIp', true);
                 </script>
@@ -383,12 +383,12 @@ class CS_Public {
                     }(window,
                         document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
                     // Insert Your Facebook Pixel ID below.
-                    fbq('init', <?php echo $gdpr['cookster_fb_code'];?>);
+                    fbq('init', <?php echo $gdpr['cookimize_fb_code'];?>);
                     fbq('track', 'PageView');
                 </script>
                 <!-- Insert Your Facebook Pixel ID below. -->
                 <noscript><img height="1" width="1" style="display:none"
-                               src="https://www.facebook.com/tr?id=<?php echo $gdpr['cookster_fb_code']; ?>&amp;ev=PageView&amp;noscript=1"
+                               src="https://www.facebook.com/tr?id=<?php echo $gdpr['cookimize_fb_code']; ?>&amp;ev=PageView&amp;noscript=1"
                     /></noscript>
                 <!-- End Facebook Pixel Code -->
 				<?php
@@ -397,12 +397,12 @@ class CS_Public {
 
 			if ( in_array( 'custom_code_1', $cookie_preferences ) ) {
 
-				echo $gdpr['cookster_custom_code_1'];
+				echo $gdpr['cookimize_custom_code_1'];
 			}
 
 			if ( in_array( 'custom_code_2', $cookie_preferences ) ) {
 
-				echo $gdpr['cookster_custom_code_1'];
+				echo $gdpr['cookimize_custom_code_1'];
 			}
 
 		}
