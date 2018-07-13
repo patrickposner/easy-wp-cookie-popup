@@ -30,4 +30,7 @@ if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 cookimize\CS_Activation::init();
 cookimize\CS_Admin::get_instance();
 cookimize\CS_Public::get_instance();
-cookimize\CS_Iframe::get_instance();
+
+if ( cookimize_fs()->is_plan__premium_only( 'pro' ) ) {
+	cookimize\CS_Iframe::get_instance();
+}

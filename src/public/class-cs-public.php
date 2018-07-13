@@ -4,7 +4,6 @@ namespace cookimize;
 
 class CS_Public {
 
-
 	/**
 	 * CS_Public constructor.
 	 */

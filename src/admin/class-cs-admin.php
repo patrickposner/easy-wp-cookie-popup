@@ -131,28 +131,56 @@ class CS_Admin {
 			)
 		);
 
-		$settings->add_field(
-			'cookimize_style',
-			array(
-				'id'          => 'cookimize_headline_font_color',
-				'type'        => 'color',
-				'name'        => __( 'Headline Font Color', 'easy-wp-cookie-popup' ),
-				'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
-				'premium'     => 'premium'
-			) );
+		if ( ! cookimize_fs()->is_plan__premium_only( 'pro' ) ) {
 
+			$settings->add_field(
+				'cookimize_style',
+				array(
+					'id'          => 'cookimize_headline_font_color',
+					'type'        => 'color',
+					'name'        => __( 'Headline Font Color', 'easy-wp-cookie-popup' ),
+					'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
+					'premium'     => 'premium'
+				) );
 
-		$settings->add_field(
-			'cookimize_style',
-			array(
-				'id'      => 'cookimize_headline_font_size',
-				'type'    => 'text',
-				'name'    => __( 'Headline Font Size (px)', 'easy-wp-cookie-popup' ),
-				'default' => '20',
-				'premium' => 'premium'
-			)
-		);
+		} else {
 
+			$settings->add_field(
+				'cookimize_style',
+				array(
+					'id'          => 'cookimize_headline_font_color',
+					'type'        => 'color',
+					'name'        => __( 'Headline Font Color', 'easy-wp-cookie-popup' ),
+					'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
+				) );
+
+		}
+
+		if ( ! cookimize_fs()->is_plan__premium_only( 'pro' ) ) {
+
+			$settings->add_field(
+				'cookimize_style',
+				array(
+					'id'      => 'cookimize_headline_font_size',
+					'type'    => 'text',
+					'name'    => __( 'Headline Font Size (px)', 'easy-wp-cookie-popup' ),
+					'default' => '20',
+					'premium' => 'premium'
+				)
+			);
+		} else {
+
+			$settings->add_field(
+				'cookimize_style',
+				array(
+					'id'      => 'cookimize_headline_font_size',
+					'type'    => 'text',
+					'name'    => __( 'Headline Font Size (px)', 'easy-wp-cookie-popup' ),
+					'default' => '20',
+				)
+			);
+
+		}
 
 		$settings->add_field(
 			'cookimize_style',
@@ -162,6 +190,7 @@ class CS_Admin {
 				'name' => '<h3>' . __( 'Message', 'easy-wp-cookie-popup' ) . '</h3>',
 			)
 		);
+
 
 		$settings->add_field(
 			'cookimize_style',
@@ -179,107 +208,254 @@ class CS_Admin {
 			)
 		);
 
-		$settings->add_field(
-			'cookimize_style',
-			array(
-				'id'          => 'cookimize_message_background_color',
-				'type'        => 'color',
-				'name'        => __( 'Message Background Color', 'easy-wp-cookie-popup' ),
-				'placeholder' => __( '#D4D8E0', 'easy-wp-cookie-popup' ),
-				'premium'     => 'premium'
-			) );
+		if ( ! cookimize_fs()->is_plan__premium_only( 'pro' ) ) {
+			$settings->add_field(
+				'cookimize_style',
+				array(
+					'id'          => 'cookimize_message_background_color',
+					'type'        => 'color',
+					'name'        => __( 'Message Background Color', 'easy-wp-cookie-popup' ),
+					'placeholder' => __( '#D4D8E0', 'easy-wp-cookie-popup' ),
+					'premium'     => 'premium'
+				) );
 
-		$settings->add_field(
-			'cookimize_style',
-			array(
-				'id'          => 'cookimize_message_font_color',
-				'type'        => 'color',
-				'name'        => __( 'Message Font Color', 'easy-wp-cookie-popup' ),
-				'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
-				'premium'     => 'premium'
-			) );
+		} else {
 
-		$settings->add_field(
-			'cookimize_style',
-			array(
-				'id'      => 'cookimize_message_font_size',
-				'type'    => 'text',
-				'name'    => __( 'Message Font Size (px)', 'easy-wp-cookie-popup' ),
-				'default' => '14',
-				'premium' => 'premium',
-			)
-		);
+			$settings->add_field(
+				'cookimize_style',
+				array(
+					'id'          => 'cookimize_message_background_color',
+					'type'        => 'color',
+					'name'        => __( 'Message Background Color', 'easy-wp-cookie-popup' ),
+					'placeholder' => __( '#D4D8E0', 'easy-wp-cookie-popup' ),
+				) );
+		}
 
-		$settings->add_field(
-			'cookimize_style',
-			array(
-				'id'          => 'cookimize_link_font_color',
-				'type'        => 'color',
-				'name'        => __( 'Link Font Color', 'easy-wp-cookie-popup' ),
-				'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
-				'premium'     => 'premium'
-			) );
+		if ( ! cookimize_fs()->is_plan__premium_only( 'pro' ) ) {
 
-		$settings->add_field(
-			'cookimize_style',
-			array(
-				'id'      => 'cookimize_button_styles',
-				'type'    => 'title',
-				'name'    => '<h3>' . __( 'Buttons', 'easy-wp-cookie-popup' ) . '</h3>',
-				'premium' => 'premium',
-			)
-		);
+			$settings->add_field(
+				'cookimize_style',
+				array(
+					'id'          => 'cookimize_message_font_color',
+					'type'        => 'color',
+					'name'        => __( 'Message Font Color', 'easy-wp-cookie-popup' ),
+					'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
+					'premium'     => 'premium'
+				) );
 
-		$settings->add_field(
-			'cookimize_style',
-			array(
-				'id'          => 'cookimize_accept_background_color',
-				'type'        => 'color',
-				'name'        => __( 'Accept Button Background Color', 'easy-wp-cookie-popup' ),
-				'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
-				'premium'     => 'premium'
-			) );
+		} else {
 
-		$settings->add_field(
-			'cookimize_style',
-			array(
-				'id'          => 'cookimize_accept_font_color',
-				'type'        => 'color',
-				'name'        => __( 'Accept Button Font Color', 'easy-wp-cookie-popup' ),
-				'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
-				'premium'     => 'premium'
-			) );
+			$settings->add_field(
+				'cookimize_style',
+				array(
+					'id'          => 'cookimize_message_font_color',
+					'type'        => 'color',
+					'name'        => __( 'Message Font Color', 'easy-wp-cookie-popup' ),
+					'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
+				) );
 
-		$settings->add_field(
-			'cookimize_style',
-			array(
-				'id'          => 'cookimize_customise_background_color',
-				'type'        => 'color',
-				'name'        => __( 'Customise Button Background Color', 'easy-wp-cookie-popup' ),
-				'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
-				'premium'     => 'premium'
-			) );
+		}
 
-		$settings->add_field(
-			'cookimize_style',
-			array(
-				'id'          => 'cookimize_customise_font_color',
-				'type'        => 'color',
-				'name'        => __( 'Customise Button Font Color', 'easy-wp-cookie-popup' ),
-				'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
-				'premium'     => 'premium'
-			) );
+		if ( ! cookimize_fs()->is_plan__premium_only( 'pro' ) ) {
 
-		$settings->add_field(
-			'cookimize_style',
-			array(
-				'id'      => 'cookimize_button_font_size',
-				'type'    => 'text',
-				'name'    => __( 'Button Font Size (px)', 'easy-wp-cookie-popup' ),
-				'default' => '14',
-				'premium' => 'premium'
-			)
-		);
+			$settings->add_field(
+				'cookimize_style',
+				array(
+					'id'      => 'cookimize_message_font_size',
+					'type'    => 'text',
+					'name'    => __( 'Message Font Size (px)', 'easy-wp-cookie-popup' ),
+					'default' => '14',
+					'premium' => 'premium',
+				)
+			);
+
+		} else {
+
+			$settings->add_field(
+				'cookimize_style',
+				array(
+					'id'      => 'cookimize_message_font_size',
+					'type'    => 'text',
+					'name'    => __( 'Message Font Size (px)', 'easy-wp-cookie-popup' ),
+					'default' => '14',
+				)
+			);
+
+		}
+
+		if ( ! cookimize_fs()->is_plan__premium_only( 'pro' ) ) {
+
+			$settings->add_field(
+				'cookimize_style',
+				array(
+					'id'          => 'cookimize_link_font_color',
+					'type'        => 'color',
+					'name'        => __( 'Link Font Color', 'easy-wp-cookie-popup' ),
+					'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
+					'premium'     => 'premium'
+				) );
+
+		} else {
+
+			$settings->add_field(
+				'cookimize_style',
+				array(
+					'id'          => 'cookimize_link_font_color',
+					'type'        => 'color',
+					'name'        => __( 'Link Font Color', 'easy-wp-cookie-popup' ),
+					'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
+				) );
+
+		}
+
+		if ( ! cookimize_fs()->is_plan__premium_only( 'pro' ) ) {
+
+			$settings->add_field(
+				'cookimize_style',
+				array(
+					'id'      => 'cookimize_button_styles',
+					'type'    => 'title',
+					'name'    => '<h3>' . __( 'Buttons', 'easy-wp-cookie-popup' ) . '</h3>',
+					'premium' => 'premium',
+				)
+			);
+
+		} else {
+
+			$settings->add_field(
+				'cookimize_style',
+				array(
+					'id'   => 'cookimize_button_styles',
+					'type' => 'title',
+					'name' => '<h3>' . __( 'Buttons', 'easy-wp-cookie-popup' ) . '</h3>',
+				)
+			);
+
+		}
+
+		if ( ! cookimize_fs()->is_plan__premium_only( 'pro' ) ) {
+			$settings->add_field(
+				'cookimize_style',
+				array(
+					'id'          => 'cookimize_accept_background_color',
+					'type'        => 'color',
+					'name'        => __( 'Accept Button Background Color', 'easy-wp-cookie-popup' ),
+					'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
+					'premium'     => 'premium'
+				) );
+
+		} else {
+
+			$settings->add_field(
+				'cookimize_style',
+				array(
+					'id'          => 'cookimize_accept_background_color',
+					'type'        => 'color',
+					'name'        => __( 'Accept Button Background Color', 'easy-wp-cookie-popup' ),
+					'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
+				) );
+
+		}
+
+		if ( ! cookimize_fs()->is_plan__premium_only( 'pro' ) ) {
+
+			$settings->add_field(
+				'cookimize_style',
+				array(
+					'id'          => 'cookimize_accept_font_color',
+					'type'        => 'color',
+					'name'        => __( 'Accept Button Font Color', 'easy-wp-cookie-popup' ),
+					'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
+					'premium'     => 'premium'
+				) );
+
+		} else {
+
+			$settings->add_field(
+				'cookimize_style',
+				array(
+					'id'          => 'cookimize_accept_font_color',
+					'type'        => 'color',
+					'name'        => __( 'Accept Button Font Color', 'easy-wp-cookie-popup' ),
+					'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
+				) );
+
+		}
+
+		if ( ! cookimize_fs()->is_plan__premium_only( 'pro' ) ) {
+
+			$settings->add_field(
+				'cookimize_style',
+				array(
+					'id'          => 'cookimize_customise_background_color',
+					'type'        => 'color',
+					'name'        => __( 'Customise Button Background Color', 'easy-wp-cookie-popup' ),
+					'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
+					'premium'     => 'premium'
+				) );
+
+		} else {
+
+			$settings->add_field(
+				'cookimize_style',
+				array(
+					'id'          => 'cookimize_customise_background_color',
+					'type'        => 'color',
+					'name'        => __( 'Customise Button Background Color', 'easy-wp-cookie-popup' ),
+					'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
+				) );
+		}
+
+		if ( ! cookimize_fs()->is_plan__premium_only( 'pro' ) ) {
+
+			$settings->add_field(
+				'cookimize_style',
+				array(
+					'id'          => 'cookimize_customise_font_color',
+					'type'        => 'color',
+					'name'        => __( 'Customise Button Font Color', 'easy-wp-cookie-popup' ),
+					'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
+					'premium'     => 'premium'
+				) );
+
+		} else {
+
+			$settings->add_field(
+				'cookimize_style',
+				array(
+					'id'          => 'cookimize_customise_font_color',
+					'type'        => 'color',
+					'name'        => __( 'Customise Button Font Color', 'easy-wp-cookie-popup' ),
+					'placeholder' => __( '#000000', 'easy-wp-cookie-popup' ),
+				) );
+
+		}
+
+		if ( ! cookimize_fs()->is_plan__premium_only( 'pro' ) ) {
+
+			$settings->add_field(
+				'cookimize_style',
+				array(
+					'id'      => 'cookimize_button_font_size',
+					'type'    => 'text',
+					'name'    => __( 'Button Font Size (px)', 'easy-wp-cookie-popup' ),
+					'default' => '14',
+					'premium' => 'premium'
+				)
+			);
+		} else {
+
+			$settings->add_field(
+				'cookimize_style',
+				array(
+					'id'      => 'cookimize_button_font_size',
+					'type'    => 'text',
+					'name'    => __( 'Button Font Size (px)', 'easy-wp-cookie-popup' ),
+					'default' => '14',
+				)
+			);
+
+		}
 
 		/* Tab: GDRP */
 
@@ -346,37 +522,89 @@ class CS_Admin {
 				'name' => '<h3>' . __( 'iframes', 'easy-wp-cookie-popup' ) . '</h3>',
 			)
 		);
-		$settings->add_field(
-			'cookimize_gdpr',
-			array(
-				'id'      => 'cookimize_toggle_iframes',
-				'type'    => 'toggle',
-				'default' => 'off',
-				'name'    => __( 'Block iframes until cookie accepted', 'easy-wp-cookie-popup' ),
-				'premium' => 'premium'
-			)
-		);
-		$settings->add_field(
-			'cookimize_gdpr',
-			array(
-				'id'          => 'cookimize_iframe_label',
-				'type'        => 'text',
-				'name'        => __( 'Checkbox-Label', 'easy-wp-cookie-popup' ),
-				'placeholder' => 'Youtube, Google Maps, Vimeo',
-				'premium'     => 'premium'
-			)
-		);
 
-		$settings->add_field(
-			'cookimize_gdpr',
-			array(
-				'id'      => 'cookimize_iframe_alternate_content',
-				'type'    => 'textarea',
-				'name'    => __( 'Alternate Content', 'easy-wp-cookie-popup' ),
-				'default' => 'To show this content you have to accept our cookies.',
-				'premium' => 'premium'
-			)
-		);
+		if ( ! cookimize_fs()->is_plan__premium_only( 'pro' ) ) {
+
+			$settings->add_field(
+				'cookimize_gdpr',
+				array(
+					'id'      => 'cookimize_toggle_iframes',
+					'type'    => 'toggle',
+					'default' => 'off',
+					'name'    => __( 'Block iframes until cookie accepted', 'easy-wp-cookie-popup' ),
+					'premium' => 'premium'
+				)
+			);
+
+		} else {
+
+			$settings->add_field(
+				'cookimize_gdpr',
+				array(
+					'id'      => 'cookimize_toggle_iframes',
+					'type'    => 'toggle',
+					'default' => 'off',
+					'name'    => __( 'Block iframes until cookie accepted', 'easy-wp-cookie-popup' ),
+				)
+			);
+
+
+		}
+
+		if ( ! cookimize_fs()->is_plan__premium_only( 'pro' ) ) {
+
+
+			$settings->add_field(
+				'cookimize_gdpr',
+				array(
+					'id'          => 'cookimize_iframe_label',
+					'type'        => 'text',
+					'name'        => __( 'Checkbox-Label', 'easy-wp-cookie-popup' ),
+					'placeholder' => 'Youtube, Google Maps, Vimeo',
+					'premium'     => 'premium'
+				)
+			);
+		} else {
+
+			$settings->add_field(
+				'cookimize_gdpr',
+				array(
+					'id'          => 'cookimize_iframe_label',
+					'type'        => 'text',
+					'name'        => __( 'Checkbox-Label', 'easy-wp-cookie-popup' ),
+					'placeholder' => 'Youtube, Google Maps, Vimeo',
+				)
+			);
+
+		}
+
+		if ( ! cookimize_fs()->is_plan__premium_only( 'pro' ) ) {
+
+			$settings->add_field(
+				'cookimize_gdpr',
+				array(
+					'id'      => 'cookimize_iframe_alternate_content',
+					'type'    => 'textarea',
+					'name'    => __( 'Alternate Content', 'easy-wp-cookie-popup' ),
+					'default' => 'To show this content you have to accept our cookies.',
+					'premium' => 'premium'
+				)
+			);
+
+		} else {
+
+			$settings->add_field(
+				'cookimize_gdpr',
+				array(
+					'id'      => 'cookimize_iframe_alternate_content',
+					'type'    => 'textarea',
+					'name'    => __( 'Alternate Content', 'easy-wp-cookie-popup' ),
+					'default' => 'To show this content you have to accept our cookies.',
+				)
+			);
+
+		}
+
 		$settings->add_field(
 			'cookimize_gdpr',
 			array(
