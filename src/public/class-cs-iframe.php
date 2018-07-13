@@ -12,7 +12,7 @@ class CS_Iframe {
 
 			$cookie_preferences = json_decode( stripslashes( $_COOKIE['cookieControlPrefs'] ) );
 
-			if ( ! in_array( 'iframe', $cookie_preferences ) ) {
+			if ( is_array( $cookie_preferences ) && ! in_array( 'iframe', $cookie_preferences ) ) {
 
 				add_filter( 'the_content', array( $this, 'search_frames' ), 100, 1 );
 				add_filter( 'embed_oembed_html', array( $this, 'search_frames' ), 100, 1 );
