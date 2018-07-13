@@ -66,22 +66,6 @@ class CS_Activation {
 				. '</p> <a href="' . admin_url( 'plugins.php' ) . '">' . __( 'go back', 'easy-wp-cookie-popup' ) . '</a>'
 			);
 		}
-
-		if ( ! is_multisite() ) {
-
-			// Check if woocommerce is active
-			if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-				deactivate_plugins( basename( __FILE__ ) );
-				wp_die(
-					'<p>' .
-					sprintf(
-						__( 'This plugin can not be activated because it requires a active version of the WooCommerce plugin. Please go to Plugins and install WooCommerce.', 'easy-wp-cookie-popup' ),
-						$php
-					)
-					. '</p> <a href="' . admin_url( 'plugins.php' ) . '">' . __( 'go back', 'easy-wp-cookie-popup' ) . '</a>'
-				);
-			}
-		}
 	}
 
 }
