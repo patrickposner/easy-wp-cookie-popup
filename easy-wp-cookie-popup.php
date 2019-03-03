@@ -5,13 +5,13 @@ Text Domain: easy-wp-cookie-popup
 Domain Path: /languages
 Description: A simple plugin for integrating a GDPR conform cookie solution
 Author: patrickposner
-Version: 2.0
+Version: 2.1
 */
 
 define( 'COOKIMIZE_ABSPATH', dirname( __FILE__ ) . DIRECTORY_SEPARATOR );
 define( 'COOKIMIZE_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
-define( "COOKIMIZE_PATH", untrailingslashit( plugin_dir_path( __FILE__ ) ) );
-define( "COOKIMIZE_URL", untrailingslashit( plugin_dir_url( __FILE__ ) ) );
+define( 'COOKIMIZE_PATH', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
+define( 'COOKIMIZE_URL', untrailingslashit( plugin_dir_url( __FILE__ ) ) );
 
 /* load setup */
 require_once( COOKIMIZE_ABSPATH . 'inc' . DIRECTORY_SEPARATOR . 'setup.php' );

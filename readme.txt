@@ -2,9 +2,9 @@
 Contributors: patrickposner
 Tags: gdpr, gpdr cookie, gdpr cookie consent, cookie, cookies, cookie law, cookie popup, cookie notification
 Requires at least: 4.1
-Tested up to: 4.9
+Tested up to: 5.1
 Requires PHP: 5.6
-Stable tag: 2.0
+Stable tag: 2.1
 
 
 Cookimize optimize your website for GPDR. Let users decide which cookies allowed and which not.
@@ -83,6 +83,12 @@ Cookimize GDPR Cookie Consent Solution is simple to install:
 1. Customise your cookie notification, style settings (pro) and GDPR settings.
 
 == Changelog ==
+
+= 2.1 =
+* freemius sdk security patch
+* fixed notices if options not set
+* new default colors
+* check if cookie exists before use it
 
 = 2.0 =
 * under new development
