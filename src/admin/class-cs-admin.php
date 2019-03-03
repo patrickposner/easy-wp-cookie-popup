@@ -561,7 +561,8 @@ class CS_Admin {
 					'type'        => 'text',
 					'name'        => __( 'Checkbox-Label', 'easy-wp-cookie-popup' ),
 					'placeholder' => 'Youtube, Google Maps, Vimeo',
-					'premium'     => 'premium'
+					'premium'     => 'premium',
+					'default'     => 'Youtube',
 				)
 			);
 		} else {
@@ -573,6 +574,7 @@ class CS_Admin {
 					'type'        => 'text',
 					'name'        => __( 'Checkbox-Label', 'easy-wp-cookie-popup' ),
 					'placeholder' => 'Youtube, Google Maps, Vimeo',
+					'default'     => 'Youtube',
 				)
 			);
 

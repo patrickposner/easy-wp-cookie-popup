@@ -13,17 +13,19 @@ class CS_Iframe {
 
 			$tracking = get_option( 'cookimize_gdpr' );
 
-			if ( is_null( $_COOKIE['cookieControl'] ) && $tracking['cookimize_toggle_iframes'] === 'on' ) {
+			if ( isset( $_COOKIE['cookieControl'] ) ) {
+				if ( 0 === $_COOKIE['cookieControl'] && 'on' === $tracking['cookimize_toggle_iframes'] ) {
 
-				$cookie_preferences = json_decode( stripslashes( $_COOKIE['cookieControlPrefs'] ) );
+					$cookie_preferences = json_decode( stripslashes( $_COOKIE['cookieControlPrefs'] ) );
 
-				if ( ! is_array( $cookie_preferences ) || ! in_array( 'iframe', $cookie_preferences ) ) {
+					if ( ! is_array( $cookie_preferences ) || ! in_array( 'iframe', $cookie_preferences ) ) {
 
-					add_filter( 'the_content', array( $this, 'search_frames' ), 100, 1 );
-					add_filter( 'embed_oembed_html', array( $this, 'search_frames' ), 100, 1 );
-					add_filter( 'widget_custom_html_content', array( $this, 'search_frames' ), 100, 1 );
-					add_filter( 'acf/format_value/type=oembed', array( $this, 'search_frames' ), 100, 3 );
-					add_filter( 'acf/format_value/type=textarea', array( $this, 'search_frames' ), 100, 3 );
+						add_filter( 'the_content', array( $this, 'search_frames' ), 100, 1 );
+						add_filter( 'embed_oembed_html', array( $this, 'search_frames' ), 100, 1 );
+						add_filter( 'widget_custom_html_content', array( $this, 'search_frames' ), 100, 1 );
+						add_filter( 'acf/format_value/type=oembed', array( $this, 'search_frames' ), 100, 3 );
+						add_filter( 'acf/format_value/type=textarea', array( $this, 'search_frames' ), 100, 3 );
+					}
 				}
 			}
 		}

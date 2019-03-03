@@ -33,6 +33,67 @@ class CS_Public {
 		$settings = get_option( 'cookimize_options' );
 		$gdpr     = get_option( 'cookimize_gdpr' );
 
+		if ( isset( $gdpr['cookimize_iframe_label'] ) && ! empty( $gdpr['cookimize_iframe_label'] ) ) {
+			$gdpr_iframe_label = $gdpr['cookimize_iframe_label'];
+		} else {
+			$gdpr_iframe_label = '';
+		}
+
+		if ( isset( $gdpr['cookimize_customise_label'] ) && ! empty( $gdpr['cookimize_customise_label'] ) ) {
+			$cookimize_customise_label = $gdpr['cookimize_customise_label'];
+		} else {
+			$cookimize_customise_label = __( 'Customize', 'easy-wp-cookie-popup' );
+		}
+
+
+		if ( isset( $gdpr['cookimize_custom_code_1_label'] ) && ! empty( $gdpr['cookimize_custom_code_1_label'] ) ) {
+			$cookimize_custom_code_1_label = $gdpr['cookimize_custom_code_1_label'];
+		} else {
+			$cookimize_custom_code_1_label = '';
+		}
+
+		if ( isset( $gdpr['cookimize_custom_code_2_label'] ) && ! empty( $gdpr['cookimize_custom_code_2_label'] ) ) {
+			$cookimize_custom_code_2_label = $gdpr['cookimize_custom_code_2_label'];
+		} else {
+			$cookimize_custom_code_2_label = '';
+		}
+
+		if ( isset( $gdpr['cookimize_fb_code'] ) && ! empty( $gdpr['cookimize_fb_code'] ) ) {
+			$cookimize_fb_code = $gdpr['cookimize_fb_code'];
+		} else {
+			$cookimize_fb_code = '';
+		}
+
+		if ( isset( $gdpr['ga_label'] ) && ! empty( $gdpr['ga_label'] ) ) {
+			$ga_label = $gdpr['ga_label'];
+		} else {
+			$ga_label = '';
+		}
+
+		if ( isset( $gdpr['fb_label'] ) && ! empty( $gdpr['fb_label'] ) ) {
+			$fb_label = $gdpr['fb_label'];
+		} else {
+			$fb_label = '';
+		}
+
+		if ( isset( $gdpr['cookimize_toggle_iframes'] ) && ! empty( $gdpr['cookimize_toggle_iframes'] ) ) {
+			$cookimize_toggle_iframes = $gdpr['cookimize_toggle_iframes'];
+		} else {
+			$cookimize_toggle_iframes = '';
+		}
+
+		if ( isset( $gdpr['deactivate_all_cookies'] ) && ! empty( $gdpr['deactivate_all_cookies'] ) ) {
+			$deactivate_all_cookies = $gdpr['deactivate_all_cookies'];
+		} else {
+			$deactivate_all_cookies = '';
+		}
+
+		if ( isset( $gdpr['cookimize_toggle_checkboxes'] ) && ! empty( $gdpr['cookimize_toggle_checkboxes'] ) ) {
+			$cookimize_toggle_checkboxes = $gdpr['cookimize_toggle_checkboxes'];
+		} else {
+			$cookimize_toggle_checkboxes = false;
+		}
+
 		wp_localize_script( 'cookimize-cookie-js', 'cookimize', array(
 			'headline'               => $settings['cookimize_cookie_message_headline'],
 			'message'                => $settings['cookimize_cookie_message'],
@@ -41,20 +102,19 @@ class CS_Public {
 			'privacy_page'           => get_bloginfo( 'url' ) . DIRECTORY_SEPARATOR . $settings['cookimize_select_privacy_slug'],
 			'privacy_page_text'      => $settings['cookimize_select_privacy_link'],
 			'accept'                 => $settings['cookimize_button_label'],
-			'customize'              => $settings['cookimize_customise_label'],
+			'customize'              => $cookimize_customise_label,
 			'cookie_type_title'      => __( 'Select cookies to accept', 'easy-wp-cookie-popup' ),
-			'checkboxes_checked'     => $gdpr['cookimize_toggle_checkboxes'],
-			'deactivate_all_cookies' => $gdpr['cookimize_toggle_deactivate_all_cookies'],
-			'iframes'                => $gdpr['cookimize_toggle_iframes'],
-			'ga_label'               => $gdpr['cookimize_ga_code_label'],
-			'fb_label'               => $gdpr['cookimize_fb_code_label'],
-			'fb_code'                => $gdpr['cookimize_fb_code'],
-			'custom_code_1_label'    => $gdpr['cookimize_custom_code_1_label'],
-			'custom_code_2_label'    => $gdpr['cookimize_custom_code_2_label'],
-			'iframe_label'           => $gdpr['cookimize_iframe_label'],
-			'necessary'              => __( 'Necessary Cookies', 'easy-wp-cookie-popup' )
+			'checkboxes_checked'     => $cookimize_toggle_checkboxes,
+			'deactivate_all_cookies' => $deactivate_all_cookies,
+			'iframes'                => $cookimize_toggle_iframes,
+			'ga_label'               => $ga_label,
+			'fb_label'               => $fb_label,
+			'fb_code'                => $cookimize_fb_code,
+			'custom_code_1_label'    => $cookimize_custom_code_1_label,
+			'custom_code_2_label'    => $cookimize_custom_code_2_label,
+			'iframe_label'           => $gdpr_iframe_label,
+			'necessary'              => __( 'Necessary Cookies', 'easy-wp-cookie-popup' ),
 		) );
-
 
 	}
 
@@ -285,17 +345,17 @@ class CS_Public {
 		if ( ! is_array( $styles ) ) {
 
 			$default_styles = array(
-				'cookimize_headline_font_color'        => '#ffffff',
+				'cookimize_headline_font_color'        => '#4b6584',
 				'cookimize_headline_font_size'         => '20',
 				'cookimize_message_position'           => 'bottom-right',
-				'cookimize_message_background_color'   => '#a5b1c2',
-				'cookimize_message_font_color'         => '#ffffff',
+				'cookimize_message_background_color'   => '#FFFFFF',
+				'cookimize_message_font_color'         => '#4b6584',
 				'cookimize_message_font_size'          => '14',
 				'cookimize_link_font_color'            => '#ffffff',
 				'cookimize_accept_background_color'    => '#4b6584',
 				'cookimize_accept_font_color'          => '#ffffff',
-				'cookimize_customize_background_color' => '#ffffff',
-				'cookimize_customize_font_color'       => '#4b6584',
+				'cookimize_customize_background_color' => '#4b6584',
+				'cookimize_customize_font_color'       => '#ffffff',
 				'cookimize_button_font_size'           => '12',
 
 			);
@@ -333,7 +393,7 @@ class CS_Public {
 
 	public function add_tracking_code() {
 
-		if ( $_COOKIE['cookieControl'] === 'true' ) {
+		if ( isset( $_COOKIE['cookieControl'] ) && 'true' === $_COOKIE['cookieControl'] ) {
 
 			$gdpr = get_option( 'cookimize_gdpr' );
 
