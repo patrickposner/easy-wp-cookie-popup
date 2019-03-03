@@ -13,12 +13,14 @@ function cookimize_fs() {
 			'type'                => 'plugin',
 			'public_key'          => 'pk_4c3f34537d04709eff0922c07d81e',
 			'is_premium'          => true,
+			'premium_suffix'      => '',
 			// If your plugin is a serviceware, set this option to false.
 			'has_premium_version' => true,
 			'has_addons'          => false,
 			'has_paid_plans'      => true,
 			'menu'                => array(
 				'slug'           => 'cookimize',
+				'contact'        => false,
 				'support'        => false,
 				'parent'         => array(
 					'slug' => 'options-general.php',
