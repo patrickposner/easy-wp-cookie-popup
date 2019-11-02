@@ -7,11 +7,11 @@ namespace Composer\Autoload;
 class ComposerStaticInit4a2ffcbcab533095e98e5ad4d672dd27
 {
     public static $files = array (
-        'a90d7f8ed327b8e32cc85fb960f543fb' => __DIR__ . '/../..' . '/src/class-cs-activation.php',
-        '498b47ca789acf0456935ce594bbea7b' => __DIR__ . '/../..' . '/src/admin/class-cs-settings.php',
-        'c8604e4f20bd4114b737ab16606a0f00' => __DIR__ . '/../..' . '/src/admin/class-cs-admin.php',
-        '410436ca3991e0ce05e3ba4bc34400f2' => __DIR__ . '/../..' . '/src/public/class-cs-public.php',
-        '3853421c3bb7c97a1bc3f4bc169ef92b' => __DIR__ . '/../..' . '/src/public/class-cs-iframe.php',
+        '60c0cb75f742df0ac456094c45e7a5e0' => __DIR__ . '/../..' . '/src/class-ci-activation.php',
+        'c8a267d6332ac97b30d932c7f8b2e9cd' => __DIR__ . '/../..' . '/src/admin/class-ci-settings.php',
+        'fbf7be0a781a0d16e5f03f18c35b3b32' => __DIR__ . '/../..' . '/src/admin/class-ci-admin.php',
+        'e24f0f37ab2a97052a8e7d2d154ff6e0' => __DIR__ . '/../..' . '/src/public/class-ci-public.php',
+        '2b9ec3da8f2883d3c9596b7b702e708f' => __DIR__ . '/../..' . '/src/public/class-ci-iframe.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

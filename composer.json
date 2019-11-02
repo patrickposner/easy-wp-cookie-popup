@@ -12,11 +12,11 @@
   "autoload": {
     "classmap": [],
     "files": [
-      "src/class-cs-activation.php",
-      "src/admin/class-cs-settings.php",
-      "src/admin/class-cs-admin.php",
-      "src/public/class-cs-public.php",
-      "src/public/class-cs-iframe.php"
+      "src/class-ci-activation.php",
+      "src/admin/class-ci-settings.php",
+      "src/admin/class-ci-admin.php",
+      "src/public/class-ci-public.php",
+      "src/public/class-ci-iframe.php"
     ]
   }
 }

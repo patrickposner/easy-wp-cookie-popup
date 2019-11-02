@@ -1,10 +1,10 @@
 <?php
 
-namespace cookimize;
+namespace cookii;
 
-if ( ! class_exists( 'CS_Settings' ) ) :
+if ( ! class_exists( 'CI_Settings' ) ) :
 
-	class CS_Settings {
+	class CI_Settings {
 
 		/**
 		 * Sections array.
@@ -428,94 +428,6 @@ if ( ! class_exists( 'CS_Settings' ) ) :
 		}
 
 		/**
-		 * Displays a documentation field for a settings field
-		 *
-		 * @param array $args settings field args
-		 */
-		function callback_shortcode() {
-
-			$shortcode_options = get_option( 'cookimize_shortcode' );
-			$shortcode         = '[cookimize';
-
-			if ( is_array( $shortcode_options ) AND array_key_exists( 'select_data_options', $shortcode_options ) ) {
-
-				if ( $shortcode_options['select_data_options'] == 'product_cats' ) {
-
-					/* product cat param */
-
-					$cat_ids = substr( $shortcode_options['include_product_categories_selection'], 1 );
-
-					if ( isset( $cat_ids ) AND ! empty( $cat_ids ) ) {
-
-						$cat_array  = explode( ',', $cat_ids );
-						$shortcode  .= ' product_cat="';
-						$cat_params = '';
-
-						foreach ( $cat_array as $cat_id ) {
-
-							$product_cat = get_term_by( 'id', $cat_id, 'product_cat' );
-
-							$cat_params .= $product_cat->slug . ',';
-						}
-
-						$shortcode .= substr( $cat_params, 0, - 1 ) . '"';
-
-					}
-
-				} else if ( $shortcode_options['select_data_options'] == 'product_tags' ) {
-
-					/* product tag param */
-
-					$tag_ids = substr( $shortcode_options['include_product_tags_selection'], 1 );
-
-					if ( isset( $tag_ids ) AND ! empty( $tag_ids ) ) {
-
-						$tag_array  = explode( ',', $tag_ids );
-						$shortcode  .= ' product_tag="';
-						$tag_params = '';
-
-						foreach ( $tag_array as $tag_id ) {
-
-							$product_tag = get_term_by( 'id', $tag_id, 'product_tag' );
-
-							$tag_params .= $product_tag->slug . ',';
-						}
-
-						$shortcode .= substr( $tag_params, 0, - 1 ) . '"';
-
-					}
-				} else if ( $shortcode_options['select_data_options'] == 'products' ) {
-
-					$product_ids = substr( $shortcode_options['include_product_sku_selection'], 1 );
-
-					if ( isset( $product_ids ) AND ! empty( $product_ids ) ) {
-
-						$product_array  = explode( ',', $product_ids );
-						$shortcode      .= ' sku="';
-						$product_params = '';
-
-						foreach ( $product_array as $product_id ) {
-
-							$product        = wc_get_product( $product_id );
-							$product_params .= $product->get_sku() . ',';
-						}
-
-						$shortcode .= substr( $product_params, 0, - 1 ) . '"';
-
-					}
-
-				}
-			}
-
-			$shortcode .= ']';
-
-			$html = '<code>' . $shortcode . '</code>';
-
-			echo $html;
-		}
-
-
-		/**
 		 * Displays a text field for a settings field
 		 *
 		 * @param array $args settings field args
@@ -838,20 +750,16 @@ if ( ! class_exists( 'CS_Settings' ) ) :
 
 			$submenu_page = add_submenu_page(
 				'options-general.php',
-				__( 'cookimize', 'easy-wp-cookie-popup' ),
-				__( 'cookimize', 'easy-wp-cookie-popup' ),
-				apply_filters( 'cookimize_settings', 'manage_options' ),
-				'cookimize',
+				__( 'Cookii', 'cookii' ),
+				__( 'Cookii', 'cookii' ),
+				apply_filters( 'cookii_settings', 'manage_options' ),
+				'cookii',
 				array( $this, 'plugin_page' )
 			);
 		}
 
 		public function plugin_page() {
-
-			$logo = COOKIMIZE_URL . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . '/admin/' . DIRECTORY_SEPARATOR . 'cookimize-logo.png';
-
-			echo '<div class="wrap cookimize-admin">';
-			echo '<div class="cookimize-logo" style="background-image:url(' . $logo . ');background-size: contain;background-repeat: no-repeat;"></div>';
+			echo '<div class="wrap cookii-admin">';
 			$this->show_navigation();
 			$this->show_forms();
 			echo '</div>';

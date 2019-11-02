@@ -1,0 +1,74 @@
+
+.cookii-admin #setting-error-settings_updated {
+    margin: 10px 0 10px 10px;
+}
+
+.cookii-admin .metabox-holder h2 {
+    font-size: 1.6rem;
+    padding-left: 6px;
+}
+
+.cookii-admin .wpsa-settings-separator {
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    max-width: 50%;
+}
+
+.cookii-admin .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.cookii-admin .switch input {
+    display: none;
+}
+
+.cookii-admin .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.cookii-admin .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.cookii-admin input:checked + .slider {
+    background-color: #0085ba;
+}
+
+.cookii-admin input:focus + .slider {
+    box-shadow: 0 0 1px #0085ba;
+}
+
+.cookii-admin input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.cookii-admin .slider.round {
+    border-radius: 34px;
+}
+
+.cookii-admin .slider.round:before {
+    border-radius: 50%;
+}
