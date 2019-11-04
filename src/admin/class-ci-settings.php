@@ -48,14 +48,9 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 			// jQuery is needed.
 			wp_enqueue_script( 'jquery' );
 
-			// Color Picker.
-			wp_enqueue_script(
-				'iris',
-				admin_url( 'js/iris.min.js' ),
-				array( 'jquery-ui-draggable', 'jquery-ui-slider', 'jquery-touch-punch' ),
-				false,
-				1
-			);
+			wp_enqueue_style( 'wp-color-picker' );
+			wp_enqueue_script( 'wp-color-picker' );
+			wp_enqueue_script( 'wp-color-picker-script-handle', plugins_url( 'wp-color-picker-script.js', __FILE__ ), array( 'wp-color-picker' ), '1.0', true );
 
 			// Media Uploader.
 			wp_enqueue_media();
@@ -271,12 +266,12 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 						'name'              => $name,
 						'label_for'         => $label_for,
 						'desc'              => $description,
+						'premium'           => $premium,
 						'section'           => $section,
 						'size'              => $size,
 						'options'           => $options,
 						'std'               => $default,
 						'placeholder'       => $placeholder,
-						'premium'           => $premium,
 						'sanitize_callback' => $sanitize_callback,
 					);
 
@@ -405,14 +400,12 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 			$html = '';
 			echo $html;
 		}
-
 		/**
 		 * Displays a documentation field for a settings field
 		 *
 		 * @param array $args settings field args
 		 */
 		function callback_documentation( $args ) {
-
 			$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'], $args['desc'] ) );
 			if ( '' !== $args['name'] ) {
 				$name = $args['name'];
@@ -422,10 +415,98 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 				$html = sprintf( '<p class="description">%s</p>', $args['desc'] );
 			}
 			$type = isset( $args['type'] ) ? $args['type'] : 'documentation';
-
-
 			echo $html;
 		}
+		/**
+		 * Displays a list table
+		 *
+		 * @param array $args settings field args
+		 */
+		function callback_list_table( $args ) {
+			$list_table = new PS_List_Table();
+			$list_table->prepare_items();
+			?>
+	
+			<div class="wrap password-list-table">
+				<form id="password_list-filter" method="get">
+					<input type="hidden" name="page" value="<?php echo $_REQUEST['page']; ?>"/>
+					<?php $list_table->display(); ?>
+					<div class="alignright">
+						<span class="button button-primary action new-password-list"><?php _e( 'Add new Password List', 'content-protector' ); ?></span>
+					</div>
+				</form>
+			</div>
+			<?php
+			new PS_Password_Lists();
+	
+	
+		
+		}
+
+		/**
+		 * Displays a documentation field for a settings field
+		 *
+		 * @param array $args settings field args
+		 */
+		function callback_shortcode() {
+			$shortcode_options = get_option( 'passster_shortcode' );
+
+			if ( ! empty( $shortcode_options ) ) {
+				$shortcode = '[passster ';
+
+				if ( is_array( $shortcode_options ) && array_key_exists( 'passster_shortcode_protection_type', $shortcode_options ) ) {
+					if ( 'passwords' == $shortcode_options['passster_shortcode_protection_type'] ) {
+						$shortcode .= 'passwords="' . $shortcode_options['passster_shortcode_passwords'] . '"';
+
+					} elseif ( 'recaptcha' == $shortcode_options['passster_shortcode_protection_type'] ) {
+						$shortcode .= 'captcha="recaptcha"';
+
+					} elseif ( 'captcha' == $shortcode_options['passster_shortcode_protection_type'] ) {
+						$shortcode .= 'captcha="captcha"';
+
+					} elseif ( 'password' == $shortcode_options['passster_shortcode_protection_type'] ) {
+						$shortcode .= 'password="' . $shortcode_options['passster_shortcode_password'] . '"';
+
+					}
+				}
+
+				if ( isset( $shortcode_options['passster_shortcode_user_groups'] ) && ! empty( $shortcode_options['passster_shortcode_user_groups'] ) ) {
+					$shortcode .= ' role="' . $shortcode_options['passster_shortcode_user_groups'] . '"';
+				}
+
+				if ( isset( $shortcode_options['passster_shortcode_users'] ) && ! empty( $shortcode_options['passster_shortcode_users'] ) ) {
+					$shortcode .= ' user="' . $shortcode_options['passster_shortcode_users'] . '"';
+				}
+				if ( isset( $shortcode_options['passster_shortcode_select_password_list'] ) && ! empty( $shortcode_options['passster_shortcode_select_password_list'] ) ) {
+					var_dump( $shortcode_options['passster_shortcode_select_password_list'] );
+					$shortcode .= ' password_list="' . $shortcode_options['passster_shortcode_select_password_list'] . '"';
+				}
+
+				$shortcode .= ']Your content here[/passster]';
+
+				$html  = '<code class="shortcode-copy">' . $shortcode . '</code>';
+				$html .= '<br><br><span class="copy" data-clipboard-target=".shortcode-copy">' . __( 'Copy Shortcode', 'content-protector' ) . '</button>';
+				echo $html;
+			}
+		}
+
+		/**
+		 * Displays a documentation field for a settings field
+		 *
+		 * @param array $args settings field args
+		 */
+		function callback_shortlink() {
+
+			$link_options = get_option( 'passster_link' );
+
+			if ( ! empty( $link_options ) ) {
+				$shortlink = $link_options['passster_shorten_link'];
+				$html      = '<code class="link-copy">' . $shortlink . '</code>';
+				$html     .= '<span class="copy" data-clipboard-target=".link-copy">' . __( 'Copy Link', 'content-protector' ) . '</button>';
+				echo $html;
+			}
+		}
+
 
 		/**
 		 * Displays a text field for a settings field
@@ -438,11 +519,30 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 			$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
 			$type  = isset( $args['type'] ) ? $args['type'] : 'text';
 
-			$html = sprintf( '<input type="%1$s" class="%2$s-text %7$s" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s"placeholder="%6$s"/>', $type, $size, $args['section'], $args['id'], $value, $args['placeholder'], $args['premium'] );
+			$html = sprintf( '<input type="%1$s" class="%2$s-text" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s"placeholder="%6$s"/>', $type, $size, $args['section'], $args['id'], $value, $args['placeholder'] );
 			$html .= $this->get_field_description( $args );
 
 			echo $html;
 		}
+
+		/**
+		 * Displays a text field for a settings field
+		 *
+		 * @param array $args settings field args
+		 */
+		function callback_passwordgenerator( $args ) {
+
+			$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'], $args['placeholder'] ) );
+			$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
+			$type  = isset( $args['type'] ) ? $args['type'] : 'text';
+
+			$html = sprintf( '<input type="%1$s" class="%2$s-text password-generator" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s"placeholder="%6$s"/>', $type, $size, $args['section'], $args['id'], $value, $args['placeholder'] );
+			$html .= $this->get_field_description( $args );
+
+			echo $html;
+		}
+
+
 
 		/**
 		 * Displays a url field for a settings field
@@ -480,29 +580,6 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 
 			echo $html;
 		}
-
-		/**
-		 * Displays a toggle for a settings field
-		 *
-		 * @param array $args settings field args
-		 */
-		function callback_toggle( $args ) {
-
-			$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
-
-			$html = '<fieldset>';
-
-
-			$html .= sprintf( '<label class="switch" for="wposa-%1$s[%2$s]">', $args['section'], $args['id'] );
-			$html .= sprintf( '<input type="hidden" name="%1$s[%2$s]" value="off" />', $args['section'], $args['id'] );
-			$html .= sprintf( '<input type="checkbox" class="toggle-checkbox ' . $args['premium'] . '" id="wposa-%1$s[%2$s]" name="%1$s[%2$s]" value="on" %3$s />', $args['section'], $args['id'], checked( $value, 'on', false ) );
-			$html .= '<span class="slider round"></span>';
-			$html .= '</label>';
-			$html .= '</fieldset>';
-
-			echo $html;
-		}
-
 
 		/**
 		 * Displays a multicheckbox a settings field
@@ -577,7 +654,7 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 			$value = esc_textarea( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
 			$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
 
-			$html = sprintf( '<textarea rows="5" cols="55" class="%1$s-text %5$s" id="%2$s[%3$s]" name="%2$s[%3$s]" placeholder="">%4$s</textarea>', $size, $args['section'], $args['id'], $value, $args['premium'] );
+			$html = sprintf( '<textarea rows="5" cols="55" class="%1$s-text" id="%2$s[%3$s]" name="%2$s[%3$s]">%4$s</textarea>', $size, $args['section'], $args['id'], $value );
 			$html .= $this->get_field_description( $args );
 
 			echo $html;
@@ -620,6 +697,43 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 			echo '</div>';
 
 			echo $this->get_field_description( $args );
+		}
+
+
+		/**
+		 * Displays a toggle for a settings field
+		 *
+		 * @param array $args settings field args
+		 */
+		function callback_toggle( $args ) {
+			$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
+			$html = '<fieldset>';
+			$html .= sprintf( '<label class="switch" for="wposa-%1$s[%2$s]">', $args['section'], $args['id'] );
+			$html .= sprintf( '<input type="hidden" name="%1$s[%2$s]" value="off" />', $args['section'], $args['id'] );
+			$html .= sprintf( '<input type="checkbox" class="toggle-checkbox ' . $args['premium'] . '" id="wposa-%1$s[%2$s]" name="%1$s[%2$s]" value="on" %3$s />', $args['section'], $args['id'], checked( $value, 'on', false ) );
+			$html .= '<span class="slider round"></span>';
+			$html .= '</label>';
+			$html .= '</fieldset>';
+			echo $html;
+		}
+
+				/**
+		 * Displays a toggle for a settings field
+		 *
+		 * @param array $args settings field args
+		 */
+		function callback_addon( $args ) {
+			$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
+			$html = '<h4>Multiple Passwords</h4>';
+			$html .= '<img src="https://via.placeholder.com/200x200">';
+			$html .= '<fieldset>';
+			$html .= sprintf( '<label class="switch" for="wposa-%1$s[%2$s]">', $args['section'], $args['id'] );
+			$html .= sprintf( '<input type="hidden" name="%1$s[%2$s]" value="off" />', $args['section'], $args['id'] );
+			$html .= sprintf( '<input type="checkbox" class="toggle-checkbox" id="wposa-%1$s[%2$s]" name="%1$s[%2$s]" value="on" %3$s />', $args['section'], $args['id'], checked( $value, 'on', false ) );
+			$html .= '<span class="slider round"></span>';
+			$html .= '</label>';
+			$html .= '</fieldset>';
+			echo $html;
 		}
 
 		/**
@@ -688,11 +802,10 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 		 */
 		function callback_color( $args ) {
 
-			$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'], $args['placeholder'], $args['premium'] ) );
+			$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'], $args['placeholder'] ) );
+			$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
 
-			$size = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
-
-			$html = sprintf( '<input type="text" class="%1$s-text color-picker %7$s" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s" data-default-color="%5$s" placeholder="%6$s" />', $size, $args['section'], $args['id'], $value, $args['std'], $args['placeholder'], $args['premium'] );
+			$html = sprintf( '<input type="text" class="%1$s-text color-picker" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s" data-default-color="%5$s" placeholder="%6$s" />', $size, $args['section'], $args['id'], $value, $args['std'], $args['placeholder'] );
 			$html .= $this->get_field_description( $args );
 
 			echo $html;
@@ -747,18 +860,18 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 		 */
 
 		public function admin_menu() {
-
-			$submenu_page = add_submenu_page(
-				'options-general.php',
-				__( 'Cookii', 'cookii' ),
-				__( 'Cookii', 'cookii' ),
-				apply_filters( 'cookii_settings', 'manage_options' ),
-				'cookii',
+			// add_options_page( $page_title, $menu_title, $capability, $menu_slug, array( $this, $callable ) );
+			add_options_page(
+				'Cookii',
+				'Cookii',
+				'manage_options',
+				'cookii_settings',
 				array( $this, 'plugin_page' )
 			);
 		}
 
 		public function plugin_page() {
+
 			echo '<div class="wrap cookii-admin">';
 			$this->show_navigation();
 			$this->show_forms();
@@ -822,7 +935,7 @@ if ( ! class_exists( 'CI_Settings' ) ) :
                 jQuery(document).ready(function ($) {
 
                     //Initiate Color Picker.
-                    $('.color-picker').iris();
+					$('.color-picker').wpColorPicker();
 
                     // Switches option sections
                     $('.group').hide();
