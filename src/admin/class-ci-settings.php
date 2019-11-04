@@ -147,7 +147,7 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 		 *
 		 * @since  1.0.0
 		 */
-		function admin_init() {
+		public function admin_init() {
 			/**
 			 * Register the sections.
 			 *
@@ -347,7 +347,7 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 		 * @return mixed string | bool false
 		 * @since  1.0.0
 		 */
-		function get_sanitize_callback( $slug = '' ) {
+		public function get_sanitize_callback( $slug = '' ) {
 			if ( empty( $slug ) ) {
 				return false;
 			}
@@ -371,7 +371,7 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 		/**
 		 * Get field description for display
 		 *
-		 * @param array $args settings field args
+		 * @param array $args settings field args.
 		 */
 		public function get_field_description( $args ) {
 			if ( ! empty( $args['desc'] ) ) {
@@ -387,9 +387,9 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 		/**
 		 * Displays a title field for a settings field
 		 *
-		 * @param array $args settings field args
+		 * @param array $args settings field args.
 		 */
-		function callback_title( $args ) {
+		public function callback_title( $args ) {
 			$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
 			if ( '' !== $args['name'] ) {
 				$name = $args['name'];
@@ -403,9 +403,9 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 		/**
 		 * Displays a documentation field for a settings field
 		 *
-		 * @param array $args settings field args
+		 * @param array $args settings field args.
 		 */
-		function callback_documentation( $args ) {
+		public function callback_documentation( $args ) {
 			$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'], $args['desc'] ) );
 			if ( '' !== $args['name'] ) {
 				$name = $args['name'];
@@ -417,103 +417,13 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 			$type = isset( $args['type'] ) ? $args['type'] : 'documentation';
 			echo $html;
 		}
-		/**
-		 * Displays a list table
-		 *
-		 * @param array $args settings field args
-		 */
-		function callback_list_table( $args ) {
-			$list_table = new PS_List_Table();
-			$list_table->prepare_items();
-			?>
-	
-			<div class="wrap password-list-table">
-				<form id="password_list-filter" method="get">
-					<input type="hidden" name="page" value="<?php echo $_REQUEST['page']; ?>"/>
-					<?php $list_table->display(); ?>
-					<div class="alignright">
-						<span class="button button-primary action new-password-list"><?php _e( 'Add new Password List', 'content-protector' ); ?></span>
-					</div>
-				</form>
-			</div>
-			<?php
-			new PS_Password_Lists();
-	
-	
-		
-		}
-
-		/**
-		 * Displays a documentation field for a settings field
-		 *
-		 * @param array $args settings field args
-		 */
-		function callback_shortcode() {
-			$shortcode_options = get_option( 'passster_shortcode' );
-
-			if ( ! empty( $shortcode_options ) ) {
-				$shortcode = '[passster ';
-
-				if ( is_array( $shortcode_options ) && array_key_exists( 'passster_shortcode_protection_type', $shortcode_options ) ) {
-					if ( 'passwords' == $shortcode_options['passster_shortcode_protection_type'] ) {
-						$shortcode .= 'passwords="' . $shortcode_options['passster_shortcode_passwords'] . '"';
-
-					} elseif ( 'recaptcha' == $shortcode_options['passster_shortcode_protection_type'] ) {
-						$shortcode .= 'captcha="recaptcha"';
-
-					} elseif ( 'captcha' == $shortcode_options['passster_shortcode_protection_type'] ) {
-						$shortcode .= 'captcha="captcha"';
-
-					} elseif ( 'password' == $shortcode_options['passster_shortcode_protection_type'] ) {
-						$shortcode .= 'password="' . $shortcode_options['passster_shortcode_password'] . '"';
-
-					}
-				}
-
-				if ( isset( $shortcode_options['passster_shortcode_user_groups'] ) && ! empty( $shortcode_options['passster_shortcode_user_groups'] ) ) {
-					$shortcode .= ' role="' . $shortcode_options['passster_shortcode_user_groups'] . '"';
-				}
-
-				if ( isset( $shortcode_options['passster_shortcode_users'] ) && ! empty( $shortcode_options['passster_shortcode_users'] ) ) {
-					$shortcode .= ' user="' . $shortcode_options['passster_shortcode_users'] . '"';
-				}
-				if ( isset( $shortcode_options['passster_shortcode_select_password_list'] ) && ! empty( $shortcode_options['passster_shortcode_select_password_list'] ) ) {
-					var_dump( $shortcode_options['passster_shortcode_select_password_list'] );
-					$shortcode .= ' password_list="' . $shortcode_options['passster_shortcode_select_password_list'] . '"';
-				}
-
-				$shortcode .= ']Your content here[/passster]';
-
-				$html  = '<code class="shortcode-copy">' . $shortcode . '</code>';
-				$html .= '<br><br><span class="copy" data-clipboard-target=".shortcode-copy">' . __( 'Copy Shortcode', 'content-protector' ) . '</button>';
-				echo $html;
-			}
-		}
-
-		/**
-		 * Displays a documentation field for a settings field
-		 *
-		 * @param array $args settings field args
-		 */
-		function callback_shortlink() {
-
-			$link_options = get_option( 'passster_link' );
-
-			if ( ! empty( $link_options ) ) {
-				$shortlink = $link_options['passster_shorten_link'];
-				$html      = '<code class="link-copy">' . $shortlink . '</code>';
-				$html     .= '<span class="copy" data-clipboard-target=".link-copy">' . __( 'Copy Link', 'content-protector' ) . '</button>';
-				echo $html;
-			}
-		}
-
 
 		/**
 		 * Displays a text field for a settings field
 		 *
-		 * @param array $args settings field args
+		 * @param array $args settings field args.
 		 */
-		function callback_text( $args ) {
+		public function callback_text( $args ) {
 
 			$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'], $args['placeholder'] ) );
 			$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
@@ -526,48 +436,29 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 		}
 
 		/**
-		 * Displays a text field for a settings field
-		 *
-		 * @param array $args settings field args
-		 */
-		function callback_passwordgenerator( $args ) {
-
-			$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'], $args['placeholder'] ) );
-			$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
-			$type  = isset( $args['type'] ) ? $args['type'] : 'text';
-
-			$html = sprintf( '<input type="%1$s" class="%2$s-text password-generator" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s"placeholder="%6$s"/>', $type, $size, $args['section'], $args['id'], $value, $args['placeholder'] );
-			$html .= $this->get_field_description( $args );
-
-			echo $html;
-		}
-
-
-
-		/**
 		 * Displays a url field for a settings field
 		 *
-		 * @param array $args settings field args
+		 * @param array $args settings field args.
 		 */
-		function callback_url( $args ) {
+		public function callback_url( $args ) {
 			$this->callback_text( $args );
 		}
 
 		/**
 		 * Displays a number field for a settings field
 		 *
-		 * @param array $args settings field args
+		 * @param array $args settings field args.
 		 */
-		function callback_number( $args ) {
+		public function callback_number( $args ) {
 			$this->callback_text( $args );
 		}
 
 		/**
 		 * Displays a checkbox for a settings field
 		 *
-		 * @param array $args settings field args
+		 * @param array $args settings field args.
 		 */
-		function callback_checkbox( $args ) {
+		public function callback_checkbox( $args ) {
 
 			$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
 
@@ -582,11 +473,11 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 		}
 
 		/**
-		 * Displays a multicheckbox a settings field
+		 * Displays a multicheckbox a settings field.
 		 *
-		 * @param array $args settings field args
+		 * @param array $args settings field args.
 		 */
-		function callback_multicheck( $args ) {
+		public function callback_multicheck( $args ) {
 
 			$value = $this->get_option( $args['id'], $args['section'], $args['std'] );
 
@@ -606,9 +497,9 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 		/**
 		 * Displays a multicheckbox a settings field
 		 *
-		 * @param array $args settings field args
+		 * @param array $args settings field args.
 		 */
-		function callback_radio( $args ) {
+		public function callback_radio( $args ) {
 
 			$value = $this->get_option( $args['id'], $args['section'], $args['std'] );
 
@@ -627,9 +518,9 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 		/**
 		 * Displays a selectbox for a settings field
 		 *
-		 * @param array $args settings field args
+		 * @param array $args settings field args.
 		 */
-		function callback_select( $args ) {
+		public function callback_select( $args ) {
 
 			$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
 			$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
@@ -647,9 +538,9 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 		/**
 		 * Displays a textarea for a settings field
 		 *
-		 * @param array $args settings field args
+		 * @param array $args settings field args.
 		 */
-		function callback_textarea( $args ) {
+		public function callback_textarea( $args ) {
 
 			$value = esc_textarea( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
 			$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
@@ -665,9 +556,9 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 		 *
 		 * @param array $args settings field args.
 		 *
-		 * @return string
+		 * @return void
 		 */
-		function callback_html( $args ) {
+		public function callback_html( $args ) {
 			echo $this->get_field_description( $args );
 		}
 
@@ -676,7 +567,7 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 		 *
 		 * @param array $args settings field args.
 		 */
-		function callback_wysiwyg( $args ) {
+		public function callback_wysiwyg( $args ) {
 
 			$value = $this->get_option( $args['id'], $args['section'], $args['std'] );
 			$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : '500px';
@@ -703,9 +594,9 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 		/**
 		 * Displays a toggle for a settings field
 		 *
-		 * @param array $args settings field args
+		 * @param array $args settings field args.
 		 */
-		function callback_toggle( $args ) {
+		public function callback_toggle( $args ) {
 			$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
 			$html = '<fieldset>';
 			$html .= sprintf( '<label class="switch" for="wposa-%1$s[%2$s]">', $args['section'], $args['id'] );
@@ -717,12 +608,12 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 			echo $html;
 		}
 
-				/**
+		/**
 		 * Displays a toggle for a settings field
 		 *
-		 * @param array $args settings field args
+		 * @param array $args settings field args.
 		 */
-		function callback_addon( $args ) {
+		public function callback_addon( $args ) {
 			$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
 			$html = '<h4>Multiple Passwords</h4>';
 			$html .= '<img src="https://via.placeholder.com/200x200">';
@@ -741,7 +632,7 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 		 *
 		 * @param array $args settings field args.
 		 */
-		function callback_file( $args ) {
+		public function callback_file( $args ) {
 
 			$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
 			$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
@@ -750,8 +641,8 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 				$args['options']['button_label'] :
 				__( 'Choose File' );
 
-			$html = sprintf( '<input type="text" class="%1$s-text wpsa-url" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s"/>', $size, $args['section'], $args['id'], $value );
-			$html .= '<input type="button" class="button wpsa-browse" value="' . $label . '" />';
+			$html = sprintf( '<input type="text" class="%1$s-text cookii-url" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s"/>', $size, $args['section'], $args['id'], $value );
+			$html .= '<input type="button" class="button cookii-browse" value="' . $label . '" />';
 			$html .= $this->get_field_description( $args );
 
 			echo $html;
@@ -762,7 +653,7 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 		 *
 		 * @param array $args settings field args.
 		 */
-		function callback_image( $args ) {
+		public function callback_image( $args ) {
 
 			$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
 			$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
@@ -771,10 +662,10 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 				$args['options']['button_label'] :
 				__( 'Choose Image' );
 
-			$html = sprintf( '<input type="text" class="%1$s-text wpsa-url" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s"/>', $size, $args['section'], $args['id'], $value );
-			$html .= '<input type="button" class="button wpsa-browse" value="' . $label . '" />';
+			$html = sprintf( '<input type="text" class="%1$s-text cookii-url" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s"/>', $size, $args['section'], $args['id'], $value );
+			$html .= '<input type="button" class="button cookii-browse" value="' . $label . '" />';
 			$html .= $this->get_field_description( $args );
-			$html .= '<p class="wpsa-image-preview"><img src=""/></p>';
+			$html .= '<p class="cookii-image-preview"><img src=""/></p>';
 
 			echo $html;
 		}
@@ -782,9 +673,9 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 		/**
 		 * Displays a password field for a settings field
 		 *
-		 * @param array $args settings field args
+		 * @param array $args settings field args.
 		 */
-		function callback_password( $args ) {
+		public function callback_password( $args ) {
 
 			$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
 			$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
@@ -798,9 +689,9 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 		/**
 		 * Displays a color picker field for a settings field
 		 *
-		 * @param array $args settings field args
+		 * @param array $args settings field args.
 		 */
-		function callback_color( $args ) {
+		public function callback_color( $args ) {
 
 			$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'], $args['placeholder'] ) );
 			$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
@@ -815,13 +706,13 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 		/**
 		 * Displays a separator field for a settings field
 		 *
-		 * @param array $args settings field args
+		 * @param array $args settings field args.
 		 */
-		function callback_separator( $args ) {
+		public function callback_separator( $args ) {
 			$type = isset( $args['type'] ) ? $args['type'] : 'separator';
 
 			$html = '';
-			$html .= '<div class="wpsa-settings-separator"></div>';
+			$html .= '<div class="cookii-settings-separator"></div>';
 			echo $html;
 		}
 
@@ -835,7 +726,7 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 		 *
 		 * @return string
 		 */
-		function get_option( $option, $section, $default = '' ) {
+		public function get_option( $option, $section, $default = '' ) {
 
 			$options = get_option( $section );
 
@@ -849,18 +740,9 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 		/**
 		 * Add submenu page to the Settings main menu.
 		 *
-		 * @param string $page_title
-		 * @param string $menu_title
-		 * @param string $capability
-		 * @param string $menu_slug
-		 * @param callable $function = ''
-		 *
-		 * @author Ahmad Awais
-		 * @since  [version]
+		 * @return void
 		 */
-
 		public function admin_menu() {
-			// add_options_page( $page_title, $menu_title, $capability, $menu_slug, array( $this, $callable ) );
 			add_options_page(
 				'Cookii',
 				'Cookii',
@@ -870,6 +752,11 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 			);
 		}
 
+		/**
+		 * Add admin page content.
+		 *
+		 * @return void
+		 */
 		public function plugin_page() {
 
 			echo '<div class="wrap cookii-admin">';
@@ -883,15 +770,12 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 		 *
 		 * Shows all the settings section labels as tab
 		 */
-		function show_navigation() {
+		public function show_navigation() {
 			$html = '<h2 class="nav-tab-wrapper">';
-
 			foreach ( $this->sections_array as $tab ) {
 				$html .= sprintf( '<a href="#%1$s" class="nav-tab" id="%1$s-tab">%2$s</a>', $tab['id'], $tab['title'] );
 			}
-
 			$html .= '</h2>';
-
 			echo $html;
 		}
 
@@ -900,26 +784,26 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 		 *
 		 * This function displays every sections in a different form
 		 */
-		function show_forms() {
+		public function show_forms() {
 			?>
-            <div class="metabox-holder">
+			<div class="metabox-holder">
 				<?php foreach ( $this->sections_array as $form ) { ?>
-                    <!-- style="display: none;" -->
-                    <div id="<?php echo $form['id']; ?>" class="group">
-                        <form method="post" action="options.php">
+					<!-- style="display: none;" -->
+					<div id="<?php echo $form['id']; ?>" class="group">
+						<form method="post" action="options.php">
 							<?php
 							do_action( 'wsa_form_top_' . $form['id'], $form );
 							settings_fields( $form['id'] );
 							do_settings_sections( $form['id'] );
 							do_action( 'wsa_form_bottom_' . $form['id'], $form );
 							?>
-                            <div style="padding-left: 10px">
+							<div style="padding-left: 10px">
 								<?php submit_button(); ?>
-                            </div>
-                        </form>
-                    </div>
+							</div>
+						</form>
+					</div>
 				<?php } ?>
-            </div>
+			</div>
 			<?php
 			$this->script();
 		}
@@ -929,139 +813,138 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 		 *
 		 * This code uses localstorage for displaying active tabs
 		 */
-		function script() {
+		public function script() {
 			?>
-            <script>
-                jQuery(document).ready(function ($) {
+			<script>
+				jQuery(document).ready(function ($) {
 
-                    //Initiate Color Picker.
+					//Initiate Color Picker.
 					$('.color-picker').wpColorPicker();
 
-                    // Switches option sections
-                    $('.group').hide();
-                    var activetab = '';
-                    if ('undefined' != typeof localStorage) {
-                        activetab = localStorage.getItem('activetab');
-                    }
-                    if ('' != activetab && $(activetab).length) {
-                        $(activetab).fadeIn();
-                    } else {
-                        $('.group:first').fadeIn();
-                    }
-                    $('.group .collapsed').each(function () {
-                        $(this)
-                            .find('input:checked')
-                            .parent()
-                            .parent()
-                            .parent()
-                            .nextAll()
-                            .each(function () {
-                                if ($(this).hasClass('last')) {
-                                    $(this).removeClass('hidden');
-                                    return false;
-                                }
-                                $(this)
-                                    .filter('.hidden')
-                                    .removeClass('hidden');
-                            });
-                    });
+					// Switches option sections
+					$('.group').hide();
+					var activetab = '';
+					if ('undefined' != typeof localStorage) {
+						activetab = localStorage.getItem('activetab');
+					}
+					if ('' != activetab && $(activetab).length) {
+						$(activetab).fadeIn();
+					} else {
+						$('.group:first').fadeIn();
+					}
+					$('.group .collapsed').each(function () {
+						$(this)
+							.find('input:checked')
+							.parent()
+							.parent()
+							.parent()
+							.nextAll()
+							.each(function () {
+								if ($(this).hasClass('last')) {
+									$(this).removeClass('hidden');
+									return false;
+								}
+								$(this)
+									.filter('.hidden')
+									.removeClass('hidden');
+							});
+					});
 
-                    if ('' != activetab && $(activetab + '-tab').length) {
-                        $(activetab + '-tab').addClass('nav-tab-active');
-                    } else {
-                        $('.nav-tab-wrapper a:first').addClass('nav-tab-active');
-                    }
-                    $('.nav-tab-wrapper a').click(function (evt) {
-                        $('.nav-tab-wrapper a').removeClass('nav-tab-active');
-                        $(this)
-                            .addClass('nav-tab-active')
-                            .blur();
-                        var clicked_group = $(this).attr('href');
-                        if ('undefined' != typeof localStorage) {
-                            localStorage.setItem('activetab', $(this).attr('href'));
-                        }
-                        $('.group').hide();
-                        $(clicked_group).fadeIn();
-                        evt.preventDefault();
-                    });
+					if ('' != activetab && $(activetab + '-tab').length) {
+						$(activetab + '-tab').addClass('nav-tab-active');
+					} else {
+						$('.nav-tab-wrapper a:first').addClass('nav-tab-active');
+					}
+					$('.nav-tab-wrapper a').click(function (evt) {
+						$('.nav-tab-wrapper a').removeClass('nav-tab-active');
+						$(this)
+							.addClass('nav-tab-active')
+							.blur();
+						var clicked_group = $(this).attr('href');
+						if ('undefined' != typeof localStorage) {
+							localStorage.setItem('activetab', $(this).attr('href'));
+						}
+						$('.group').hide();
+						$(clicked_group).fadeIn();
+						evt.preventDefault();
+					});
 
-                    $('.wpsa-browse').on('click', function (event) {
-                        event.preventDefault();
+					$('.cookii-browse').on('click', function (event) {
+						event.preventDefault();
 
-                        var self = $(this);
+						var self = $(this);
 
-                        // Create the media frame.
-                        var file_frame = (wp.media.frames.file_frame = wp.media({
-                            title: self.data('uploader_title'),
-                            button: {
-                                text: self.data('uploader_button_text')
-                            },
-                            multiple: false
-                        }));
+						// Create the media frame.
+						var file_frame = (wp.media.frames.file_frame = wp.media({
+							title: self.data('uploader_title'),
+							button: {
+								text: self.data('uploader_button_text')
+							},
+							multiple: false
+						}));
 
-                        file_frame.on('select', function () {
-                            attachment = file_frame
-                                .state()
-                                .get('selection')
-                                .first()
-                                .toJSON();
+						file_frame.on('select', function () {
+							attachment = file_frame
+								.state()
+								.get('selection')
+								.first()
+								.toJSON();
 
-                            self
-                                .prev('.wpsa-url')
-                                .val(attachment.url)
-                                .change();
-                        });
+							self
+								.prev('.cookii-url')
+								.val(attachment.url)
+								.change();
+						});
 
-                        // Finally, open the modal
-                        file_frame.open();
-                    });
+						// Finally, open the modal
+						file_frame.open();
+					});
 
-                    $('input.wpsa-url')
-                        .on('change keyup paste input', function () {
-                            var self = $(this);
-                            self
-                                .next()
-                                .parent()
-                                .children('.wpsa-image-preview')
-                                .children('img')
-                                .attr('src', self.val());
-                        })
-                        .change();
-                });
+					$('input.cookii-url')
+						.on('change keyup paste input', function () {
+							var self = $(this);
+							self
+								.next()
+								.parent()
+								.children('.cookii-image-preview')
+								.children('img')
+								.attr('src', self.val());
+						})
+						.change();
+				});
 
-            </script>
+			</script>
 
-            <style type="text/css">
-                /** WordPress 3.8 Fix **/
-                .form-table th {
-                    padding: 20px 10px;
-                }
+			<style type="text/css">
+				/** WordPress 3.8 Fix **/
+				.form-table th {
+					padding: 20px 10px;
+				}
 
-                #wpbody-content .metabox-holder {
-                    padding-top: 5px;
-                }
+				#wpbody-content .metabox-holder {
+					padding-top: 5px;
+				}
 
-                .wpsa-image-preview img {
-                    height: auto;
-                    max-width: 70px;
-                }
+				.cookii-image-preview img {
+					height: auto;
+					max-width: 70px;
+				}
 
-                .wpsa-settings-separator {
-                    background: #ccc;
-                    border: 0;
-                    color: #ccc;
-                    height: 1px;
-                    position: absolute;
-                    left: 0;
-                    width: 99%;
-                }
+				.cookii-settings-separator {
+					background: #ccc;
+					border: 0;
+					color: #ccc;
+					height: 1px;
+					position: absolute;
+					left: 0;
+					width: 99%;
+				}
 
-                .group .form-table input.color-picker {
-                    max-width: 100px;
-                }
-            </style>
+				.group .form-table input.color-picker {
+					max-width: 100px;
+				}
+			</style>
 			<?php
 		}
-	} // WP_OSA ended.
-
+	}
 endif;
