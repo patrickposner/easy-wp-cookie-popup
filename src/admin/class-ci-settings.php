@@ -758,11 +758,19 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 		 * @return void
 		 */
 		public function plugin_page() {
-
-			echo '<div class="wrap cookii-admin">';
-			$this->show_navigation();
-			$this->show_forms();
-			echo '</div>';
+			?>
+			<div class="cookie-admin-header">
+				<div class="logo"></div>
+				<div class="info-links">
+					<a href="#">Dokumentation</a>
+					<a href="#">Support</a>
+				</div>
+			</div>
+			<div class="wrap cookii-admin">
+				<?php $this->show_navigation(); ?>
+				<?php $this->show_forms(); ?>
+			</div>
+			<?php
 		}
 
 		/**

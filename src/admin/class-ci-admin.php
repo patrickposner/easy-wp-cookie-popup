@@ -26,7 +26,16 @@ class CI_Admin {
 		$settings->add_section(
 			array(
 				'id'    => 'cookimize_options',
-				'title' => __( 'Settings', 'cookii' ),
+				'title' => __( 'Texts & Settings', 'cookii' ),
+			)
+		);
+
+		$settings->add_field(
+			'cookimize_options',
+			array(
+				'id'   => 'cookimize_cookie_texts_headline',
+				'type' => 'title',
+				'name' => '<h3>' . __( 'Texts', 'cookii' ) . '</h3>',
 			)
 		);
 
@@ -49,6 +58,47 @@ class CI_Admin {
 				'default' => __( 'This website uses cookies to ensure you get the best experience on our website.', 'cookii' ),
 			)
 		);
+
+		$settings->add_field(
+			'cookimize_options',
+			array(
+				'id'      => 'cookimize_select_privacy_link',
+				'type'    => 'text',
+				'name'    => __( 'Privacy Page Link Text', 'cookii' ),
+				'default' => __( 'More Information', 'cookii' ),
+			)
+		);
+
+		$settings->add_field(
+			'cookimize_options',
+			array(
+				'id'      => 'cookimize_button_label',
+				'type'    => 'text',
+				'name'    => __( 'Accept Button Label', 'cookii' ),
+				'default' => __( 'Accept', 'cookii' ),
+			)
+		);
+
+
+		$settings->add_field(
+			'cookimize_options',
+			array(
+				'id'      => 'cookimize_customise_label',
+				'type'    => 'text',
+				'name'    => __( 'Customise Button Label', 'cookii' ),
+				'default' => __( 'Customise', 'cookii' ),
+			)
+		);
+
+		$settings->add_field(
+			'cookimize_options',
+			array(
+				'id'   => 'cookimize_cookie_settings_headline',
+				'type' => 'title',
+				'name' => '<h3>' . __( 'Settings', 'cookii' ) . '</h3>',
+			)
+		);
+
 
 		$settings->add_field(
 			'cookimize_options',
@@ -91,43 +141,36 @@ class CI_Admin {
 			)
 		);
 
-		$settings->add_field(
-			'cookimize_options',
-			array(
-				'id'      => 'cookimize_select_privacy_link',
-				'type'    => 'text',
-				'name'    => __( 'Privacy Page Link Text', 'cookii' ),
-				'default' => __( 'More Information', 'cookii' ),
-			)
-		);
-
-		$settings->add_field(
-			'cookimize_options',
-			array(
-				'id'      => 'cookimize_button_label',
-				'type'    => 'text',
-				'name'    => __( 'Accept Button Label', 'cookii' ),
-				'default' => __( 'Accept', 'cookii' ),
-			)
-		);
-
-
-		$settings->add_field(
-			'cookimize_options',
-			array(
-				'id'      => 'cookimize_customise_label',
-				'type'    => 'text',
-				'name'    => __( 'Customise Button Label', 'cookii' ),
-				'default' => __( 'Customise', 'cookii' ),
-			)
-		);
-
 		/* Tab: styling */
 
 		$settings->add_section(
 			array(
 				'id'    => 'cookimize_style',
-				'title' => __( 'Style', 'cookii' ),
+				'title' => __( 'Design', 'cookii' ),
+			)
+		);
+
+		$settings->add_field(
+			'cookimize_style',
+			array(
+				'id'   => 'cookimize_cookie_banner_styles',
+				'type' => 'title',
+				'name' => '<h3>' . __( 'Cookie Banner', 'cookii' ) . '</h3>',
+			)
+		);
+
+		$settings->add_field(
+			'cookimize_style',
+			array(
+				'id'      => 'cookimize_message_position',
+				'type'    => 'select',
+				'name'    => __( 'Banner Position', 'cookii' ),
+				'default' => 'bottom_right',
+				'options' => array(
+					'center'       => __( 'center', 'cookii' ),
+					'bottom'       => __( 'bottom', 'cookii' ),
+					'bottom_right' => __( 'bottom-right', 'cookii' ),
+				),
 			)
 		);
 
@@ -166,20 +209,6 @@ class CI_Admin {
 				'id'   => 'cookimize_message_styles',
 				'type' => 'title',
 				'name' => '<h3>' . __( 'Message', 'cookii' ) . '</h3>',
-			)
-		);
-
-		$settings->add_field(
-			'cookimize_style',
-			array(
-				'id'      => 'cookimize_message_position',
-				'type'    => 'select',
-				'name'    => __( 'Message Position', 'cookii' ),
-				'options' => array(
-					'center'       => __( 'center', 'cookii' ),
-					'bottom'       => __( 'bottom', 'cookii' ),
-					'bottom_right' => __( 'bottom-right', 'cookii' ),
-				),
 			)
 		);
 
@@ -326,15 +355,7 @@ class CI_Admin {
 		$settings->add_section(
 			array(
 				'id'    => 'cookimize_gdpr',
-				'title' => __( 'GDPR', 'cookii' ),
-			)
-		);
-		$settings->add_field(
-			'cookimize_gdpr',
-			array(
-				'id'   => 'cookimize_tracking_headline',
-				'type' => 'title',
-				'name' => '<h3>' . __( 'Third Party Cookies', 'cookii' ) . '</h3>',
+				'title' => __( 'Third Party Cookies', 'cookii' ),
 			)
 		);
 
