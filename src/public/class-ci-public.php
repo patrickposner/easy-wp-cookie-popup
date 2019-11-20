@@ -46,7 +46,7 @@ class CI_Public {
 	public function __construct() {
 
 		/* set default settings */
-		$settings = get_option( 'cookimize_options', array(
+		$settings = wp_parse_args( get_option( 'cookimize_options' ), array(
 			'cookimize_cookie_message_headline' => __( 'Cookies & Privacy', 'cookii' ),
 			'cookimize_cookie_message'          => __( 'This website uses cookies to ensure you get the best experience on our website.', 'cookii' ),
 			'cookimize_seconds_before_trigger'  => 2,
@@ -56,10 +56,9 @@ class CI_Public {
 			'cookimize_select_privacy_slug'     => __( 'privacy', 'cookii' ),
 			'cookimize_select_imprint_slug'     => __( 'imprint', 'cookii' ),
 			'cookimize_select_privacy_link'     => __( 'More Information', 'cookii' ),
-			)
-		);
+		) );
 
-		$gdpr = get_option( 'cookimize_gdpr', array(
+		$gdpr = wp_parse_args( get_option( 'cookimize_gdpr' ), array(
 			'cookimize_ga_code_label'             => __( 'Google Analytics', 'cookii' ),
 			'cookimize_ga_code'                   => '',
 			'cookimize_fb_code_label'             => __( 'Facebook', 'cookii' ),
@@ -73,28 +72,26 @@ class CI_Public {
 			'cookimize_custom_code_2_label'       => '',
 			'cookimize_custom_code_2_description' => '',
 			'cookimize_custom_code_2'             => '',
-			)
-		);
+		) );
 
-		$style = get_option( 'cookimize_style', array(
-			'cookimize_headline_font_color'        => '#809cc0',
+		$style = wp_parse_args( get_option( 'cookimize_style' ), array(
+			'cookimize_headline_font_color'        => '#8224e3',
 			'cookimize_headline_font_size'         => 20,
 			'cookimize_message_position'           => 'bottom-right',
 			'cookimize_message_background_color'   => '#ffffff',
-			'cookimize_message_font_color'         => '#4b6584',
+			'cookimize_message_font_color'         => '#23282d',
 			'cookimize_message_font_size'          => 14,
-			'cookimize_link_font_color'            => '#ffffff',
-			'cookimize_accept_background_color'    => '#4b6584',
+			'cookimize_link_font_color'            => '#8224e3',
+			'cookimize_accept_background_color'    => '#8224e3',
 			'cookimize_accept_font_color'          => '#ffffff',
-			'cookimize_customise_background_color' => '#eee',
-			'cookimize_customise_font_color'       => '#4b6584',
+			'cookimize_customise_background_color' => '#23282d',
+			'cookimize_customise_font_color'       => '#ffffff',
 			'cookimize_button_font_size'           => 12,
 			'cookimize_overlay_status'             => 'off',
 			'cookimize_overlay_transparency'       => '0.5',
 			'cookimize_overlay_z_index'            => '999',
 			'cookimize_overlay_banner_z_index'     => '9999',
-			)
-		);
+		) );
 
 		$imprint_page = get_page_by_path( $settings['cookimize_select_imprint_slug'], __( 'Imprint', 'cookii' ), OBJECT, 'page' );
 		$privacy_page = get_page_by_path( $settings['cookimize_select_privacy_slug'], __( 'Privacy', 'cookii' ), OBJECT, 'page' );
@@ -107,13 +104,13 @@ class CI_Public {
 		if ( is_object( $imprint_page ) ) {
 			$this->imprint_page_id = $imprint_page->ID;
 		} else {
-			$this->imprint_page_id = null;
+			$this->imprint_page_id = '';
 		}
 
 		if ( is_object( $privacy_page ) ) {
 			$this->privacy_page_id = $privacy_page->ID;
 		} else {
-			$this->privacy_page_id = null;
+			$this->privacy_page_id = '';
 		}
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'add_scripts' ) );
@@ -509,8 +506,8 @@ class CI_Public {
 		}
 
 		button#cookii-advanced {
-			background: <?php echo esc_html( $style['cookimize_message_background_color'] ); ?>;
-			color: <?php echo esc_html( $style['cookimize_message_font_color'] ); ?>;
+			background: <?php echo esc_html( $style['cookimize_customise_background_color'] ); ?>;
+			color: <?php echo esc_html( $style['cookimize_customise_font_color'] ); ?>;
 			font-size: <?php echo esc_html( $style['cookimize_message_font_size'] ); ?> px;
 		}
 

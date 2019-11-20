@@ -186,10 +186,10 @@ class CI_Admin {
 		$settings->add_field(
 			'cookimize_style',
 			array(
-				'id'          => 'cookimize_headline_font_color',
-				'type'        => 'color',
-				'name'        => __( 'Headline Font Color', 'cookii' ),
-				'placeholder' => __( '#000000', 'cookii' ),
+				'id'      => 'cookimize_headline_font_color',
+				'type'    => 'color',
+				'name'    => __( 'Headline Font Color', 'cookii' ),
+				'default' => '#8224e3',
 			)
 		);
 
@@ -215,20 +215,20 @@ class CI_Admin {
 		$settings->add_field(
 			'cookimize_style',
 			array(
-				'id'          => 'cookimize_message_background_color',
-				'type'        => 'color',
-				'name'        => __( 'Message Background Color', 'cookii' ),
-				'placeholder' => '#D4D8E0',
+				'id'      => 'cookimize_message_background_color',
+				'type'    => 'color',
+				'name'    => __( 'Message Background Color', 'cookii' ),
+				'default' => '#ffffff',
 			)
 		);
 
 		$settings->add_field(
 			'cookimize_style',
 			array(
-				'id'          => 'cookimize_message_font_color',
-				'type'        => 'color',
-				'name'        => __( 'Message Font Color', 'cookii' ),
-				'placeholder' => '#000000',
+				'id'      => 'cookimize_message_font_color',
+				'type'    => 'color',
+				'name'    => __( 'Message Font Color', 'cookii' ),
+				'default' => '#23282d',
 			)
 		);
 
@@ -245,10 +245,10 @@ class CI_Admin {
 		$settings->add_field(
 			'cookimize_style',
 			array(
-				'id'          => 'cookimize_link_font_color',
-				'type'        => 'color',
-				'name'        => __( 'Link Font Color', 'cookii' ),
-				'placeholder' => '#000000',
+				'id'      => 'cookimize_link_font_color',
+				'type'    => 'color',
+				'name'    => __( 'Link Font Color', 'cookii' ),
+				'default' => '#000000',
 			)
 		);
 
@@ -264,40 +264,40 @@ class CI_Admin {
 		$settings->add_field(
 			'cookimize_style',
 			array(
-				'id'          => 'cookimize_accept_background_color',
-				'type'        => 'color',
-				'name'        => __( 'Accept Button Background Color', 'cookii' ),
-				'placeholder' => '#000000',
+				'id'      => 'cookimize_accept_background_color',
+				'type'    => 'color',
+				'name'    => __( 'Accept Button Background Color', 'cookii' ),
+				'default' => '#8224e3',
 			)
 		);
 
 		$settings->add_field(
 			'cookimize_style',
 			array(
-				'id'          => 'cookimize_accept_font_color',
-				'type'        => 'color',
-				'name'        => __( 'Accept Button Font Color', 'cookii' ),
-				'placeholder' => '#000000',
+				'id'      => 'cookimize_accept_font_color',
+				'type'    => 'color',
+				'name'    => __( 'Accept Button Font Color', 'cookii' ),
+				'default' => '#ffffff',
 			)
 		);
 
 		$settings->add_field(
 			'cookimize_style',
 			array(
-				'id'          => 'cookimize_customise_background_color',
-				'type'        => 'color',
-				'name'        => __( 'Customise Button Background Color', 'cookii' ),
-				'placeholder' => '#000000',
+				'id'      => 'cookimize_customise_background_color',
+				'type'    => 'color',
+				'name'    => __( 'Customise Button Background Color', 'cookii' ),
+				'default' => '#23282d',
 			)
 		);
 
 		$settings->add_field(
 			'cookimize_style',
 			array(
-				'id'          => 'cookimize_customise_font_color',
-				'type'        => 'color',
-				'name'        => __( 'Customise Button Font Color', 'cookii' ),
-				'placeholder' => '#000000',
+				'id'      => 'cookimize_customise_font_color',
+				'type'    => 'color',
+				'name'    => __( 'Customise Button Font Color', 'cookii' ),
+				'default' => '#ffffff',
 			)
 		);
 
