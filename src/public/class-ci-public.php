@@ -188,15 +188,17 @@ class CI_Public {
 
 		ob_start();
 
+		$settings = $this->settings;
+
 		if ( 'required' === $cookie_name ) {
 			?>
 			<div class="cookii-toggle" style="margin-bottom:15px;">
-				<a class="bm-more-information" data-cookie="required"><?php _e( 'More information', 'cookii' ); ?></a>
+				<a class="cookii-more-information" data-cookie="required"><?php _e( 'More information', 'cookii' ); ?></a>
 				<table data-cookie="required" style="display:none">
 					<tbody style="vertical-align: top;">
 						<tr>
 							<th style="width: 40%;"><?php _e( 'Name', 'cookii' ); ?></th>
-							<td><?php _e( 'B2B Market Cookie Consent', 'cookii' ); ?></td>
+							<td><?php echo get_bloginfo( 'url' ); ?></td>
 						</tr>
 						<tr>
 							<th style="width: 40%;"><?php _e( 'Provider', 'cookii' ); ?></th>
@@ -213,7 +215,7 @@ class CI_Public {
 						</tr>
 						<tr>
 							<th style="width: 40%;"><?php _e( 'Lifetime', 'cookii' ); ?></th>
-							<td><?php echo esc_attr( get_option( 'cookimize_cookie_lifetime', 30 ) ); ?> <?php _e( 'Days', 'cookii' ); ?></td>
+							<td><?php echo esc_attr( $settings['cookimize_expiration_time'] ); ?> <?php _e( 'Days', 'cookii' ); ?></td>
 						</tr>
 					</tbody>
 				</table>
@@ -222,7 +224,7 @@ class CI_Public {
 		} elseif ( 'ga' === $cookie_name ) {
 			?>
 			<div class="cookii-toggle" style="margin-bottom:15px;">
-				<a class="bm-more-information" data-cookie="ga"><?php _e( 'More information', 'cookii' ); ?></a>
+				<a class="cookii-more-information" data-cookie="ga"><?php _e( 'More information', 'cookii' ); ?></a>
 				<table data-cookie="ga" style="display:none">
 					<tbody style="vertical-align: top;">
 						<tr>
@@ -257,7 +259,7 @@ class CI_Public {
 		} elseif ( 'fb' === $cookie_name ) {
 			?>
 			<div class="cookii-toggle" style="margin-bottom:15px;">
-				<a class="bm-more-information" data-cookie="fb"><?php _e( 'More information', 'cookii' ); ?></a>
+				<a class="cookii-more-information" data-cookie="fb"><?php _e( 'More information', 'cookii' ); ?></a>
 				<table data-cookie="fb" style="display:none">
 					<tbody style="vertical-align: top;">
 						<tr>
