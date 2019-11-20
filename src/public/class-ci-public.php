@@ -92,6 +92,7 @@ class CI_Public {
 			'cookimize_overlay_status'             => 'off',
 			'cookimize_overlay_transparency'       => '0.5',
 			'cookimize_overlay_z_index'            => '999',
+			'cookimize_overlay_banner_z_index'     => '9999',
 			)
 		);
 
@@ -99,11 +100,21 @@ class CI_Public {
 		$privacy_page = get_page_by_path( $settings['cookimize_select_privacy_slug'], __( 'Privacy', 'cookii' ), OBJECT, 'page' );
 
 		/* assign variables */
-		$this->settings        = $settings;
-		$this->gdpr            = $gdpr;
-		$this->style            = $style;
-		$this->imprint_page_id = $imprint_page->ID;
-		$this->privacy_page_id = $privacy_page->ID;
+		$this->settings = $settings;
+		$this->gdpr     = $gdpr;
+		$this->style    = $style;
+
+		if ( is_object( $imprint_page ) ) {
+			$this->imprint_page_id = $imprint_page->ID;
+		} else {
+			$this->imprint_page_id = null;
+		}
+
+		if ( is_object( $privacy_page ) ) {
+			$this->privacy_page_id = $privacy_page->ID;
+		} else {
+			$this->privacy_page_id = null;
+		}
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'add_scripts' ) );
 		add_action( 'wp_head', array( $this, 'dynamic_styles' ) );
@@ -134,8 +145,7 @@ class CI_Public {
 		wp_enqueue_script( 'ihavecookies-js', COOKII_URL . '/assets/public/jquery.ihavecookies.min.js', array( 'jquery' ), '1.0', false );
 		wp_enqueue_script( 'cookii-js', COOKII_URL . '/assets/public/cookii.js', array( 'jquery' ), '1.0', true );
 
-
-		wp_localize_script( 'cookii-js', 'cookii', array(
+		$cookii_settings = array(
 			'headline'               => $settings['cookimize_cookie_message_headline'],
 			'message'                => $settings['cookimize_cookie_message'],
 			'trigger_time'           => $settings['cookimize_seconds_before_trigger'],
@@ -146,8 +156,6 @@ class CI_Public {
 			'cookie_type_title'      => __( 'Select cookies to accept', 'cookii' ),
 			'custom_code_1_label'    => $gdpr['cookimize_custom_code_1_label'],
 			'custom_code_2_label'    => $gdpr['cookimize_custom_code_2_label'],
-			'custom_code_1_desc'     => $gdpr['cookimize_custom_code_1_description'],
-			'custom_code_2_desc'     => $gdpr['cookimize_custom_code_2_description'],
 			'necessary'              => __( 'Technical necessary Cookies', 'cookii' ),
 			'necessary_desc'         => __( 'We require some cookies to be able to process orders and customer accounts. This cookies can not be disabled if you like to use our product. ', 'cookii' ),
 			'privacy_page_text'      => __( 'See privacy policy', 'cookii' ),
@@ -160,7 +168,17 @@ class CI_Public {
 			'custom_code_2_lifetime' => $this->get_cookie_lifetime( 'custom-code-2' ),
 			'more_information'       => __( 'More information', 'cookii' ),
 			'less_information'       => __( 'Less information', 'cookii' ),
-		) );
+		);
+
+		if ( ! empty( $gdpr['cookimize_custom_code_1_description'] ) ) {
+			$cookii_settings['custom_code_1_desc'] = $gdpr['cookimize_custom_code_1_description'];
+		}
+
+		if ( ! empty( $gdpr['cookimize_custom_code_2_description'] ) ) {
+			$cookii_settings['custom_code_2_desc'] = $gdpr['cookimize_custom_code_2_description'];
+		}
+
+		wp_localize_script( 'cookii-js', 'cookii', $cookii_settings );
 	}
 
 	/**
@@ -198,7 +216,7 @@ class CI_Public {
 						</tr>
 						<tr>
 							<th style="width: 40%;"><?php _e( 'Lifetime', 'cookii' ); ?></th>
-							<td><?php echo esc_attr( get_option( 'bm_cc_cookie_lifetime', 30 ) ); ?> <?php _e( 'Days', 'cookii' ); ?></td>
+							<td><?php echo esc_attr( get_option( 'cookimize_cookie_lifetime', 30 ) ); ?> <?php _e( 'Days', 'cookii' ); ?></td>
 						</tr>
 					</tbody>
 				</table>
@@ -325,25 +343,25 @@ class CI_Public {
 		if ( is_page( $this->imprint_page_id ) || is_page( $this->privacy_page_id ) ) {
 			return;
 		}
-		$styles = $this->style;
+		$style = $this->style;
 		?>
 
 		<style>
 
 		<?php
 		/* message box position */
-		switch ( get_option( 'bm_cc_message_position', 'bottom_right' ) ) {
+		switch ( get_option( 'cookimize_message_position', 'bottom_right' ) ) {
 			case 'center':
 				?>
 				#cookii-message {
 					position: fixed;
 					max-width: 500px;
-					background-color: <?php echo get_option( 'bm_cc_message_background_color', '#FFFFFF' ); ?>;
-					color: <?php echo get_option( 'bm_cc_message_font_color', '#000000' ); ?>;
-					font-size: <?php echo get_option( 'bm_cc_message_font_size', '14' ); ?>px;
+					background-color: <?php echo esc_html( $style['cookimize_message_background_color'] ); ?>;
+					color: <?php echo esc_html( $style['cookimize_message_font_color'] ); ?>;
+					font-size: <?php echo esc_html( $style['cookimize_message_font_size'] ); ?>px;
 					padding: 60px;
 					box-shadow: 0 6px 6px rgba(0, 0, 0, 0.25);
-					z-index: <?php echo get_option( 'bm_cc_overlay_banner_z_index', 9999 ); ?>;
+					z-index: <?php echo esc_html( $style['cookimize_overlay_banner_z_index'] ); ?>;
 					top: 50%;
 					left: 50%;
 					-webkit-transform: translate(-50%, -50%);
@@ -362,11 +380,11 @@ class CI_Public {
 					right: 0;
 					left: 0;
 					bottom: 0;
-					background-color: <?php echo get_option( 'bm_cc_message_background_color', '#FFFFFF' ); ?>;
-					color: <?php echo get_option( 'bm_cc_message_font_color', '#000000' ); ?>;
-					font-size: <?php echo get_option( 'bm_cc_message_font_size', '14' ); ?>px;
+					background-color: <?php echo esc_html( $style['cookimize_message_background_color'] ); ?>;
+					color: <?php echo esc_html( $style['cookimize_message_font_color'] ); ?>;
+					font-size: <?php echo esc_html( $style['cookimize_message_font_size'] ); ?>px;
 					box-shadow: 0 6px 6px rgba(0, 0, 0, 0.25);
-					z-index: <?php echo get_option( 'bm_cc_overlay_banner_z_index', 9999 ); ?>;
+					z-index: <?php echo esc_html( $style['cookimize_overlay_banner_z_index'] ); ?>;
 				}
 				.cookii-row {
 					max-width: 60%;
@@ -405,12 +423,12 @@ class CI_Public {
 					right: 30px;
 					bottom: 30px;
 					max-width: 375px;
-					background-color: <?php echo get_option( 'bm_cc_message_background_color', '#FFFFFF' ); ?>;
-					color: <?php echo get_option( 'bm_cc_message_font_color', '#000000' ); ?>;
-					font-size: <?php echo get_option( 'bm_cc_message_font_size', '14' ); ?>px;
+					background-color: <?php echo esc_html( $style['cookimize_message_background_color'] ); ?>;
+					color: <?php echo esc_html( $style['cookimize_message_font_color'] ); ?>;
+					font-size: <?php echo esc_html( $style['cookimize_message_font_size'] ); ?>px;
 					padding: 40px;
 					box-shadow: 0 6px 6px rgba(0, 0, 0, 0.25);
-					z-index: <?php echo get_option( 'bm_cc_overlay_banner_z_index', 9999 ); ?>;
+					z-index: <?php echo esc_html( $style['cookimize_overlay_banner_z_index'] ); ?>;
 					margin-left: 30px;
 				}
 				<?php
@@ -419,8 +437,8 @@ class CI_Public {
 		?>
 
 		#cookii-message h4 {
-			color: <?php echo get_option( 'bm_cc_headline_color', '#2FAC66' ); ?>;
-			font-size: <?php echo get_option( 'bm_cc_headline_font_size', '20' ); ?>px;
+			color: <?php echo esc_html( $style['cookimize_headline_font_color'] ); ?>;
+			font-size: <?php echo esc_html( $style['cookimize_headline_font_size'] ); ?>px;
 			font-weight: 500;
 			margin-bottom: 10px;
 			margin-top: 0px;
@@ -435,16 +453,16 @@ class CI_Public {
 		}
 
 		#cookii-message h5 {
-			color: <?php echo get_option( 'bm_cc_headline_color', '#2FAC66' ); ?>;
-			font-size: calc(<?php echo get_option( 'bm_cc_headline_font_size', '16' ); ?>px - 4px);
+			color: <?php echo esc_html( $style['cookimize_headline_font_color'] ); ?>;
+			font-size: calc(<?php echo esc_html( $style['cookimize_headline_font_size'] ); ?>px - 4px);
 			font-weight: 500;
 			margin-bottom: 10px;
 			margin-top: 0px;
 		}
 
 		#cookii-message p, #cookii-message ul {
-			color: <?php echo get_option( 'bm_cc_message_font_color', '#000000' ); ?>;
-			font-size: <?php echo get_option( 'bm_cc_message_font_size', '14' ); ?>px;
+			color: <?php echo esc_html( $style['cookimize_message_font_color'] ); ?>;
+			font-size: <?php echo esc_html( $style['cookimize_message_font_size'] ); ?>px;
 			line-height: 1.5em;
 		}
 
@@ -459,16 +477,16 @@ class CI_Public {
 		}
 
 		#cookii-message a {
-			color: <?php echo get_option( 'bm_cc_data_privacy_link_color', '#2FAC66' ); ?>;
+			color: <?php echo esc_html( $style['cookimize_link_font_color'] ); ?>;
 			text-decoration: none;
-			font-size: <?php echo get_option( 'bm_cc_message_font_size', '14' ); ?>px;
+			font-size: <?php echo esc_html( $style['cookimize_message_font_size'] ); ?>px;
 			padding-bottom: 2px;
 			border-bottom: 1px dotted rgba(255, 255, 255, 0.75);
 			transition: all 0.3s ease-in;
 		}
 
 		#cookii-message a:hover {
-			color: <?php echo get_option( 'bm_cc_data_privacy_link_color', '#2FAC66' ); ?>;
+			color: <?php echo esc_html( $style['cookimize_link_font_color'] ); ?>;
 			transition: all 0.3s ease-in;
 		}
 		.cookii-toggle a {
@@ -476,9 +494,9 @@ class CI_Public {
 		}
 		#cookii-message button {
 			border: none;
-			background: <?php echo get_option( 'bm_cc_accept_button_background_color', '#2FAC66' ); ?>;
-			color: <?php echo get_option( 'bm_cc_accept_button_font_color', '#000000' ); ?>;
-			font-size: <?php echo get_option( 'bm_cc_button_font_size', 14 ); ?>px;
+			background: <?php echo esc_html( $style['cookimize_accept_background_color'] ); ?>;
+			color: <?php echo esc_html( $style['cookimize_accept_font_color'] ); ?>;
+			font-size: <?php echo esc_html( $style['cookimize_button_font_size'] ); ?>px;
 			padding: 7px;
 			border-radius: 3px;
 			margin-left: 15px;
@@ -491,9 +509,9 @@ class CI_Public {
 		}
 
 		button#cookii-advanced {
-			background: <?php echo get_option( 'bm_cc_message_background_color', '#FFFFFF' ); ?>;
-			color: <?php echo get_option( 'bm_cc_message_font_color', '#000000' ); ?>;
-			font-size: <?php echo get_option( 'bm_cc_message_font_size', '14' ); ?>px;
+			background: <?php echo esc_html( $style['cookimize_message_background_color'] ); ?>;
+			color: <?php echo esc_html( $style['cookimize_message_font_color'] ); ?>;
+			font-size: <?php echo esc_html( $style['cookimize_message_font_size'] ); ?> px;
 		}
 
 		button#cookii-advanced:hover {

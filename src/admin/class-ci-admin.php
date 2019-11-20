@@ -350,6 +350,16 @@ class CI_Admin {
 			)
 		);
 
+		$settings->add_field(
+			'cookimize_style',
+			array(
+				'id'      => 'cookimize_overlay_banner_z_index',
+				'type'    => 'number',
+				'name'    => __( 'Banner z-index', 'cookii' ),
+				'default' => 9999,
+			)
+		);
+
 		/* Tab: GDPR */
 
 		$settings->add_section(
