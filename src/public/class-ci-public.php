@@ -608,15 +608,12 @@ class CI_Public {
 			}
 
 			if ( in_array( 'custom_code_1', $cookie_preferences ) ) {
-
-				echo $gdpr['cookimize_custom_code_1'];
+				echo '<script>' . $gdpr['cookimize_custom_code_1'] . '</script>';
 			}
 
 			if ( in_array( 'custom_code_2', $cookie_preferences ) ) {
-
-				echo $gdpr['cookimize_custom_code_1'];
+				echo '<script>' . $gdpr['cookimize_custom_code_1'] . '</script>';
 			}
-
 		}
 	}
 }

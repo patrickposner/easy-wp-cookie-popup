@@ -483,7 +483,7 @@ class CI_Admin {
 			'cookimize_gdpr',
 			array(
 				'id'   => 'cookimize_custom_code_1',
-				'type' => 'textarea',
+				'type' => 'code',
 				'name' => __( 'Tracking-Code', 'cookii' ),
 				'desc' => __( 'Enter your Tracking Code (Example: Google Tag Manager)', 'cookii' ),
 
@@ -516,7 +516,7 @@ class CI_Admin {
 			'cookimize_gdpr',
 			array(
 				'id'   => 'cookimize_custom_code_2',
-				'type' => 'textarea',
+				'type' => 'code',
 				'name' => __( 'Tracking-Code', 'cookii' ),
 				'desc' => __( 'Enter your Tracking Code (Example: Google Adsense)', 'cookii' ),
 

@@ -50,7 +50,13 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 
 			wp_enqueue_style( 'wp-color-picker' );
 			wp_enqueue_script( 'wp-color-picker' );
-			wp_enqueue_script( 'wp-color-picker-script-handle', plugins_url( 'wp-color-picker-script.js', __FILE__ ), array( 'wp-color-picker' ), '1.0', true );
+
+			// Code mirror.
+			$bm_code['codeEditor'] = wp_enqueue_code_editor( array( 'type' => 'text/css' ) );
+			wp_localize_script( 'jquery', 'cm_settings', $bm_code );
+
+			wp_enqueue_script( 'wp-theme-plugin-editor' );
+			wp_enqueue_style( 'wp-codemirror' );
 
 			// Media Uploader.
 			wp_enqueue_media();
@@ -555,6 +561,22 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 		 * Displays a textarea for a settings field
 		 *
 		 * @param array $args settings field args.
+		 */
+		public function callback_code( $args ) {
+
+			$value = esc_textarea( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
+			$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
+
+			$html = sprintf( '<textarea rows="5" cols="55" class="%1$s-text code-textarea" id="%2$s[%3$s]" name="%2$s[%3$s]">%4$s</textarea>', $size, $args['section'], $args['id'], $value );
+			$html .= $this->get_field_description( $args );
+
+			echo $html;
+		}
+
+		/**
+		 * Displays a textarea for a settings field
+		 *
+		 * @param array $args settings field args.
 		 *
 		 * @return void
 		 */
@@ -828,6 +850,11 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 
 					//Initiate Color Picker.
 					$('.color-picker').wpColorPicker();
+
+					// Code Mirror.
+					$(".code-textarea").each(function() {
+							wp.codeEditor.initialize($(this), cm_settings);
+						});
 
 					// Switches option sections
 					$('.group').hide();
