@@ -12,7 +12,7 @@ define( 'COOKII_PATH', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 define( 'COOKII_URL', untrailingslashit( plugin_dir_url( __FILE__ ) ) );
 
 /* load setup */
-//require_once( dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'inc' . DIRECTORY_SEPARATOR . 'setup.php' );
+require_once( dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'inc' . DIRECTORY_SEPARATOR . 'setup.php' );
 
 /* localize */
 $textdomain_dir = plugin_basename( dirname( __FILE__ ) ) . '/languages';

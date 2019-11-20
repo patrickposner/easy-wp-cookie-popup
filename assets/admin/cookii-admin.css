@@ -143,11 +143,11 @@
 }
 
 .cookii-admin input:checked + .slider {
-    background-color: #0085ba;
+    background-color: #7200e5;
 }
 
 .cookii-admin input:focus + .slider {
-    box-shadow: 0 0 1px #0085ba;
+    box-shadow: 0 0 1px #7200e5;
 }
 
 .cookii-admin input:checked + .slider:before {
