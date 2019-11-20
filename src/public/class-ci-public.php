@@ -604,7 +604,6 @@ class CI_Public {
 					/></noscript>
 				<!-- End Facebook Pixel Code -->
 				<?php
-
 			}
 
 			if ( in_array( 'custom_code_1', $cookie_preferences ) ) {

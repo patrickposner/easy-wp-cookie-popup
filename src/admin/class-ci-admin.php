@@ -17,6 +17,9 @@ class CI_Admin {
 	public function __construct() {
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'add_admin_scripts' ) );
+		add_action( 'admin_notices', array( $this, 'admin_notice' ) );
+		add_action( 'wp_ajax_ci_dismiss_notice', array( $this, 'dismiss_admin_notice' ) );
+
 		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 		$settings = new CI_Settings();
@@ -527,9 +530,37 @@ class CI_Admin {
 
 
 	/**
-	 * enqueue admin styles and scripts for settings page
+	 * Enqueue admin styles and scripts for settings page.
 	 */
 	public function add_admin_scripts() {
-		wp_enqueue_style( 'cookii-admin', COOKII_URL . '/assets/admin/cookii-admin.css' );
+		$min = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : 'min.';
+
+		wp_enqueue_style( 'cookii-admin', COOKII_URL . '/assets/admin/cookii-admin.css', '1.0', 'all' );
+		wp_enqueue_script( 'ci-admin-notices', COOKII_URL . '/assets/admin/backend-admin-notices.' . $min . 'js', array( 'jquery' ), '1.0', true );
+		wp_localize_script( 'ci-admin-notices', 'ci_ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+	}
+
+	/**
+	 * Outputs admin notice.
+	 *
+	 * @return void
+	 */
+	public function admin_notice() {
+		$activate_notice = get_option( 'ci_admin_notice', false );
+
+		$text = sprintf( __( 'Thanks for installing Cookii. Start to <a href="%s">configure it</a>', 'cookii' ), admin_url( 'options-general.php?page=cookii_settings', 'https' ) );
+
+		if ( false === $activate_notice ) {
+			echo '<div class="notice notice-success is-dismissible cookii-dismiss"><p>' . $text . '</p></div>';
+		}
+	}
+
+	/**
+	 * Deactivate admin notice.
+	 *
+	 * @return void
+	 */
+	public function dismiss_admin_notice() {
+		update_option( 'ci_admin_notice', true );
 	}
 }
