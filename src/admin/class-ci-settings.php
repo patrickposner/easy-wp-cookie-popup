@@ -762,8 +762,8 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 			<div class="cookie-admin-header">
 				<div class="logo"></div>
 				<div class="info-links">
-					<a href="#">Dokumentation</a>
-					<a href="#">Support</a>
+					<a href="https://patrickposner.dev/docs/cookii" target="_blank">Dokumentation</a>
+					<a href="https://wordpress.org/plugins/easy-wp-cookie-popup/" target="_blank">Support</a>
 				</div>
 			</div>
 			<div class="wrap cookii-admin">
