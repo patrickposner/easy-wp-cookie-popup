@@ -1,5 +1,45 @@
 jQuery(document).ready(function ($) {
 
+    let cookie_types = [];
+
+    let ga = {
+        type: 'Google Analytics',
+        value: 'ga',
+        description: cookii.ga_code_description,
+        lifetime: cookii.ga_code_lifetime,
+    };
+
+    let fb = {
+        type: 'Facebook',
+        value: 'fb',
+        description: cookii.fb_code_description,
+        lifetime: cookii.fb_code_lifetime,
+    };
+
+    let additional_cookie_1 = {
+        type: cookii.custom_code_1_label,
+        value: 'custom_code_1',
+        description: cookii.custom_code_1_desc,
+        lifetime: cookii.custom_code_1_lifetime,
+    };
+
+    let additional_cookie_2 = {
+        type: cookii.custom_code_2_label,
+        value: 'custom_code_2',
+        description: cookii.custom_code_2_desc,
+        lifetime: cookii.custom_code_2_lifetime,
+    };
+
+    if ( '' !== cookii.ga_used && '' !== cookii.fb_used ) {
+        cookie_types = [ga, fb, additional_cookie_1, additional_cookie_2];
+    } else if ( '' !== cookii.ga_used ) {
+        cookie_types = [ga, additional_cookie_1, additional_cookie_2];
+    } else if ( '' !== cookii.fb_used ) {
+        cookie_types = [fb, additional_cookie_1, additional_cookie_2];
+    } else {
+        cookie_types = [additional_cookie_1, additional_cookie_2];
+    }
+
     $('body').ihavecookies({
         onAccept: function(){ window.location.reload(); },
         title: cookii.headline,
@@ -7,32 +47,7 @@ jQuery(document).ready(function ($) {
         link: cookii.privacy_page,
         delay: cookii.trigger_time,
         expires: cookii.expiration_time,
-        cookieTypes: [
-            {
-                type: 'Google Analytics',
-                value: 'ga',
-                description: cookii.ga_code_description,
-                lifetime: cookii.ga_code_lifetime,
-            },
-            {
-                type: 'Facebook',
-                value: 'fb',
-                description: cookii.fb_code_description,
-                lifetime: cookii.fb_code_lifetime,
-            },
-            {
-                type: cookii.custom_code_1_label,
-                value: 'custom_code_1',
-                description: cookii.custom_code_1_desc,
-                lifetime: cookii.custom_code_1_lifetime,
-            },
-            {
-                type: cookii.custom_code_2_label,
-                value: 'custom_code_2',
-                description: cookii.custom_code_2_desc,
-                lifetime: cookii.custom_code_2_lifetime,
-            },
-        ],
+        cookieTypes: cookie_types,
         moreInfoLabel: cookii.privacy_page_text,
         acceptBtnLabel: cookii.accept,
         advancedBtnLabel: cookii.customize,

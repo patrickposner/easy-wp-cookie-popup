@@ -158,6 +158,8 @@ class CI_Public {
 			'privacy_page_text'      => __( 'See privacy policy', 'cookii' ),
 			'fb_code_description'    => __( 'We use cookies for Facebook to send and promote you special offers and tracking our campains to optimize our services.', 'cookii' ),
 			'ga_code_description'    => __( 'We use cookies for Google Analytics to track our users behaviour with our products and continuesly improve it. ', 'cookii' ),
+			'ga_used'                => $gdpr['cookimize_ga_code'],
+			'fb_used'                => $gdpr['cookimize_fb_code'],
 			'required_code_lifetime' => $this->get_cookie_lifetime( 'required' ),
 			'fb_code_lifetime'       => $this->get_cookie_lifetime( 'fb' ),
 			'ga_code_lifetime'       => $this->get_cookie_lifetime( 'ga' ),
@@ -534,7 +536,11 @@ class CI_Public {
 		<?php
 
 	}
-
+	/**
+	 * Dynamically add the tracking code.
+	 *
+	 * @return void
+	 */
 	public function add_tracking_code() {
 
 		if ( is_page( $this->imprint_page_id ) || is_page( $this->privacy_page_id ) ) {
