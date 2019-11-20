@@ -156,7 +156,7 @@ class CI_Public {
 			'custom_code_1_label'    => $gdpr['cookimize_custom_code_1_label'],
 			'custom_code_2_label'    => $gdpr['cookimize_custom_code_2_label'],
 			'necessary'              => __( 'Technical necessary Cookies', 'cookii' ),
-			'necessary_desc'         => __( 'We require some cookies to be able to process orders and customer accounts. This cookies can not be disabled if you like to use our product. ', 'cookii' ),
+			'necessary_desc'         => __( 'We require some cookies due to technical requirements. This cookies can not be disabled if you like to use our product. ', 'cookii' ),
 			'privacy_page_text'      => __( 'See privacy policy', 'cookii' ),
 			'fb_code_description'    => __( 'We use cookies for Facebook to send and promote you special offers and tracking our campains to optimize our services.', 'cookii' ),
 			'ga_code_description'    => __( 'We use cookies for Google Analytics to track our users behaviour with our products and continuesly improve it. ', 'cookii' ),
