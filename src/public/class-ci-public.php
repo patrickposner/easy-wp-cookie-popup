@@ -139,8 +139,10 @@ class CI_Public {
 		$gdpr     = $this->gdpr;
 		$settings = $this->settings;
 
+		$min = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : 'min.';
+
 		wp_enqueue_script( 'ihavecookies-js', COOKII_URL . '/assets/public/jquery.ihavecookies.min.js', array( 'jquery' ), '1.0', false );
-		wp_enqueue_script( 'cookii-js', COOKII_URL . '/assets/public/cookii.js', array( 'jquery' ), '1.0', true );
+		wp_enqueue_script( 'cookii-js', COOKII_URL . '/assets/public/cookii.' . $min . 'js', array( 'jquery' ), '1.0', true );
 
 		$cookii_settings = array(
 			'headline'               => $settings['cookimize_cookie_message_headline'],
@@ -351,7 +353,7 @@ class CI_Public {
 
 		<?php
 		/* message box position */
-		switch ( get_option( 'cookimize_message_position', 'bottom_right' ) ) {
+		switch ( $style['cookimize_message_position'] ) {
 			case 'center':
 				?>
 				#cookii-message {

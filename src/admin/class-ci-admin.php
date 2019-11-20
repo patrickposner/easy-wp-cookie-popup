@@ -535,7 +535,7 @@ class CI_Admin {
 	public function add_admin_scripts() {
 		$min = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : 'min.';
 
-		wp_enqueue_style( 'cookii-admin', COOKII_URL . '/assets/admin/cookii-admin.css', '1.0', 'all' );
+		wp_enqueue_style( 'cookii-admin', COOKII_URL . '/assets/admin/cookii-admin.' . $min . 'css', '1.0', 'all' );
 		wp_enqueue_script( 'ci-admin-notices', COOKII_URL . '/assets/admin/backend-admin-notices.' . $min . 'js', array( 'jquery' ), '1.0', true );
 		wp_localize_script( 'ci-admin-notices', 'ci_ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 	}
