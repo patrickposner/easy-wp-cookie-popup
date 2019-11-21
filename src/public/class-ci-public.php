@@ -131,7 +131,7 @@ class CI_Public {
 	 */
 	public function add_scripts() {
 
-		if ( is_page( $this->imprint_page_id ) || is_page( $this->privacy_page_id ) ) {
+		if ( ! empty( $this->imprint_page_id ) && is_page( $this->imprint_page_id ) || ! empty( $this->privacy_page_id ) && is_page( $this->privacy_page_id ) ) {
 			return;
 		}
 
@@ -306,7 +306,7 @@ class CI_Public {
 	 * @return void
 	 */
 	public function add_overlay() {
-		if ( is_page( $this->imprint_page_id ) || is_page( $this->privacy_page_id ) ) {
+		if ( ! empty( $this->imprint_page_id ) && is_page( $this->imprint_page_id ) || ! empty( $this->privacy_page_id ) && is_page( $this->privacy_page_id ) ) {
 			return;
 		}
 
@@ -343,7 +343,7 @@ class CI_Public {
 	 */
 	public function dynamic_styles() {
 
-		if ( is_page( $this->imprint_page_id ) || is_page( $this->privacy_page_id ) ) {
+		if ( ! empty( $this->imprint_page_id ) && is_page( $this->imprint_page_id ) || ! empty( $this->privacy_page_id ) && is_page( $this->privacy_page_id ) ) {
 			return;
 		}
 		$style = $this->style;
@@ -545,7 +545,7 @@ class CI_Public {
 	 */
 	public function add_tracking_code() {
 
-		if ( is_page( $this->imprint_page_id ) || is_page( $this->privacy_page_id ) ) {
+		if ( ! empty( $this->imprint_page_id ) && is_page( $this->imprint_page_id ) || ! empty( $this->privacy_page_id ) && is_page( $this->privacy_page_id ) ) {
 			return;
 		}
 
