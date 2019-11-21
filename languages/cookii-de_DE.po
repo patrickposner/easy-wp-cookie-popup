@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Cookii\n"
-"POT-Creation-Date: 2019-11-20 17:13+0100\n"
-"PO-Revision-Date: 2019-11-20 17:15+0100\n"
+"POT-Creation-Date: 2019-11-21 14:39+0100\n"
+"PO-Revision-Date: 2019-11-21 14:39+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -203,8 +203,8 @@ msgid "Banner z-index"
 msgstr "Banner - Z-Index"
 
 #: src/admin/class-ci-admin.php:371
-msgid "Third Party Cookies"
-msgstr "Drittanbieter-Cookies"
+msgid "Scripts"
+msgstr "Scripte"
 
 #: src/admin/class-ci-admin.php:380
 msgid "Google Analytics Label"
@@ -466,3 +466,6 @@ msgstr ""
 #. Author of the plugin/theme
 msgid "patrickposner"
 msgstr ""
+
+#~ msgid "Third Party Cookies"
+#~ msgstr "Drittanbieter-Cookies"

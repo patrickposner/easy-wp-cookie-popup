@@ -368,7 +368,7 @@ class CI_Admin {
 		$settings->add_section(
 			array(
 				'id'    => 'cookimize_gdpr',
-				'title' => __( 'Third Party Cookies', 'cookii' ),
+				'title' => __( 'Scripts', 'cookii' ),
 			)
 		);
 
