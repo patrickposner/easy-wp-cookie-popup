@@ -1,20 +1,18 @@
-=== Cookimize - GDPR Cookie Consent Solution ===
+=== Cookii - GDPR Cookie Consent Solution ===
 Contributors: patrickposner
 Tags: gdpr, gpdr cookie, gdpr cookie consent, cookie, cookies, cookie law, cookie popup, cookie notification
 Requires at least: 4.1
-Tested up to: 5.1
+Tested up to: 5.3
 Requires PHP: 5.6
-Stable tag: 2.1
+Stable tag: 3.0
 
 
-Cookimize optimize your website for GPDR. Let users decide which cookies allowed and which not.
+Cookii optimize your website for GPDR. Let users decide which cookies allowed and which not.
 
 == Description ==
 
 = Features =
-Cookimize GDPR Cookie Solution is an all-in-one cookie solution for GDPR.
-
-**Your are able to:**
+Cookii GDPR Cookie Solution is an all-in-one cookie solution for GDPR.
 
 * customise all neccessary texts
 * configure cookie lifetime, delay for display
@@ -22,19 +20,15 @@ Cookimize GDPR Cookie Solution is an all-in-one cookie solution for GDPR.
 * let users customise their cookie preferences
 * customise labels for cookie types (e.x "Marketing" for Google Analytics
 * this solution prevents tracking codes to set cookies unless the user accept them
-
-** Pro **
-
-The pro version of Cookimize GDPR Cookie Solution comes with advanced styling options and options to use any iframes (Youtube, Vimeo, Google Maps) GDPR-compliant.
-
 * iframes GDPR solution with alternative Text
 * fully customisable styling (colors, fonts-size, button colors, background-colors...)
-* priority support with integration guidance and customization (within 24 hours)
+* full screen overlay to prevent further action before accepting cookies
+* exclude imprint and privacy page for cookie protection
+* detailed tables with host, owner, cookie types and usage description
 
 == Support ==
 
-The free support is exclusively limited to the wordpress.org support forum.
-Any kind of email priority support, customization and integration help need a valid premium license.
+The support is exclusively limited to the wordpress.org support forum.
 
 = What is GDPR? =
 
@@ -62,27 +56,35 @@ The product tables from Quickster supports all well-written WooCommerce Themes. 
 
 === MULTI-LANGUAGE ===
 
-All major texts and information can be modified from the admin area of Cookimize.
+All major texts and information can be modified from the admin area of Cookii.
 The plugin is **fully translatable** in your language. At the moment there are only en_EN, but you can easily add your preferred language as a .po/.mo. It’s also fully compatible with WPML and Polylang.
 
 
 == Screenshots ==
 1. Cookie Optin-Box in frontend
-2. Cookimize General Cookie Settings
-3. Cookimize GDPR Settings
+2. Cookii General Cookie Settings
+3. Cookii GDPR Settings
 
 == Installation ==
 
-Cookimize GDPR Cookie Consent Solution is simple to install:
+Cookii GDPR Cookie Consent Solution is simple to install:
 
 1. Download the .zip'
 1. Unzip
 1. Upload  the directory to your '/wp-content/plugins' directory
-1. Go to the plugin management page and enable the Cookimize GDPR Consent Solution Plugin
-1. Browse to Settings > Cookimize
+1. Go to the plugin management page and enable the Cookii GDPR Consent Solution Plugin
+1. Browse to Settings > Cookii
 1. Customise your cookie notification, style settings (pro) and GDPR settings.
 
 == Changelog ==
+
+= 3.0 =
+
+* new admin ui
+* overlay option
+* fix translation problems
+* min styles and Scripts
+* fixed default handling of ga and fb cookie
 
 = 2.1 =
 * freemius sdk security patch
