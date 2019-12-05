@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Cookii\n"
-"POT-Creation-Date: 2019-11-21 14:39+0100\n"
+"POT-Creation-Date: 2019-12-05 18:05+0100\n"
 "PO-Revision-Date: 2019-11-20 16:44+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -351,8 +351,8 @@ msgstr ""
 
 #: src/public/class-ci-public.php:159
 msgid ""
-"We require some cookies due to technical requirements. This cookies can not "
-"be disabled if you like to use our product. "
+"We require some cookies due to technical requirements. These cookies can not "
+"be disabled if you like to use our website. "
 msgstr ""
 
 #: src/public/class-ci-public.php:160
@@ -361,14 +361,14 @@ msgstr ""
 
 #: src/public/class-ci-public.php:161
 msgid ""
-"We use cookies for Facebook to send and promote you special offers and "
-"tracking our campains to optimize our services."
+"We use cookies for Facebook to send and promote special offers to you, and "
+"for tracking our campaigns to optimize our services."
 msgstr ""
 
 #: src/public/class-ci-public.php:162
 msgid ""
 "We use cookies for Google Analytics to track our users behaviour with our "
-"products and continuesly improve it. "
+"products and continuously improve it. "
 msgstr ""
 
 #: src/public/class-ci-public.php:170 src/public/class-ci-public.php:200
@@ -441,7 +441,7 @@ msgid "Cookii"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "A simple plugin to integrate a GDPR friendly cookie solution"
+msgid "A simple plugin to integrate a GDPR friendly cookie consent solution"
 msgstr ""
 
 #. Author of the plugin/theme

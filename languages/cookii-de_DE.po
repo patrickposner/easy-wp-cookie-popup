@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Cookii\n"
-"POT-Creation-Date: 2019-11-21 14:39+0100\n"
-"PO-Revision-Date: 2019-11-21 14:39+0100\n"
+"POT-Creation-Date: 2019-12-05 18:05+0100\n"
+"PO-Revision-Date: 2019-12-05 18:07+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -361,11 +361,11 @@ msgstr "Technisch-notwendige Cookies"
 
 #: src/public/class-ci-public.php:159
 msgid ""
-"We require some cookies due to technical requirements. This cookies can not "
-"be disabled if you like to use our product. "
+"We require some cookies due to technical requirements. These cookies can not "
+"be disabled if you like to use our website. "
 msgstr ""
 "Wir benötigen aus technischen Gründen einige Cookies. Diese können nicht "
-"deaktiviert werden, da sie zur Benutzung unseres Angebotes notwendig sind. "
+"deaktiviert werden, da sie zur Benutzung unserer Website notwendig sind. "
 
 #: src/public/class-ci-public.php:160
 msgid "See privacy policy"
@@ -373,16 +373,20 @@ msgstr "Datenschutzerklärung ansehen"
 
 #: src/public/class-ci-public.php:161
 msgid ""
-"We use cookies for Facebook to send and promote you special offers and "
-"tracking our campains to optimize our services."
+"We use cookies for Facebook to send and promote special offers to you, and "
+"for tracking our campaigns to optimize our services."
 msgstr ""
-"Wir nutzen Facebook-Cookies um dir spezielle Angebote zu zeigen und unsere "
-"Services zu optimieren."
+"Wir nutzen Facebook-Cookies um dir spezielle Angebote zu zeigen und unser "
+"Kampagnen-Tracking zu optimieren."
 
 #: src/public/class-ci-public.php:162
+#, fuzzy
+#| msgid ""
+#| "We use cookies for Google Analytics to track our users behaviour with our "
+#| "products and continuesly improve it. "
 msgid ""
 "We use cookies for Google Analytics to track our users behaviour with our "
-"products and continuesly improve it. "
+"products and continuously improve it. "
 msgstr ""
 "Wir nutzen Google Analytics-Cookies um das Verhalten unserer Besucher zu "
 "analysieren und unser Angebot kontinuierlich zu verbessern. "
@@ -459,7 +463,9 @@ msgid "Cookii"
 msgstr "Cookii"
 
 #. Description of the plugin/theme
-msgid "A simple plugin to integrate a GDPR friendly cookie solution"
+#, fuzzy
+#| msgid "A simple plugin to integrate a GDPR friendly cookie solution"
+msgid "A simple plugin to integrate a GDPR friendly cookie consent solution"
 msgstr ""
 "Ein einfaches Plugin zur Integration eines DSGVO-konformen Cookie-Banners"
 
