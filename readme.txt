@@ -1,30 +1,31 @@
-=== Cookii - GDPR Cookie Consent Solution ===
+=== Cookii - Free GDPR Cookie Consent ===
 Contributors: patrickposner
-Tags: gdpr, gpdr cookie, gdpr cookie consent, cookie, cookies, cookie law, cookie popup, cookie notification
+Tags: gdpr, gpdr cookie, gdpr cookie consent, free cookie consent, european cookie law, cookie popup, cookie notification
 Requires at least: 4.1
 Tested up to: 5.3
 Requires PHP: 5.6
 Stable tag: 3.0
 
 
-Cookii optimize your website for GPDR. Let users decide which cookies allowed and which not.
+Cookii is a completly free GDPR cookie consent plugin for WordPress.
 
 == Description ==
 
 = Features =
-Cookii GDPR Cookie Solution is an all-in-one cookie solution for GDPR.
+With Cookii you have a free cookie consent plugin for your website. Easy to setup, customizable, fast and feature-rich.
+Did I mention it's completly free? No hidden costs, no pro version - free for you.
 
-* customise all neccessary texts
-* configure cookie lifetime, delay for display
-* add cookie types like Google Analytics, Facebook Tracking and Custom Cookie Scripts
-* let users customise their cookie preferences
-* customise labels for cookie types (e.x "Marketing" for Google Analytics
-* this solution prevents tracking codes to set cookies unless the user accept them
-* iframes GDPR solution with alternative Text
-* fully customisable styling (colors, fonts-size, button colors, background-colors...)
-* full screen overlay to prevent further action before accepting cookies
-* exclude imprint and privacy page for cookie protection
-* detailed tables with host, owner, cookie types and usage description
+* customize and translate any texts and labels in the cookie consent
+* modify the pop delay, cookie lifetime and set an overlay
+* customize colors, font sizes and background-colors to match your style
+* let your visitors customise the cookie usage and inform them about any detail of cookie usage
+* add Google Analytics, Facebook and even custom cookie tracking codes
+* block iframes like Youtube, Vimeo or Google Maps until the user accept the cookies and show an alternative text instead
+* exclude the data privacy and imprint page from the cookie banner to match with the latest modification from the european law
+* show your visitors detailed information in a table with hosts, cookie types, owners and a usage description
+
+= How it works =
+[youtube https://www.youtube.com/watch?v=DZZx5zQosJM&feature=youtu.be]
 
 == Support ==
 
@@ -43,38 +44,34 @@ It also means that you should not be tracking users on your website with tools s
 
 == GPDR-Compliance ==
 
-Cookimise not autmatically makes your site GDRP-compliant. Please seek independent legal adivce since GPDR is a very unique topic for each website.
+Cookii not autmatically makes your site GDRP-compliant. Please seek independent legal adivce since GPDR is a very unique topic for each website.
 
 === CODING STANDARDS MADE IN GERMANY ===
 
-The plugin is coded with **modern PHP** and **WordPress standards** in mind. It’s fully OOP code. It’s highly extendable for developers threw several action and filter hooks.
-Quickster keep your store performance in mind. Every script is **loaded conditionally** and all input and output data is secured.
-
-=== THEME COMPATIBILITY ===
-
-The product tables from Quickster supports all well-written WooCommerce Themes. The bulk add to cart function underneath every order form also supports update for mini carts.
+The plugin is coded with **modern PHP** and **WordPress coding standards** in mind. It’s fully OOP code. It’s highly extendable for developers with several action and filter hooks.
+Cookii keep your store performance in mind. Every script is **loaded conditionally** and all input and output data is secured.
 
 === MULTI-LANGUAGE ===
 
 All major texts and information can be modified from the admin area of Cookii.
-The plugin is **fully translatable** in your language. At the moment there are only en_EN, but you can easily add your preferred language as a .po/.mo. It’s also fully compatible with WPML and Polylang.
+The plugin is **fully translatable** in your language. At the moment there are only en_EN and de_DE, but you can easily add your preferred language as a .po/.mo. It’s also fully compatible with WPML and Polylang.
 
 
 == Screenshots ==
-1. Cookie Optin-Box in frontend
-2. Cookii General Cookie Settings
-3. Cookii GDPR Settings
+1. Cookie Optin-Box in frontend (bottom)
+2. Cookie Optin-Box in frontend (bottom-right)
+3. Cookii GDPR admin settings
 
 == Installation ==
 
-Cookii GDPR Cookie Consent Solution is simple to install:
+Cookii GDPR Cookie Consent Plugin for WordPress is simple to install:
 
 1. Download the .zip'
 1. Unzip
 1. Upload  the directory to your '/wp-content/plugins' directory
-1. Go to the plugin management page and enable the Cookii GDPR Consent Solution Plugin
+1. Go to the plugin management page and enable the Cookii GDPR Consent WordPress Plugin
 1. Browse to Settings > Cookii
-1. Customise your cookie notification, style settings (pro) and GDPR settings.
+1. Customise your text, design and script settings.
 
 == Changelog ==
 
