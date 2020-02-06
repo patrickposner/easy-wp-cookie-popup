@@ -429,10 +429,9 @@ class CI_Public {
 					background-color: <?php echo esc_html( $style['cookimize_message_background_color'] ); ?>;
 					color: <?php echo esc_html( $style['cookimize_message_font_color'] ); ?>;
 					font-size: <?php echo esc_html( $style['cookimize_message_font_size'] ); ?>px;
-					padding: 40px;
+					padding: 30px;
 					box-shadow: 0 6px 6px rgba(0, 0, 0, 0.25);
 					z-index: <?php echo esc_html( $style['cookimize_overlay_banner_z_index'] ); ?>;
-					margin-left: 30px;
 				}
 				<?php
 				break;
@@ -486,6 +485,8 @@ class CI_Public {
 			padding-bottom: 2px;
 			border-bottom: 1px dotted rgba(255, 255, 255, 0.75);
 			transition: all 0.3s ease-in;
+			display:block;
+			margin: 5px 0;
 		}
 
 		#cookii-message a:hover {
@@ -502,9 +503,11 @@ class CI_Public {
 			font-size: <?php echo esc_html( $style['cookimize_button_font_size'] ); ?>px;
 			padding: 7px;
 			border-radius: 3px;
-			margin-left: 15px;
+			padding: 0 15px;
 			cursor: pointer;
 			transition: all 0.3s ease-in;
+			display: block;
+			float: left;
 		}
 
 		#cookii-message button:hover {
