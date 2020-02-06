@@ -1,0 +1,477 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Cookii\n"
+"POT-Creation-Date: 2019-12-05 18:05+0100\n"
+"PO-Revision-Date: 2020-02-06 21:16+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.3\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: easy-wp-cookie-popup.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+
+#: src/admin/class-ci-admin.php:32
+msgid "Texts & Settings"
+msgstr "Texte & Einstellungen"
+
+#: src/admin/class-ci-admin.php:41
+msgid "Texts"
+msgstr "Texte"
+
+#: src/admin/class-ci-admin.php:50
+msgid "Cookie Notification Headline"
+msgstr "Cookie-Nachricht Überschrift"
+
+#: src/admin/class-ci-admin.php:51 src/public/class-ci-public.php:50
+msgid "Cookies & Privacy"
+msgstr "Cookies und Datenschutz"
+
+#: src/admin/class-ci-admin.php:60
+msgid "Cookie Notification Message"
+msgstr "Cookie-Nachricht"
+
+#: src/admin/class-ci-admin.php:61 src/public/class-ci-public.php:51
+msgid ""
+"This website uses cookies to ensure you get the best experience on our "
+"website."
+msgstr ""
+"Diese Website benutzt Cookies um dir die bestmögliche Erfahrung auf unserer "
+"Website zu bieten."
+
+#: src/admin/class-ci-admin.php:70
+msgid "Privacy Page Link Text"
+msgstr "Datenschutz-Seite Link-Text"
+
+#: src/admin/class-ci-admin.php:71 src/public/class-ci-public.php:58
+msgid "More Information"
+msgstr "Mehr Informationen"
+
+#: src/admin/class-ci-admin.php:80
+msgid "Accept Button Label"
+msgstr "Bestätigen-Button-Label"
+
+#: src/admin/class-ci-admin.php:81 src/public/class-ci-public.php:54
+msgid "Accept"
+msgstr "Akzeptieren"
+
+#: src/admin/class-ci-admin.php:91
+msgid "Customise Button Label"
+msgstr "Anpassen-Button-Label"
+
+#: src/admin/class-ci-admin.php:92 src/public/class-ci-public.php:55
+msgid "Customise"
+msgstr "Anpassen"
+
+#: src/admin/class-ci-admin.php:101 src/class-ci-activation.php:28
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: src/admin/class-ci-admin.php:111
+msgid "Popup delay (seconds)"
+msgstr "Popup-Verzögerung (in Sekunden)"
+
+#: src/admin/class-ci-admin.php:122
+msgid "Cookie Expiration (days)"
+msgstr "Cookie-Laufzeit (in Tagen)"
+
+#: src/admin/class-ci-admin.php:132
+msgid "Privacy Page slug"
+msgstr "Datenschutz-Seite-Slug"
+
+#: src/admin/class-ci-admin.php:133 src/public/class-ci-public.php:56
+msgid "privacy"
+msgstr "datenschutz"
+
+#: src/admin/class-ci-admin.php:142
+msgid "Imprint Page slug"
+msgstr "Impressum-Seite-Slug"
+
+#: src/admin/class-ci-admin.php:143 src/public/class-ci-public.php:57
+msgid "imprint"
+msgstr "Impressum"
+
+#: src/admin/class-ci-admin.php:152
+msgid "Design"
+msgstr "Design"
+
+#: src/admin/class-ci-admin.php:161
+msgid "Cookie Banner"
+msgstr "Cookie Banner"
+
+#: src/admin/class-ci-admin.php:170
+msgid "Banner Position"
+msgstr "Banner-Position"
+
+#: src/admin/class-ci-admin.php:173
+msgid "center"
+msgstr "zentriert"
+
+#: src/admin/class-ci-admin.php:174
+msgid "bottom"
+msgstr "unten"
+
+#: src/admin/class-ci-admin.php:175
+msgid "bottom-right"
+msgstr "unten-rechts"
+
+#: src/admin/class-ci-admin.php:185
+msgid "Headline"
+msgstr "Überschrift"
+
+#: src/admin/class-ci-admin.php:194
+msgid "Headline Font Color"
+msgstr "Überschrift - Schriftfarbe"
+
+#: src/admin/class-ci-admin.php:204
+msgid "Headline Font Size (px)"
+msgstr "Überschrift - Schriftgröße (in px)"
+
+#: src/admin/class-ci-admin.php:214
+msgid "Message"
+msgstr "Nachricht"
+
+#: src/admin/class-ci-admin.php:223
+msgid "Message Background Color"
+msgstr "Nachricht - Hintergrundfarbe"
+
+#: src/admin/class-ci-admin.php:233
+msgid "Message Font Color"
+msgstr "Nachricht - Schriftfarbe"
+
+#: src/admin/class-ci-admin.php:243
+msgid "Message Font Size (px)"
+msgstr "Nachricht - Schriftgröße (in px)"
+
+#: src/admin/class-ci-admin.php:253
+msgid "Link Font Color"
+msgstr "Link-Farbe"
+
+#: src/admin/class-ci-admin.php:263
+msgid "Buttons"
+msgstr "Buttons"
+
+#: src/admin/class-ci-admin.php:272
+msgid "Accept Button Background Color"
+msgstr "Bestätigen-Button - Hintergrundfarbe"
+
+#: src/admin/class-ci-admin.php:282
+msgid "Accept Button Font Color"
+msgstr "Bestätigen-Button - Schriftfarbe"
+
+#: src/admin/class-ci-admin.php:292
+msgid "Customise Button Background Color"
+msgstr "Anpassen-Button - Hintergrundfarbe"
+
+#: src/admin/class-ci-admin.php:302
+msgid "Customise Button Font Color"
+msgstr "Anpassen-Button - Schriftfarbe"
+
+#: src/admin/class-ci-admin.php:312
+msgid "Button Font Size (px)"
+msgstr "Button - Schriftgröße (in px)"
+
+#: src/admin/class-ci-admin.php:322
+msgid "Overlay"
+msgstr "Overlay"
+
+#: src/admin/class-ci-admin.php:332
+msgid "Use overlay until cookie accepted"
+msgstr "Overlay benutzen bis Cookies akzeptiert wurden"
+
+#: src/admin/class-ci-admin.php:341
+msgid "Overlay transparency"
+msgstr "Overlay - Transparenz"
+
+#: src/admin/class-ci-admin.php:351
+msgid "Overlay z-index"
+msgstr "Overlay - Z-Index"
+
+#: src/admin/class-ci-admin.php:361
+msgid "Banner z-index"
+msgstr "Banner - Z-Index"
+
+#: src/admin/class-ci-admin.php:371
+msgid "Scripts"
+msgstr "Scripte"
+
+#: src/admin/class-ci-admin.php:380
+msgid "Google Analytics Label"
+msgstr "Google Analytics Label"
+
+#: src/admin/class-ci-admin.php:381
+msgid "Marketing"
+msgstr "Marketing"
+
+#: src/admin/class-ci-admin.php:390
+msgid "Google Analytics ID"
+msgstr "Google Analytics Tracking-ID"
+
+#: src/admin/class-ci-admin.php:400
+msgid "Facebook Label"
+msgstr "Facebook Label"
+
+#: src/admin/class-ci-admin.php:401
+msgid "Social Media"
+msgstr "Social Media"
+
+#: src/admin/class-ci-admin.php:410
+msgid "Facebook ID"
+msgstr "Facebook Tracking-ID"
+
+#: src/admin/class-ci-admin.php:420
+msgid "iframes"
+msgstr "iFrames"
+
+#: src/admin/class-ci-admin.php:430
+msgid "Block iframes until cookie accepted"
+msgstr "iFrames blockieren bis Cookies akzeptiert wurden"
+
+#: src/admin/class-ci-admin.php:439 src/admin/class-ci-admin.php:468
+#: src/admin/class-ci-admin.php:501
+msgid "Checkbox-Label"
+msgstr "Checkbox-Label"
+
+#: src/admin/class-ci-admin.php:441 src/public/class-ci-public.php:67
+msgid "Youtube"
+msgstr "Youtube"
+
+#: src/admin/class-ci-admin.php:450
+msgid "Alternate Content"
+msgstr "Alternativer Inhalt"
+
+#: src/admin/class-ci-admin.php:451
+msgid "To see this content you have to accept our cookies."
+msgstr ""
+"Um diesen Inhalt zu sehen, musst du zunächst unseren Cookies zustimmen."
+
+#: src/admin/class-ci-admin.php:460
+msgid "Custom Tracking Codes"
+msgstr "Eigene Tracking-Codes"
+
+#: src/admin/class-ci-admin.php:469
+msgid "Google Tag Manager"
+msgstr "Google Tag Manager"
+
+#: src/admin/class-ci-admin.php:479 src/admin/class-ci-admin.php:512
+msgid "Description"
+msgstr "Beschreibung"
+
+#: src/admin/class-ci-admin.php:490 src/admin/class-ci-admin.php:523
+msgid "Tracking-Code"
+msgstr "Tracking-Code"
+
+#: src/admin/class-ci-admin.php:491
+msgid "Enter your Tracking Code (Example: Google Tag Manager)"
+msgstr "Füge deinen Tracking-Code hinzu"
+
+#: src/admin/class-ci-admin.php:502
+msgid "Google Adsense"
+msgstr "Google Adsense"
+
+#: src/admin/class-ci-admin.php:524
+msgid "Enter your Tracking Code (Example: Google Adsense)"
+msgstr "Füge deinen Tracking-Code hinzu"
+
+#: src/admin/class-ci-admin.php:551
+#, php-format
+msgid "Thanks for installing Cookii. Start to <a href=\"%s\">configure it</a>"
+msgstr ""
+"Vielen Dank, dass du Cookii installiert hast. Beginne mit der <a href=\"%s"
+"\">Konfiguration</a>"
+
+#: src/admin/class-ci-settings.php:664
+msgid "Choose File"
+msgstr "Datei auswählen"
+
+#: src/admin/class-ci-settings.php:685
+msgid "Choose Image"
+msgstr "Bild auswählen"
+
+#: src/class-ci-activation.php:28
+msgid "View cookii settings"
+msgstr "Cookie-Einstellungen ansehen"
+
+#: src/class-ci-activation.php:51
+#, php-format
+msgid ""
+"This plugin can not be activated because it requires a PHP version greater "
+"than %1$s. Your PHP version can be updated by your hosting company."
+msgstr ""
+"Dieses Plugin kann nicht aktiviert werden, da es eine PHP-Version höher als "
+"%1$s benötigt. Bitte kontaktiere deinen Hoster diesbezüglich."
+
+#: src/class-ci-activation.php:54 src/class-ci-activation.php:66
+msgid "go back"
+msgstr "gehe zurück"
+
+#: src/class-ci-activation.php:63
+#, php-format
+msgid ""
+"This plugin can not be activated because it requires a WordPress version "
+"greater than %1$s. Please go to Dashboard &#9656; Updates to gran the latest "
+"version of WordPress ."
+msgstr ""
+"Dieses Plugin kann nicht aktiviert werden, da es eine WordPress-Version "
+"höher als %1$s benötigt. Bitte führe ein Update deiner Installation durch."
+
+#: src/public/class-ci-iframe.php:72
+msgid "Please accept our cookies"
+msgstr "Bitte akzeptiere unsere Cookies"
+
+#: src/public/class-ci-public.php:62
+msgid "Google Analytics"
+msgstr "Google Analytics"
+
+#: src/public/class-ci-public.php:64
+msgid "Facebook"
+msgstr "Facebook"
+
+#: src/public/class-ci-public.php:68
+msgid "To see this content, you have to accept our cookies first."
+msgstr ""
+"Um diesen Inhalt zu sehen, musst du zu erst unsere Cookies akzeptieren."
+
+#: src/public/class-ci-public.php:96
+msgid "Imprint"
+msgstr "Impressum"
+
+#: src/public/class-ci-public.php:97
+msgid "Privacy"
+msgstr "Datenschutz"
+
+#: src/public/class-ci-public.php:155
+msgid "Select cookies to accept"
+msgstr "Wähle zu akzeptierende Cookies"
+
+#: src/public/class-ci-public.php:158
+msgid "Technical necessary Cookies"
+msgstr "Technisch-notwendige Cookies"
+
+#: src/public/class-ci-public.php:159
+msgid ""
+"We require some cookies due to technical requirements. These cookies can not "
+"be disabled if you like to use our website. "
+msgstr ""
+"Wir benötigen aus technischen Gründen einige Cookies. Diese können nicht "
+"deaktiviert werden, da sie zur Benutzung unserer Website notwendig sind. "
+
+#: src/public/class-ci-public.php:160
+msgid "See privacy policy"
+msgstr "Datenschutzerklärung ansehen"
+
+#: src/public/class-ci-public.php:161
+msgid ""
+"We use cookies for Facebook to send and promote special offers to you, and "
+"for tracking our campaigns to optimize our services."
+msgstr ""
+"Wir nutzen Facebook-Cookies um dir spezielle Angebote zu zeigen und unser "
+"Kampagnen-Tracking zu optimieren."
+
+#: src/public/class-ci-public.php:162
+#, fuzzy
+#| msgid ""
+#| "We use cookies for Google Analytics to track our users behaviour with our "
+#| "products and continuesly improve it. "
+msgid ""
+"We use cookies for Google Analytics to track our users behaviour with our "
+"products and continuously improve it. "
+msgstr ""
+"Wir nutzen Google Analytics-Cookies um das Verhalten unserer Besucher zu "
+"analysieren und unser Angebot kontinuierlich zu verbessern. "
+
+#: src/public/class-ci-public.php:170 src/public/class-ci-public.php:200
+#: src/public/class-ci-public.php:231 src/public/class-ci-public.php:266
+msgid "More information"
+msgstr "Mehr Informationen"
+
+#: src/public/class-ci-public.php:171
+msgid "Less information"
+msgstr "Weniger Informationen"
+
+#: src/public/class-ci-public.php:204 src/public/class-ci-public.php:235
+#: src/public/class-ci-public.php:270
+msgid "Name"
+msgstr "Name"
+
+#: src/public/class-ci-public.php:208 src/public/class-ci-public.php:239
+#: src/public/class-ci-public.php:274
+msgid "Provider"
+msgstr "Anbieter"
+
+#: src/public/class-ci-public.php:209
+msgid "Owner of this website"
+msgstr "Besitzer dieser Website"
+
+#: src/public/class-ci-public.php:212 src/public/class-ci-public.php:243
+#: src/public/class-ci-public.php:278
+msgid "Usage"
+msgstr "Benutzung"
+
+#: src/public/class-ci-public.php:213
+msgid "Save the settings from your cookie selection."
+msgstr "Einstellungen der Cookie-Auswahl speichern."
+
+#: src/public/class-ci-public.php:217 src/public/class-ci-public.php:252
+msgid "Cookies"
+msgstr "Cookies"
+
+#: src/public/class-ci-public.php:221 src/public/class-ci-public.php:256
+msgid "Lifetime"
+msgstr "Laufzeit"
+
+#: src/public/class-ci-public.php:222
+msgid "Days"
+msgstr "Tage"
+
+#: src/public/class-ci-public.php:244
+msgid ""
+"Cookie for website analytics. Creates statistic data about the website usage."
+msgstr ""
+"Cookies für die Website-Analyse. Erstellen statistische Daten zur Website-"
+"Nutzung."
+
+#: src/public/class-ci-public.php:247 src/public/class-ci-public.php:282
+msgid "Data privacy"
+msgstr "Datenschutz"
+
+#: src/public/class-ci-public.php:257
+msgid "Years"
+msgstr "Jahre"
+
+#: src/public/class-ci-public.php:279
+msgid "Cookie to unlock facebook content."
+msgstr "Cookie zum Freischalten von Facebook-Inhalten."
+
+#: src/public/class-ci-public.php:287
+msgid "Hosts"
+msgstr "Anbieter"
+
+#. Plugin Name of the plugin/theme
+msgid "Cookii"
+msgstr "Cookii"
+
+#. Description of the plugin/theme
+#, fuzzy
+#| msgid "A simple plugin to integrate a GDPR friendly cookie solution"
+msgid "A simple plugin to integrate a GDPR friendly cookie consent solution"
+msgstr ""
+"Ein einfaches Plugin zur Integration eines DSGVO-konformen Cookie-Banners"
+
+#. Author of the plugin/theme
+msgid "patrickposner"
+msgstr ""
+
+#~ msgid "Third Party Cookies"
+#~ msgstr "Drittanbieter-Cookies"
