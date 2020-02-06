@@ -4,7 +4,7 @@ Tags: gdpr, gpdr cookie, gdpr cookie consent, free cookie consent, european cook
 Requires at least: 4.1
 Tested up to: 5.3
 Requires PHP: 5.6
-Stable tag: 3.0.1
+Stable tag: 3.0.2
 
 
 Cookii is a completly free GDPR cookie consent plugin for WordPress.
@@ -74,6 +74,11 @@ Cookii GDPR Cookie Consent Plugin for WordPress is simple to install:
 1. Customise your text, design and script settings.
 
 == Changelog ==
+
+= 3.0.2 =
+* style improvements: padding, floating, data privacy link
+* fixed logo display in admin settings
+* added german (formal) translation
 
 = 3.0.1 =
 * fixed typos

@@ -5,7 +5,7 @@ Text Domain: cookii
 Domain Path: /languages
 Description: A simple plugin to integrate a GDPR friendly cookie consent solution
 Author: patrickposner
-Version: 3.0.1
+Version: 3.0.2
 */
 
 define( 'COOKII_PATH', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
@@ -23,14 +23,14 @@ if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 	require __DIR__ . '/vendor/autoload.php';
 }
 
-add_action( 'plugins_loaded', 'run_plugin' );
+add_action( 'plugins_loaded', 'cookii_run_plugin' );
 
 /**
  * Run plugin
  *
  * @return void
  */
-function run_plugin() {
+function cookii_run_plugin() {
 	cookii\CI_Activation::init();
 	cookii\CI_Admin::get_instance();
 	cookii\CI_Public::get_instance();

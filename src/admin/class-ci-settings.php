@@ -784,7 +784,6 @@ if ( ! class_exists( 'CI_Settings' ) ) :
 			<div class="cookie-admin-header">
 				<div class="logo"><img src="<?php echo COOKII_URL . '/assets/admin/cookie-logo.svg'; ?>" /></div>
 				<div class="info-links">
-					<!--<a href="https://patrickposner.dev/docs/cookii" target="_blank">Dokumentation</a> -->
 					<a href="https://wordpress.org/plugins/easy-wp-cookie-popup/" target="_blank">Support</a>
 				</div>
 			</div>

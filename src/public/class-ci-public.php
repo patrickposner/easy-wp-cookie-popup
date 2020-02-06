@@ -480,7 +480,7 @@ class CI_Public {
 
 		#cookii-message a {
 			color: <?php echo esc_html( $style['cookimize_link_font_color'] ); ?>;
-			text-decoration: none;
+			text-decoration: underline;
 			font-size: <?php echo esc_html( $style['cookimize_message_font_size'] ); ?>px;
 			padding-bottom: 2px;
 			border-bottom: 1px dotted rgba(255, 255, 255, 0.75);
@@ -501,9 +501,8 @@ class CI_Public {
 			background: <?php echo esc_html( $style['cookimize_accept_background_color'] ); ?>;
 			color: <?php echo esc_html( $style['cookimize_accept_font_color'] ); ?>;
 			font-size: <?php echo esc_html( $style['cookimize_button_font_size'] ); ?>px;
-			padding: 7px;
 			border-radius: 3px;
-			padding: 0 15px;
+			padding: 0 5px;
 			cursor: pointer;
 			transition: all 0.3s ease-in;
 			display: block;
